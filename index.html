@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>부동산 매물현황 대시보드</title>
+<meta property="og:title" content="부동산 매물현황 대시보드" />
+<meta property="og:description" content="단지별 매물현황 · 평형별 추이 · 매물 변동을 한눈에 확인하세요." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+  * { box-sizing: border-box; }
+  /* ===== 웜 에디토리얼 팔레트 (아이보리 페이퍼 · 에스프레소 · 테라코타) ===== */
+  :root {
+    --bg:#F2ECE1; --bg-2:#ECE5D7;
+    --surface:#FCFAF4; --surface-2:#FFFFFF;
+    --ink:#241F18; --ink-2:#6C6358; --muted:#A69C8C; --faint:#C9C0AF;
+    --accent:#A9572F; --accent-deep:#8A4423; --accent-tint:#F0E1D3;
+    --line:#E3DBC9; --line-soft:#ECE5D5; --track:#E7DFCF; --track-soft:#EEE7D7;
+    --pos:#3F7D5A; --neg:#B3452F; --info:#3B6E8F; --gold:#B0842B;
+    --font-sans:"Pretendard Variable","Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    --font-serif:"Gowun Batang","Nanum Myeongjo",serif;
+    --shadow-sm:0 1px 2px rgba(58,42,24,.05), 0 1px 3px rgba(58,42,24,.04);
+    --shadow-md:0 8px 26px rgba(58,42,24,.10), 0 2px 8px rgba(58,42,24,.05);
+    --radius:16px;
+  }
+  html { -webkit-text-size-adjust:100%; }
+  body {
+    margin:0; color:var(--ink); font-family:var(--font-sans);
+    background:
+      radial-gradient(1100px 480px at 82% -10%, #F8F2E6 0%, rgba(248,242,230,0) 62%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    background-attachment:fixed;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  /* 종이 질감 그레인 오버레이 */
+  body::before {
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.05; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  ::selection { background:var(--accent); color:#fff; }
+  .wrap { position:relative; z-index:1; max-width:1000px; margin:0 auto; padding:44px 20px 76px; }
+
+  /* ===== 마스트헤드 ===== */
+  .eyebrow { display:flex; align-items:center; gap:9px; font-size:11px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin-bottom:16px; }
+  .eyebrow::after { content:""; flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent); }
+  .headrow { margin-bottom:20px; }
+  .headrow h1 { font-family:var(--font-serif); font-weight:700; font-size:34px; line-height:1.12; letter-spacing:-.01em; margin:0 0 7px; color:var(--ink); }
+  .sub { font-size:13px; color:var(--ink-2); margin:0; font-variant-numeric:tabular-nums; }
+
+  /* ===== 거래유형 / 탭 세그먼트 ===== */
+  .trade-toggle { display:inline-flex; flex-wrap:wrap; background:var(--track); border:1px solid var(--line); border-radius:999px; padding:4px; margin-bottom:16px; gap:2px; }
+  .trade-toggle button { border:none; background:transparent; padding:7px 18px; border-radius:999px; font-size:13px; font-weight:700; color:var(--ink-2); cursor:pointer; transition:color .18s, background .18s; }
+  .trade-toggle button:hover { color:var(--ink); }
+  .trade-toggle button.active { background:var(--ink); color:#fff; box-shadow:0 1px 2px rgba(0,0,0,.2); }
+
+  .tabbar { display:flex; gap:3px; margin:0 0 22px; background:var(--track); border:1px solid var(--line); padding:4px; border-radius:14px; }
+  .tabbar button { flex:1; border:none; background:transparent; padding:10px 8px; border-radius:10px; font-size:13px; font-weight:700; color:var(--ink-2); cursor:pointer; transition:color .18s, background .18s, box-shadow .18s; }
+  .tabbar button:hover { color:var(--ink); }
+  .tabbar button.active { background:var(--surface-2); color:var(--ink); box-shadow:var(--shadow-sm); }
+
+  /* ===== 통계 카드 ===== */
+  .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:18px; }
+  .stats.four { grid-template-columns:repeat(4,1fr); }
+  .stats.two { grid-template-columns:repeat(2,1fr); }
+  .gap-filter { display:inline-flex; background:var(--track); border:1px solid var(--line); padding:3px; border-radius:999px; }
+  .stat-card { background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:15px 17px; box-shadow:var(--shadow-sm); animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
+  .stat-label { font-size:11.5px; color:var(--ink-2); font-weight:700; margin-bottom:8px; }
+  .stat-value { font-family:var(--font-serif); font-size:27px; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; line-height:1; }
+  .stat-value small { font-family:var(--font-sans); font-size:12px; font-weight:700; color:var(--muted); margin-left:3px; }
+  .stat-value.gap { color:var(--accent); }
+  .stat-value.new { color:var(--pos); }
+  .stat-value.gone { color:var(--neg); }
+  .stat-value.changed { color:var(--gold); }
+
+  .toolbar { display:flex; align-items:center; justify-content:space-between; gap:8px 10px; flex-wrap:wrap; margin:8px 0 14px; }
+  .toolbar-title { font-size:15px; font-weight:800; color:var(--ink); letter-spacing:-.01em; }
+  .gap-toggle { border:none; background:transparent; color:var(--ink-2); padding:6px 14px; border-radius:999px; font-size:12px; font-weight:700; cursor:pointer; white-space:nowrap; transition:color .18s, background .18s; }
+  .gap-toggle:hover { color:var(--ink); }
+  .gap-toggle.active { background:var(--surface-2); color:var(--accent); box-shadow:var(--shadow-sm); }
+
+  .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  @media (max-width:640px){
+    .wrap{padding:30px 16px 60px;}
+    .headrow h1{font-size:27px;}
+    .grid{grid-template-columns:1fr;}
+    .stats, .stats.four, .stats.two{grid-template-columns:1fr 1fr;}
+    .tabbar button{font-size:12px; padding:9px 4px;}
+    .tx-table{font-size:12px;} .tx-table th, .tx-table td{padding:5px 4px;}
+  }
+  .card { position:relative; text-align:left; width:100%; border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); padding:18px 18px 16px; cursor:pointer; box-shadow:var(--shadow-sm); overflow:hidden; transition:transform .2s cubic-bezier(.2,.7,.2,1), box-shadow .2s, border-color .2s; animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
+  .card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--faint); }
+  .accent { position:absolute; left:0; top:0; bottom:0; width:4px; }
+  .card-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; padding-left:9px; }
+  .card-name { font-size:17px; font-weight:800; color:var(--ink); letter-spacing:-.01em; }
+  .card-sizes { font-size:12px; color:var(--muted); margin-top:4px; font-variant-numeric:tabular-nums; }
+  .card-types { font-size:12px; color:var(--muted); margin-top:5px; font-variant-numeric:tabular-nums; }
+  .card-arrow { color:var(--faint); font-size:18px; transition:transform .2s, color .2s; }
+  .card:hover .card-arrow { transform:translateX(3px); color:var(--accent); }
+  .card-bottom { display:flex; justify-content:space-between; align-items:flex-end; padding-left:9px; }
+  .card-count { font-family:var(--font-serif); font-size:30px; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; line-height:1; }
+  .card-count small { font-family:var(--font-sans); font-size:12px; font-weight:700; color:var(--muted); margin-left:3px; }
+  .card-range { font-size:12px; color:var(--ink-2); margin-top:4px; font-variant-numeric:tabular-nums; }
+  .card-gap-badge { background:var(--accent-tint); color:var(--accent-deep); font-size:12px; font-weight:800; padding:3px 10px; border-radius:999px; text-align:center; }
+  .card-gap-pct { font-size:11px; color:var(--muted); text-align:right; margin-top:4px; font-variant-numeric:tabular-nums; }
+  .card-bar { display:flex; height:5px; border-radius:999px; overflow:hidden; margin-top:14px; background:var(--track-soft); }
+  .card-bar div { height:100%; }
+
+  .detail { background:var(--surface); border:1px solid var(--line); border-radius:20px; overflow:hidden; box-shadow:var(--shadow-sm); animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
+  .detail-head { display:flex; justify-content:space-between; align-items:flex-start; padding:22px 24px; border-bottom:1px solid var(--line-soft); }
+  .back-btn { border:none; background:transparent; color:var(--ink-2); font-size:13px; font-weight:700; cursor:pointer; padding:0; margin-bottom:10px; transition:color .18s; }
+  .back-btn:hover { color:var(--accent); }
+  .detail-name { font-family:var(--font-serif); font-size:26px; font-weight:700; margin:0; letter-spacing:-.01em; }
+  .detail-sub { font-size:13px; color:var(--ink-2); margin:6px 0 0; font-variant-numeric:tabular-nums; }
+  .gapinfo { color:var(--accent); font-weight:700; }
+  .detail-dot { width:12px; height:12px; border-radius:999px; flex:none; margin-top:8px; }
+  .detail-body { padding:8px 24px 24px; }
+  .size-block { margin-top:16px; }
+  .size-head { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .size-badge { background:var(--ink); color:#fff; font-size:12px; font-weight:700; padding:3px 11px; border-radius:999px; font-variant-numeric:tabular-nums; }
+  .size-count { font-size:12px; color:var(--muted); font-weight:600; font-variant-numeric:tabular-nums; }
+  .tx-record-badge { background:var(--accent-tint); color:var(--accent-deep); font-size:12px; font-weight:800; padding:3px 10px; border-radius:999px; text-align:center; }
+  .tx-new-badge { background:var(--accent-tint); color:var(--accent-deep); font-size:12px; font-weight:800; padding:3px 10px; border-radius:999px; text-align:center; }
+  .tx-size { margin-top:22px; }
+  .tx-size-head { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .tx-table { width:100%; border-collapse:collapse; font-size:13px; font-variant-numeric:tabular-nums; }
+  .tx-table th { text-align:left; font-size:11px; color:var(--muted); font-weight:700; letter-spacing:.02em; padding:7px 8px; border-bottom:1px solid var(--line); }
+  .tx-table th:last-child, .tx-table td.amt { text-align:right; }
+  .tx-table td { padding:8px; border-bottom:1px solid var(--line-soft); color:var(--ink-2); }
+  .tx-table tbody tr { transition:background .15s; }
+  .tx-table tbody tr:hover td { background:rgba(169,87,47,.045); }
+  .tx-table td.amt { font-weight:800; color:var(--ink); }
+  .tx-kind { display:inline-block; background:var(--track); color:var(--ink-2); font-size:11px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; }
+  .tx-hi-badge { display:inline-block; background:var(--accent); color:#fff; font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; }
+  .unit-gap { display:inline-block; background:var(--accent-tint); color:var(--accent-deep); font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; margin-right:6px; }
+  /* 평형별 표라도 열 너비를 고정해 동/타입/층/향/가격 컬럼이 서로 정렬되게 함 */
+  .unit-table { table-layout:fixed; }
+  .unit-table th:nth-child(1), .unit-table td:nth-child(1) { width:14%; }
+  .unit-table th:nth-child(2), .unit-table td:nth-child(2) { width:15%; }
+  .unit-table th:nth-child(3), .unit-table td:nth-child(3) { width:13%; }
+  .unit-table th:nth-child(4), .unit-table td:nth-child(4) { width:16%; }
+  .unit-table th:nth-child(5), .unit-table td:nth-child(5) { width:42%; }
+  .tx-table td.dt { color:var(--ink-2); white-space:nowrap; }
+  .tx-table tr.tx-hi td { background:var(--accent-tint); color:var(--accent-deep); font-weight:700; }
+  .tx-table tr.tx-hi td:first-child { border-top-left-radius:7px; border-bottom-left-radius:7px; }
+  .tx-table tr.tx-hi td:last-child { border-top-right-radius:7px; border-bottom-right-radius:7px; }
+  /* 가격 행: 테이블 레이아웃 → 모든 행이 라벨/건수 열 너비를 공유해 게이지바가 함께 정렬·축소됨 */
+  .price-rows { width:100%; border-collapse:collapse; table-layout:auto; font-variant-numeric:tabular-nums; }
+  .price-rows td { padding-top:5px; padding-bottom:5px; vertical-align:middle; }
+  .price-rows .size-row td { padding:20px 0 5px; }
+  .price-rows tr:first-child .size-row td, .price-rows tr:first-child td { padding-top:2px; }
+  .price-rows .size-row .size-count { margin-left:8px; }
+  .price-label { white-space:nowrap; width:1%; font-size:13px; font-weight:700; color:var(--ink); text-align:right; padding-right:20px; }
+  .price-bar-cell { width:100%; }
+  .price-bar-track { position:relative; height:11px; background:var(--track-soft); border-radius:999px; overflow:hidden; }
+  .price-bar-fill { position:absolute; left:0; top:0; bottom:0; border-radius:999px; }
+  .price-count { white-space:nowrap; width:1%; font-size:12px; color:var(--ink-2); font-weight:600; text-align:left; padding-left:20px; }
+  .gaptag { color:var(--accent); font-weight:700; }
+
+  .trend-card { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:18px 20px; margin-bottom:14px; box-shadow:var(--shadow-sm); animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
+  .trend-card-head { display:flex; align-items:center; gap:9px; margin-bottom:12px; }
+  .trend-dot { width:11px; height:11px; border-radius:999px; }
+  .trend-card-name { font-size:17px; font-weight:800; letter-spacing:-.01em; }
+  .size-trend-row { border-top:1px solid var(--line-soft); padding:14px 0; }
+  .size-trend-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:9px; }
+  .size-trend-label { font-size:13px; font-weight:700; color:var(--ink); }
+  .trend-delta { font-size:11px; font-weight:700; padding:2px 9px; border-radius:999px; font-variant-numeric:tabular-nums; }
+  .trend-delta.up { background:rgba(179,69,47,.12); color:var(--neg); }
+  .trend-delta.down { background:rgba(59,110,143,.13); color:var(--info); }
+  .trend-delta.flat { background:var(--track); color:var(--muted); }
+  .trend-body { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:640px){ .trend-body{grid-template-columns:1fr;} }
+  .trend-block-label { font-size:11px; color:var(--muted); font-weight:700; }
+  .trend-block-value { font-size:13px; font-weight:700; color:var(--ink); margin:3px 0 7px; font-variant-numeric:tabular-nums; }
+  .spark-dates { display:flex; justify-content:space-between; font-size:9px; color:var(--faint); margin-top:3px; }
+
+  .change-table-wrap { overflow-x:auto; margin-bottom:18px; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow-sm); animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
+  .change-table { width:100%; border-collapse:collapse; background:var(--surface); overflow:hidden; font-size:13px; font-variant-numeric:tabular-nums; }
+  .change-table th, .change-table td { padding:10px 11px; text-align:center; border-bottom:1px solid var(--line-soft); }
+  .change-table th { background:var(--track-soft); color:var(--ink-2); font-weight:700; font-size:11.5px; letter-spacing:.01em; }
+  .change-table td.name { text-align:left; font-weight:700; color:var(--ink); }
+  .change-table tr:last-child td { border-bottom:none; }
+  .change-table tr.total td { font-weight:800; background:var(--track-soft); }
+  .delta-up { color:var(--neg); font-weight:700; } .delta-down { color:var(--info); font-weight:700; } .delta-flat { color:var(--muted); }
+
+  .change-card { background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--faint); border-radius:14px; padding:16px 18px; margin-bottom:14px; box-shadow:var(--shadow-sm); animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
+  .change-card-title { font-size:16px; font-weight:800; letter-spacing:-.01em; }
+  .change-card-sub { font-size:12px; color:var(--muted); font-weight:600; margin-bottom:10px; font-variant-numeric:tabular-nums; }
+  .change-tag { display:inline-block; font-size:11px; font-weight:700; padding:3px 10px; border-radius:999px; }
+  .tag-new { background:rgba(63,125,90,.13); color:var(--pos); } .tag-gone { background:rgba(179,69,47,.13); color:var(--neg); } .tag-changed { background:rgba(176,132,43,.16); color:var(--gold); }
+  .change-item-row { display:flex; justify-content:space-between; font-size:12px; color:var(--ink-2); padding:5px 0; border-bottom:1px dashed var(--line-soft); }
+  .change-item-row .price { font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; }
+  .arrow-up { color:var(--neg); } .arrow-down { color:var(--info); }
+  .no-change { color:var(--muted); font-size:13px; padding:6px 0; }
+
+  .note { font-size:12px; color:var(--muted); margin:8px 0 14px; }
+  .footer-note { font-size:11px; color:var(--muted); line-height:1.7; margin-top:36px; border-top:1px solid var(--line); padding-top:16px; }
+  .footer-note b { color:var(--ink-2); font-weight:800; }
+  .state-msg { text-align:center; padding:90px 20px; color:var(--ink-2); font-size:15px; }
+
+  /* ===== 모션: 진입 페이드업 + 계단식 지연 ===== */
+  @keyframes rise { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+  .grid .card:nth-child(1){animation-delay:.02s} .grid .card:nth-child(2){animation-delay:.06s}
+  .grid .card:nth-child(3){animation-delay:.10s} .grid .card:nth-child(4){animation-delay:.14s}
+  .grid .card:nth-child(5){animation-delay:.18s} .grid .card:nth-child(6){animation-delay:.22s}
+  .grid .card:nth-child(n+7){animation-delay:.26s}
+  .stats .stat-card:nth-child(2){animation-delay:.05s} .stats .stat-card:nth-child(3){animation-delay:.10s}
+  .stats .stat-card:nth-child(4){animation-delay:.15s}
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+</style>
+</head>
+<body>
+<div class="wrap"><div id="app"><div class="state-msg">데이터를 불러오는 중…</div></div></div>
+<script src="data.js"></script>
+<script>
+var DATA = null;
+var GAP_COLOR = '#A9572F';  /* --accent 와 동일(인라인 style·SVG 속성용 hex) */
+// gapFilter: 'all' | 'gap' | 'nogap' (매매에서만 적용)
+// listMode: 매물현황 단지 상세의 보기 방식 ('dist'=가격 분포 / 'units'=개별 매물 목록)
+var state = { trade: null, tab: 'tx', selected: null, gapFilter: 'all', listMode: 'dist' };
+
+function esc(s){ var d=document.createElement('div'); d.textContent = (s==null?'':s); return d.innerHTML; }
+function fmt(p){ return (Math.round(p*100)/100).toFixed(2).replace(/\.?0+$/, ''); }
+function colorOf(name){ return (DATA.colors && DATA.colors[name]) || '#8172B2'; }
+function priceText(it){ return it.price_label ? esc(it.price_label) : (fmt(it.price)+'억'); }
+
+// 거래유형 + 갭·세낀 필터 (갭·세낀 필터는 매매에서만 적용)
+function filteredListings(){
+  var out = {};
+  var gf = (state.trade==='매매') ? state.gapFilter : 'all';
+  Object.keys(DATA.listings).forEach(function(name){
+    var arr = DATA.listings[name].filter(function(l){
+      if (l.tx !== state.trade) return false;
+      if (gf==='gap') return l.gap;
+      if (gf==='nogap') return !l.gap;
+      return true;
+    });
+    if (arr.length) out[name] = arr;
+  });
+  return out;
+}
+
+function summarize(listings){
+  var n = listings.length;
+  var gap = listings.filter(function(l){return l.gap;}).length;
+  var prices = listings.map(function(l){return l.price;});
+  var min = prices.length ? Math.min.apply(null, prices) : 0;
+  var max = prices.length ? Math.max.apply(null, prices) : 0;
+  return { n:n, gap:gap, min:min, max:max, gapPct: n?Math.round(gap/n*100):0 };
+}
+
+// 평형 → 가격(라벨)별 그룹
+function groupBySizeAndPrice(listings){
+  var bySize = {};
+  listings.forEach(function(l){
+    if(!bySize[l.size]) bySize[l.size] = {};
+    var key = l.price_label || (fmt(l.price)+'억');
+    if(!bySize[l.size][key]) bySize[l.size][key] = { label:key, price:l.price, count:0, gap:0 };
+    bySize[l.size][key].count += 1;
+    if(l.gap) bySize[l.size][key].gap += 1;
+  });
+  var sizes = Object.keys(bySize).map(Number).sort(function(a,b){return b-a;});
+  return sizes.map(function(size){
+    var rows = Object.keys(bySize[size]).map(function(k){return bySize[size][k];});
+    rows.sort(function(a,b){return b.price-a.price;});
+    return { size:size, rows:rows };
+  });
+}
+
+function sparkline(values, color, w, h){
+  var nums = values.filter(function(v){return v!==null && v!==undefined;});
+  if(nums.length === 0) return '<svg width="'+w+'" height="'+h+'"></svg>';
+  if(nums.length === 1){
+    var yc = (h/2).toFixed(1);
+    return '<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'">'+
+      '<line x1="0" y1="'+yc+'" x2="'+w+'" y2="'+yc+'" stroke="'+color+'" stroke-width="1.5" opacity="0.25" />'+
+      '<circle cx="'+(w/2).toFixed(1)+'" cy="'+yc+'" r="3" fill="'+color+'" /></svg>';
+  }
+  var min = Math.min.apply(null,nums), max = Math.max.apply(null,nums), range=(max-min)||1;
+  var step = w/(values.length-1), pts=[], circles='';
+  values.forEach(function(v,i){
+    if(v===null||v===undefined) return;
+    var x=i*step, y=h-((v-min)/range)*(h-6)-3;
+    pts.push(x.toFixed(1)+','+y.toFixed(1));
+    circles += '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="2.4" fill="'+color+'" />';
+  });
+  return '<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'">'+
+    '<polyline points="'+pts.join(' ')+'" fill="none" stroke="'+color+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />'+circles+'</svg>';
+}
+
+function renderCard(name, listings, color){
+  var stat = summarize(listings);
+  var sizes = Array.from(new Set(listings.map(function(l){return l.size;}))).sort(function(a,b){return b-a;});
+  var gapBadge = stat.gap>0
+    ? '<div><div class="card-gap-badge">갭·세낀 '+stat.gap+'건</div><div class="card-gap-pct">비중 '+stat.gapPct+'%</div></div>'
+    : '<div></div>';
+  return '<button class="card" data-complex="'+esc(name)+'">'+
+    '<div class="accent" style="background:'+color+'"></div>'+
+    '<div class="card-top"><div><div class="card-name">'+esc(name)+'</div>'+
+      '<div class="card-sizes">'+sizes.map(function(s){return s+'㎡';}).join(' · ')+'</div></div>'+
+      '<div class="card-arrow">→</div></div>'+
+    '<div class="card-bottom"><div><div class="card-count">'+stat.n+'<small>건</small></div>'+
+      '<div class="card-range">'+fmt(stat.min)+'억 ~ '+fmt(stat.max)+'억</div></div>'+gapBadge+'</div>'+
+    '<div class="card-bar"><div style="width:'+(100-stat.gapPct)+'%;background:'+color+';opacity:.35"></div>'+
+      '<div style="width:'+stat.gapPct+'%;background:'+GAP_COLOR+'"></div></div>'+
+    '</button>';
+}
+
+// 가격 분포(게이지) — 평형·가격대별 매물 수를 막대로. 라벨/건수 열 폭 공유로 바가 정렬됨.
+function distBlocks(listings, color){
+  var grouped = groupBySizeAndPrice(listings);
+  var maxCount = 1;
+  grouped.forEach(function(g){ g.rows.forEach(function(r){ if(r.count>maxCount) maxCount=r.count; }); });
+  var trs = grouped.map(function(g){
+    var totalInSize = g.rows.reduce(function(a,r){return a+r.count;},0);
+    var rowsHtml = g.rows.map(function(r){
+      var barPct = r.count/maxCount*100, gapPct = r.gap/maxCount*100;
+      var gapFill = r.gap>0 ? '<div class="price-bar-fill" style="width:'+gapPct+'%;background:'+GAP_COLOR+'"></div>' : '';
+      var gapTag = r.gap>0 ? ' <span class="gaptag">(갭'+r.gap+')</span>' : '';
+      return '<tr class="price-row"><td class="price-label">'+esc(r.label)+'</td>'+
+        '<td class="price-bar-cell"><div class="price-bar-track"><div class="price-bar-fill" style="width:'+barPct+'%;background:'+color+';opacity:.3"></div>'+gapFill+'</div></td>'+
+        '<td class="price-count">'+r.count+'건'+gapTag+'</td></tr>';
+    }).join('');
+    if(!rowsHtml) return '';
+    return '<tr class="size-row"><td colspan="3"><span class="size-badge">'+g.size+'㎡</span>'+
+      '<span class="size-count">'+totalInSize+'건</span></td></tr>' + rowsHtml;
+  }).join('');
+  return trs ? '<table class="price-rows">'+trs+'</table>' : '';
+}
+
+// 매물 목록 — 평형별 실제 매물의 동·층·향·가격(+갭)을 표로. 동 오름차순 → 층 내림차순 정렬.
+function unitBlocks(listings){
+  var isRent = state.trade==='월세';
+  var bySize = {};
+  listings.forEach(function(l){ (bySize[l.size]=bySize[l.size]||[]).push(l); });
+  var sizes = Object.keys(bySize).map(Number).sort(function(a,b){return b-a;});
+  return sizes.map(function(sz){
+    var arr = bySize[sz].slice().sort(function(a,b){
+      var pa=a.price_num||0, pb=b.price_num||0; if(pa!==pb) return pb-pa;  // 가격 높은 순
+      var da=parseInt(a.dong)||0, db=parseInt(b.dong)||0; if(da!==db) return da-db;
+      return (parseInt(b.floor)||0)-(parseInt(a.floor)||0);
+    });
+    var rows = arr.map(function(l){
+      var gap = l.gap ? '<span class="unit-gap">갭·세낀</span>' : '';  // 가격 왼쪽에 배치
+      return '<tr><td class="dt">'+esc(l.dong||'-')+'동</td>'+
+        '<td class="dt">'+(l.unit_type?esc(l.unit_type):'-')+'</td>'+
+        '<td class="dt">'+esc(l.floor||'-')+'</td>'+
+        '<td class="dt">'+esc(l.dir||'-')+'</td>'+
+        '<td class="amt">'+gap+esc(l.price_label||(fmt(l.price)+'억'))+'</td></tr>';
+    }).join('');
+    // 실거래가처럼 평형별로 별도 테이블 + 헤더(동·타입·층·향·가격)
+    return '<div class="tx-size"><div class="tx-size-head"><span class="size-badge">'+sz+'㎡</span>'+
+      '<span class="size-count">'+arr.length+'건</span></div>'+
+      '<table class="tx-table unit-table"><thead><tr><th>동</th><th>타입</th><th>층</th><th>향</th><th>'+
+      (isRent?'보증금/월세':'가격')+'</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+  }).join('');
+}
+
+function renderDetail(name, listings, color){
+  var stat = summarize(listings);
+  var gapInfo = stat.gap>0 ? '<span class="gapinfo"> · 갭·세낀 '+stat.gap+'건 ('+stat.gapPct+'%)</span>' : '';
+  var mode = state.listMode || 'dist';
+  var blocks = mode==='units' ? unitBlocks(listings) : distBlocks(listings, color);
+  // 보기 전환: 가격 분포(요약) ↔ 매물 목록(동·층·향까지 상세)
+  var seg = '<div class="gap-filter" style="margin-bottom:16px;">'+
+    '<button class="gap-toggle '+(mode==='dist'?'active':'')+'" data-listmode="dist">가격 분포</button>'+
+    '<button class="gap-toggle '+(mode==='units'?'active':'')+'" data-listmode="units">매물 목록</button></div>';
+
+  return '<div class="detail"><div class="detail-head" style="background:'+color+'0d">'+
+    '<div><button class="back-btn" id="backBtn">← 전체 단지로</button>'+
+    '<h2 class="detail-name">'+esc(name)+'</h2>'+
+    '<p class="detail-sub">총 '+stat.n+'건 · '+fmt(stat.min)+'억 ~ '+fmt(stat.max)+'억'+gapInfo+'</p></div>'+
+    '<div class="detail-dot" style="background:'+color+'"></div></div>'+
+    '<div class="detail-body">'+seg+(blocks||'<div class="no-change">표시할 매물이 없습니다.</div>')+'</div></div>';
+}
+
+function renderSizeTrendRow(label, series, color){
+  var counts = series.map(function(s){return s.n;});
+  var avgs = series.map(function(s){return s.avg;});
+  var dates = series.map(function(s){return s.date;});
+  var firstN=counts[0], lastN=counts[counts.length-1];
+  var validAvgs = avgs.filter(function(v){return v!==null && v!==undefined;});
+  var firstAvg = validAvgs.length?validAvgs[0]:null, lastAvg = validAvgs.length?validAvgs[validAvgs.length-1]:null;
+  var nDelta = lastN-firstN;
+  var nCls = nDelta>0?'up':(nDelta<0?'down':'flat');
+  var avgHtml='';
+  if(firstAvg!==null && lastAvg!==null){
+    var d = Math.round((lastAvg-firstAvg)*100)/100;
+    var cls = d>0?'up':(d<0?'down':'flat');
+    avgHtml = '<span class="trend-delta '+cls+'">평균가 '+(d>0?'+':'')+d+'억</span>';
+  }
+  return '<div class="size-trend-row"><div class="size-trend-top"><span class="size-trend-label">'+esc(label)+'</span>'+
+    '<div style="display:flex;gap:6px;"><span class="trend-delta '+nCls+'">매물 '+(nDelta>0?'+':'')+nDelta+'건</span>'+avgHtml+'</div></div>'+
+    '<div class="trend-body">'+
+      '<div><div class="trend-block-label">매물 수</div><div class="trend-block-value">'+firstN+'건 → '+lastN+'건</div>'+
+        '<div>'+sparkline(counts,color,150,34)+'</div>'+
+        '<div class="spark-dates" style="width:150px;">'+dates.map(function(d){return '<span>'+d+'</span>';}).join('')+'</div></div>'+
+      '<div><div class="trend-block-label">평균가</div><div class="trend-block-value">'+(firstAvg!==null?firstAvg.toFixed(2)+'억':'-')+' → '+(lastAvg!==null?lastAvg.toFixed(2)+'억':'-')+'</div>'+
+        '<div>'+sparkline(avgs,GAP_COLOR,150,34)+'</div>'+
+        '<div class="spark-dates" style="width:150px;">'+dates.map(function(d){return '<span>'+d+'</span>';}).join('')+'</div></div>'+
+    '</div></div>';
+}
+
+function renderTrendCard(name, sizeSeries, color){
+  var keys = Object.keys(sizeSeries).filter(function(k){
+    return state.trade==='all' || k.indexOf(state.trade+'|')===0;
+  }).sort(function(a,b){ return parseInt(b.split('|')[1])-parseInt(a.split('|')[1]); });
+  if(!keys.length) return '';
+  var rows = keys.map(function(k){
+    var parts = k.split('|');
+    var label = (state.trade==='all'? parts[0]+' ':'') + parts[1] + '㎡';
+    return renderSizeTrendRow(label, sizeSeries[k], color);
+  }).join('');
+  return '<div class="trend-card"><div class="trend-card-head"><span class="trend-dot" style="background:'+color+'"></span>'+
+    '<span class="trend-card-name">'+esc(name)+'</span></div>'+rows+'</div>';
+}
+
+function changeLine(it){
+  return (it.tx?it.tx+' · ':'') + it.size+'㎡ · '+esc(it.dong)+'동 · '+esc(it.floor)+(it.dir&&it.dir!=='-'?' · '+esc(it.dir):'');
+}
+function amt(it, val, label){ return label ? esc(label) : (val.toFixed(2)+'억'); }
+
+function changeView(d){
+  var c = (d.counts && d.counts[state.trade]) || {before:0, after:0};
+  function f(list){ return (list||[]).filter(function(it){ return it.tx===state.trade; }); }
+  return { before_count:c.before||0, after_count:c.after||0,
+           new:f(d.new), gone:f(d.gone), price_changes:f(d.price_changes) };
+}
+
+function renderChangeCard(name, diff, color){
+  var body='';
+  if(diff.new.length){
+    body += '<div class="change-tag tag-new">신규 '+diff.new.length+'건</div>';
+    diff.new.forEach(function(it){ body += '<div class="change-item-row"><span>'+changeLine(it)+'</span><span class="price">'+amt(it,it.price,it.price_label)+'</span></div>'; });
+  }
+  if(diff.gone.length){
+    body += '<div class="change-tag tag-gone" style="margin-top:8px;">소멸 '+diff.gone.length+'건</div>';
+    diff.gone.forEach(function(it){ body += '<div class="change-item-row"><span>'+changeLine(it)+'</span><span class="price">'+amt(it,it.price,it.price_label)+'</span></div>'; });
+  }
+  if(diff.price_changes.length){
+    body += '<div class="change-tag tag-changed" style="margin-top:8px;">가격변동 '+diff.price_changes.length+'건</div>';
+    diff.price_changes.forEach(function(it){
+      var up = it.after>it.before, arrow = up?'▲':'▼', cls = up?'arrow-up':'arrow-down';
+      var b = it.before_label||(it.before.toFixed(2)), a = it.after_label||(it.after.toFixed(2)+'억');
+      body += '<div class="change-item-row"><span>'+changeLine(it)+'</span><span class="price">'+esc(b)+' → '+esc(a)+' <span class="'+cls+'">'+arrow+'</span></span></div>';
+    });
+  }
+  if(!diff.new.length && !diff.gone.length && !diff.price_changes.length) body = '<div class="no-change">변동 없음</div>';
+  return '<div class="change-card" style="border-top-color:'+color+'"><div class="change-card-title">'+esc(name)+'</div>'+
+    '<div class="change-card-sub">'+diff.before_count+' → '+diff.after_count+'건</div>'+body+'</div>';
+}
+
+// ── 실거래가 탭 ──
+function txSizes(name){
+  var g = (DATA.real_prices||{})[name] || {};
+  return Object.keys(g).filter(function(k){return k.indexOf(state.trade+'|')===0;})
+    .map(function(k){return +k.split('|')[1];}).sort(function(a,b){return b-a;});
+}
+function txTypes(name){  // 현재 거래유형의 모든 세부 타입(평형명) 목록
+  var g = (DATA.real_prices||{})[name] || {};
+  var set = {};
+  Object.keys(g).filter(function(k){return k.indexOf(state.trade+'|')===0;})
+    .forEach(function(k){ g[k].forEach(function(t){ if(t.unit_type) set[t.unit_type]=1; }); });
+  return Object.keys(set).sort();
+}
+function txTotal(name, key){  // 표시 제한과 무관한 실제 전체 거래 건수
+  return ((DATA.real_price_totals||{})[name]||{})[key] || 0;
+}
+function txAmount(t){  // 월세는 보증금/월세, 그 외는 억
+  if(state.trade==='월세') return (t.price>0?fmt(t.price)+'억':'0')+'/'+t.rent;
+  return fmt(t.price)+'억';
+}
+function renderTxCard(name, color){
+  var isRent = state.trade==='월세';
+  var sizes = txSizes(name);
+  var newRecCnt=0, maxA=0, total=0;
+  sizes.forEach(function(sz){
+    total += txTotal(name, state.trade+'|'+sz);  // 실제 전체 건수
+    (DATA.real_prices[name][state.trade+'|'+sz]||[]).forEach(function(t){
+      if(t.new_record) newRecCnt++; if(t.price>maxA) maxA=t.price;
+    });
+  });
+  var recBadge = newRecCnt>0
+    ? '<div class="tx-new-badge">🆕 신고가 '+newRecCnt+'건</div>'
+    : '<div></div>';
+  var types = txTypes(name);
+  var typesLine = types.length
+    ? '<div class="card-types">'+types.map(function(t){return esc(t);}).join(' · ')+'</div>'
+    : '';
+  return '<button class="card" data-complex="'+esc(name)+'">'+
+    '<div class="accent" style="background:'+color+'"></div>'+
+    '<div class="card-top"><div><div class="card-name">'+esc(name)+'</div>'+
+      '<div class="card-sizes">'+(sizes.length?sizes.map(function(s){return s+'㎡';}).join(' · '):'실거래 없음')+'</div>'+
+      typesLine+'</div>'+
+      '<div class="card-arrow">→</div></div>'+
+    '<div class="card-bottom"><div><div class="card-count">'+total+'<small>건</small></div>'+
+      (!isRent && maxA?'<div class="card-range">최고가 '+fmt(maxA)+'억</div>':'')+'</div>'+recBadge+'</div>'+
+    '</button>';
+}
+function renderTxDetail(name, color){
+  var isRent = state.trade==='월세';
+  var amtHead = isRent ? '보증금/월세' : '거래금액';
+  var blocks = txSizes(name).map(function(sz){
+    var list = DATA.real_prices[name][state.trade+'|'+sz]||[];
+    var total = txTotal(name, state.trade+'|'+sz);  // 실제 전체 건수(표시 제한 무관)
+    var maxP = list.reduce(function(m,t){return Math.max(m,t.price);},0);
+    var sub = isRent ? ('총 '+total+'건') : ('총 '+total+'건 · 최고 '+fmt(maxP)+'억');
+    var rows = list.map(function(t){
+      // 최고가 배지: 직거래 배지와 동일하게 label(pill) 형태로 표기
+      var rec = t.record ? '<span class="tx-hi-badge">최고가</span> ' : '';
+      // 거래방식 배지: 기본(중개거래)은 노이즈라 생략, 직거래/분양권 등만 표기
+      var kind = (t.deal_type && t.deal_type!=='중개거래') ? '<span class="tx-kind">'+esc(t.deal_type)+'</span> ' : '';
+      var cls = t.record ? 'tx-hi' : '';  // 최고가 행은 배경 강조 유지
+      // 동(아실) · 타입(네이버 세부 평형명) — 별도 컬럼, 둘 다 일반 텍스트. 없으면 '-'
+      var dongTxt = t.dong ? esc(t.dong)+'동' : '-';
+      var typeTxt = t.unit_type ? esc(t.unit_type) : '-';
+      return '<tr class="'+cls+'"><td>'+esc(t.date)+'</td><td class="dt">'+dongTxt+'</td><td class="dt">'+typeTxt+'</td><td>'+esc(t.floor)+'층</td><td class="amt">'+rec+kind+txAmount(t)+'</td></tr>';
+    }).join('');
+    return '<div class="tx-size"><div class="tx-size-head"><span class="size-badge">'+sz+'㎡</span>'+
+      '<span class="size-count">'+sub+'</span></div>'+
+      '<table class="tx-table"><thead><tr><th>거래일</th><th>동</th><th>타입</th><th>층</th><th>'+amtHead+'</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+  }).join('');
+  return '<div class="detail"><div class="detail-head" style="background:'+color+'0d">'+
+    '<div><button class="back-btn" id="backBtn">← 전체 단지로</button>'+
+    '<h2 class="detail-name">'+esc(name)+'</h2></div>'+
+    '<div class="detail-dot" style="background:'+color+'"></div></div>'+
+    '<div class="detail-body">'+(blocks||'<div class="no-change">실거래 없음</div>')+'</div></div>';
+}
+
+function render(){
+  var listings = filteredListings();
+  var names = Object.keys(listings).sort(function(a,b){return listings[b].length-listings[a].length;});
+  var allL = []; names.forEach(function(n){ allL = allL.concat(listings[n]); });
+  var totalStat = summarize(allL);
+
+  var tradeBtns = DATA.trade_labels.map(function(t){
+    return '<button class="'+(state.trade===t?'active':'')+'" data-trade="'+t+'">'+t+'</button>';
+  }).join('');
+
+  var tabbar = '<div class="tabbar">'+
+    '<button class="'+(state.tab==='tx'?'active':'')+'" data-tab="tx">실거래가</button>'+
+    '<button class="'+(state.tab==='listings'?'active':'')+'" data-tab="listings">매물현황</button>'+
+    '<button class="'+(state.tab==='trend'?'active':'')+'" data-tab="trend">매물추이</button>'+
+    '<button class="'+(state.tab==='changes'?'active':'')+'" data-tab="changes">매물변동</button></div>';
+
+  var body='';
+  if(state.tab==='listings'){
+    var isSale = state.trade==='매매';
+    var gapCard = isSale
+      ? '<div class="stat-card"><div class="stat-label">📈 갭·세낀 물건</div><div class="stat-value gap">'+totalStat.gap+'<small>건 ('+totalStat.gapPct+'%)</small></div></div>'
+      : '';
+    body += '<div class="stats'+(isSale?'':' two')+'">'+
+      '<div class="stat-card"><div class="stat-label">🏢 총 매물</div><div class="stat-value">'+totalStat.n+'<small>건</small></div></div>'+
+      gapCard +
+      '<div class="stat-card"><div class="stat-label">가격 범위</div><div class="stat-value">'+fmt(totalStat.min)+'~'+fmt(totalStat.max)+'<small>억</small></div></div></div>';
+    var gapBtns = isSale
+      ? '<div class="gap-filter">'+
+        '<button class="gap-toggle '+(state.gapFilter==='all'?'active':'')+'" data-gapf="all">전체</button>'+
+        '<button class="gap-toggle '+(state.gapFilter==='gap'?'active':'')+'" data-gapf="gap">갭·세낀</button>'+
+        '<button class="gap-toggle '+(state.gapFilter==='nogap'?'active':'')+'" data-gapf="nogap">갭·세낀 제외</button></div>'
+      : '';
+    body += '<div class="toolbar"><div class="toolbar-title">'+(state.selected?'단지 상세':'단지별 매물 비교')+'</div>'+gapBtns+'</div>';
+    if(state.selected && listings[state.selected]){
+      body += renderDetail(state.selected, listings[state.selected], colorOf(state.selected));
+    } else {
+      state.selected = null;
+      body += names.length
+        ? '<div class="grid">'+names.map(function(n){return renderCard(n,listings[n],colorOf(n));}).join('')+'</div>'
+        : '<div class="state-msg">해당 거래유형의 매물이 없습니다.</div>';
+    }
+    if(isSale){  // 갭·세낀 집계 설명은 갭 개념이 있는 매매(매물현황)에서만 표시
+      body += '<div class="footer-note"><b>갭·세낀 물건</b>은 대표 매물뿐 아니라 같은 매물을 올린 중복 부동산들의 특징 문구까지 확인해, '+
+        '세안고 · 전세안고 · 월세안고 · 반전세안고 · 임차인 · 세입자 · 명도불가 · 입주불가 · 긴전세 · 갭투자 · 갭 · 긴잔금 · 무주택 등 '+
+        '세입자가 껴 있거나 갭투자 성격인 표현이 하나라도 있으면 집계합니다.</div>';
+    }
+  } else if(state.tab==='tx'){
+    var txNames = Object.keys(DATA.real_prices||{}).filter(function(n){return txSizes(n).length;})
+      .sort(function(a,b){return txSizes(b).length-txSizes(a).length;});
+    body += '<div class="toolbar"><div class="toolbar-title">'+(state.selected?'단지 실거래':'단지별 실거래가')+'</div></div>';
+    if(state.selected && txSizes(state.selected).length){
+      body += renderTxDetail(state.selected, colorOf(state.selected));
+    } else {
+      state.selected = null;
+      body += txNames.length
+        ? '<div class="grid">'+txNames.map(function(n){return renderTxCard(n,colorOf(n));}).join('')+'</div>'
+        : '<div class="state-msg">'+esc(state.trade)+' 실거래가 데이터가 없습니다.</div>';
+    }
+  } else if(state.tab==='trend'){
+    var cards = names.map(function(n){ return DATA.trend[n]?renderTrendCard(n,DATA.trend[n],colorOf(n)):''; }).filter(Boolean).join('');
+    body += '<div class="toolbar"><div class="toolbar-title">조사일별 평형 변화</div></div>';
+    body += cards || '<div class="state-msg">추이 데이터가 없습니다.</div>';
+  } else {
+    var views = {};
+    Object.keys(DATA.changes).forEach(function(n){ views[n]=changeView(DATA.changes[n]); });
+    var chNames = Object.keys(views).sort(function(a,b){return views[b].after_count-views[a].after_count;});
+    var totB=0,totA=0,totNew=0,totGone=0,totPc=0;
+    chNames.forEach(function(n){var d=views[n]; totB+=d.before_count; totA+=d.after_count; totNew+=d.new.length; totGone+=d.gone.length; totPc+=d.price_changes.length;});
+    var totDelta = totA-totB;
+    body += '<div class="stats four">'+
+      '<div class="stat-card"><div class="stat-label">총 매물</div><div class="stat-value">'+totB+' → '+totA+'<small>건</small></div></div>'+
+      '<div class="stat-card"><div class="stat-label">신규</div><div class="stat-value new">'+totNew+'<small>건</small></div></div>'+
+      '<div class="stat-card"><div class="stat-label">소멸</div><div class="stat-value gone">'+totGone+'<small>건</small></div></div>'+
+      '<div class="stat-card"><div class="stat-label">가격변동</div><div class="stat-value changed">'+totPc+'<small>건</small></div></div></div>';
+    var trows = chNames.map(function(n){
+      var d=views[n], delta=d.after_count-d.before_count;
+      var cls = delta>0?'delta-up':(delta<0?'delta-down':'delta-flat');
+      var txt = delta>0?('▲'+delta):(delta<0?('▼'+Math.abs(delta)):'-');
+      return '<tr><td class="name">'+esc(n)+'</td><td>'+d.before_count+'</td><td>'+d.after_count+'</td><td class="'+cls+'">'+txt+'</td><td>'+d.new.length+'</td><td>'+d.gone.length+'</td><td>'+d.price_changes.length+'</td></tr>';
+    }).join('');
+    var tdCls = totDelta>0?'delta-up':(totDelta<0?'delta-down':'delta-flat');
+    var tdTxt = totDelta>0?('▲'+totDelta):(totDelta<0?('▼'+Math.abs(totDelta)):'-');
+    body += '<div class="change-table-wrap"><table class="change-table"><thead><tr><th>단지</th><th>'+DATA.change_dates.before+'</th><th>'+DATA.change_dates.after+'</th><th>증감</th><th>신규</th><th>소멸</th><th>가격변동</th></tr></thead><tbody>'+
+      trows+'<tr class="total"><td class="name">합계</td><td>'+totB+'</td><td>'+totA+'</td><td class="'+tdCls+'">'+tdTxt+'</td><td>'+totNew+'</td><td>'+totGone+'</td><td>'+totPc+'</td></tr></tbody></table></div>';
+    body += chNames.map(function(n){return renderChangeCard(n,views[n],colorOf(n));}).join('');
+  }
+
+  var complexCount = Object.keys(DATA.listings).length;
+  document.getElementById('app').innerHTML =
+    '<div class="eyebrow">부동산 매물 리포트</div>'+
+    '<div class="headrow"><h1>'+esc(DATA.label)+'</h1>'+
+    '<p class="sub">조사일 '+esc((DATA.generated_at||'').slice(0,10))+' · '+complexCount+'개 단지 · 대표매물 '+totalStat.n+'건</p></div>'+
+    '<div class="trade-toggle">'+tradeBtns+'</div>'+
+    tabbar + body;
+
+  wire();
+}
+
+function wire(){
+  document.querySelectorAll('[data-trade]').forEach(function(b){ b.onclick=function(){ state.trade=b.getAttribute('data-trade'); state.selected=null; state.gapFilter='all'; render(); scrollTo({top:0,behavior:'smooth'}); }; });
+  document.querySelectorAll('[data-tab]').forEach(function(b){ b.onclick=function(){ state.tab=b.getAttribute('data-tab'); state.selected=null; render(); }; });
+  document.querySelectorAll('[data-complex]').forEach(function(b){ b.onclick=function(){ state.selected=b.getAttribute('data-complex'); state.listMode='dist'; render(); scrollTo({top:0,behavior:'smooth'}); }; });
+  document.querySelectorAll('[data-gapf]').forEach(function(b){ b.onclick=function(){ state.gapFilter=b.getAttribute('data-gapf'); render(); }; });
+  document.querySelectorAll('[data-listmode]').forEach(function(b){ b.onclick=function(){ state.listMode=b.getAttribute('data-listmode'); render(); }; });
+  var back=document.getElementById('backBtn'); if(back) back.onclick=function(){ state.selected=null; render(); };
+}
+
+if (window.LAND_DATA) {
+  DATA = window.LAND_DATA;
+  state.trade = (DATA.trade_labels && DATA.trade_labels[0]) || '매매';
+  render();
+} else {
+  document.getElementById('app').innerHTML =
+    '<div class="state-msg">데이터를 불러오지 못했습니다.<br/><br/>'+
+    '<code>uv run land</code> 로 <code>data.js</code> 를 생성한 뒤 이 파일을 다시 여세요.</div>';
+}
+</script>
+</body>
+</html>
