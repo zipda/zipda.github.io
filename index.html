@@ -135,12 +135,12 @@
   .tx-table tbody tr:hover td { background:rgba(169,87,47,.045); }
   .tx-table td.amt { font-weight:800; color:var(--ink); }
   /* 실거래 상세: 거래금액은 뱃지(최고가/직거래)와 함께 항상 한 줄로. unit-table(fixed)은 제외 */
-  .tx-table:not(.unit-table) td.amt, .tx-table:not(.unit-table) td:first-child { white-space:nowrap; }
+  .tx-table td.amt { white-space:nowrap; }
+  .tx-table:not(.unit-table) td:first-child { white-space:nowrap; }
   .tx-kind { display:inline-block; background:var(--track); color:var(--ink-2); font-size:11px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; }
   .tx-hi-badge { display:inline-block; background:var(--accent); color:#fff; font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; }
   .unit-gap { display:inline-block; background:var(--accent-tint); color:var(--accent-deep); font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; margin-right:6px; }
   /* 평형별 표라도 열 너비를 고정해 동/타입/층/향/가격 컬럼이 서로 정렬되게 함 */
-  .unit-table { table-layout:fixed; }
   /* 좁은 화면에서 표가 넘치면 잘리지 않고 그 표만 가로 스크롤 (detail 은 overflow:hidden) */
   .tx-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
   .unit-table th:nth-child(1), .unit-table td:nth-child(1) { width:14%; }
@@ -219,7 +219,7 @@
 </head>
 <body>
 <div class="wrap"><div id="app"><div class="state-msg">데이터를 불러오는 중…</div></div></div>
-<script src="data.js?v=7b330edbe53e"></script>
+<script src="data.js?v=78b788b681cb"></script>
 <script>
 var DATA = null;
 var GAP_COLOR = '#A9572F';  /* --accent 와 동일(인라인 style·SVG 속성용 hex) */
@@ -230,7 +230,8 @@ var state = { trade: null, tab: 'tx', selected: null, gapFilter: 'all', listMode
 function esc(s){ var d=document.createElement('div'); d.textContent = (s==null?'':s); return d.innerHTML; }
 function fmt(p){ return (Math.round(p*100)/100).toFixed(2).replace(/\.?0+$/, ''); }
 function colorOf(name){ return (DATA.colors && DATA.colors[name]) || '#8172B2'; }
-function priceText(it){ return it.price_label ? esc(it.price_label) : (fmt(it.price)+'억'); }
+// 매매/전세는 실거래처럼 10.5억 형식(fmt). 월세만 원문 라벨 유지(매물엔 rent 필드가 없어 보증금/월세는 라벨에만 있음). 반환값은 raw — 표시 시 esc.
+function priceText(it){ return it.tx==='월세' ? (it.price_label||'-') : (fmt(it.price)+'억'); }
 
 // 거래유형 + 갭·세낀 필터 (갭·세낀 필터는 매매에서만 적용)
 function filteredListings(){
@@ -262,7 +263,7 @@ function groupBySizeAndPrice(listings){
   var bySize = {};
   listings.forEach(function(l){
     if(!bySize[l.size]) bySize[l.size] = {};
-    var key = l.price_label || (fmt(l.price)+'억');
+    var key = priceText(l);
     if(!bySize[l.size][key]) bySize[l.size][key] = { label:key, price:l.price, count:0, gap:0 };
     bySize[l.size][key].count += 1;
     if(l.gap) bySize[l.size][key].gap += 1;
@@ -349,18 +350,18 @@ function unitBlocks(listings){
       return (parseInt(b.floor)||0)-(parseInt(a.floor)||0);
     });
     var rows = arr.map(function(l){
-      var gap = l.gap ? '<span class="unit-gap">갭·세낀</span>' : '';  // 가격 왼쪽에 배치
-      return '<tr><td class="dt">'+esc(l.dong||'-')+'동</td>'+
-        '<td class="dt">'+(l.unit_type?esc(l.unit_type):'-')+'</td>'+
+      var gap = l.gap ? '<span class="unit-gap">갭</span>' : '';  // 가격 왼쪽에 배치
+      return '<tr><td class="dt">'+(l.unit_type?esc(l.unit_type):'-')+'</td>'+
+        '<td class="dt">'+esc(l.dong||'-')+'</td>'+
         '<td class="dt">'+esc(l.floor||'-')+'</td>'+
-        '<td class="dt">'+esc(l.dir||'-')+'</td>'+
-        '<td class="amt">'+gap+esc(l.price_label||(fmt(l.price)+'억'))+'</td></tr>';
+        '<td class="dt">'+esc((l.dir||'-').replace(/향$/,''))+'</td>'+
+        '<td class="amt">'+gap+esc(priceText(l))+'</td></tr>';
     }).join('');
-    // 실거래가처럼 평형별로 별도 테이블 + 헤더(동·타입·층·향·가격)
+    // 실거래가처럼 평형별로 별도 테이블 + 헤더(타입·동·층·향·가격)
     return '<div class="tx-size"><div class="tx-size-head"><span class="size-badge">'+sz+'㎡</span>'+
       '<span class="size-count">'+arr.length+'건</span></div>'+
-      '<table class="tx-table unit-table"><thead><tr><th>동</th><th>타입</th><th>층</th><th>향</th><th>'+
-      (isRent?'보증금/월세':'가격')+'</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+      '<div class="tx-table-wrap"><table class="tx-table unit-table"><thead><tr><th>타입</th><th>동</th><th>층</th><th>향</th><th>'+
+      (isRent?'보증금/월세':'가격')+'</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
   }).join('');
 }
 
@@ -520,13 +521,13 @@ function renderTxDetail(name, color){
       var kind = (t.deal_type && t.deal_type!=='중개거래') ? '<span class="tx-kind">'+esc(t.deal_type)+'</span> ' : '';
       var cls = t.record ? 'tx-hi' : '';  // 최고가 행은 배경 강조 유지
       // 동(아실) · 타입(네이버 세부 평형명) — 별도 컬럼, 둘 다 일반 텍스트. 없으면 '-'
-      var dongTxt = t.dong ? esc(t.dong)+'동' : '-';
+      var dongTxt = t.dong ? esc(t.dong) : '-';
       var typeTxt = t.unit_type ? esc(t.unit_type) : '-';
-      return '<tr class="'+cls+'"><td>'+esc(t.date)+'</td><td class="dt">'+dongTxt+'</td><td class="dt">'+typeTxt+'</td><td>'+esc(t.floor)+'층</td><td class="amt">'+rec+kind+txAmount(t)+'</td></tr>';
+      return '<tr class="'+cls+'"><td>'+esc(t.date)+'</td><td class="dt">'+typeTxt+'</td><td class="dt">'+dongTxt+'</td><td>'+esc(t.floor)+'</td><td class="amt">'+rec+kind+txAmount(t)+'</td></tr>';
     }).join('');
     return '<div class="tx-size"><div class="tx-size-head"><span class="size-badge">'+sz+'㎡</span>'+
       '<span class="size-count">'+sub+'</span></div>'+
-      '<div class="tx-table-wrap"><table class="tx-table"><thead><tr><th>거래일</th><th>동</th><th>타입</th><th>층</th><th>'+amtHead+'</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
+      '<div class="tx-table-wrap"><table class="tx-table"><thead><tr><th>거래일</th><th>타입</th><th>동</th><th>층</th><th>'+amtHead+'</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
   }).join('');
   return '<div class="detail"><div class="detail-head" style="background:'+color+'0d">'+
     '<div><button class="back-btn" id="backBtn">← 전체 단지로</button>'+

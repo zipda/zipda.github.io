@@ -1,5 +1,5 @@
 window.LAND_DATA = {
-  "generated_at": "2026-08-23T19:13:33+09:00",
+  "generated_at": "2026-08-23T19:40:09+09:00",
   "label": "관심 단지 매물현황",
   "trade_labels": [
     "매매",
@@ -1035,13 +1035,13 @@ window.LAND_DATA = {
   "changes": {
     "영흥숲푸르지오파크비엔": {
       "counts": {
-        "전세": {
-          "before": 10,
-          "after": 10
-        },
         "매매": {
           "before": 62,
           "after": 62
+        },
+        "전세": {
+          "before": 10,
+          "after": 10
         },
         "월세": {
           "before": 2,
