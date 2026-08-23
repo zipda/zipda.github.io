@@ -1,5 +1,5 @@
 window.LAND_DATA = {
-  "generated_at": "2026-08-23T18:38:20+09:00",
+  "generated_at": "2026-08-23T18:56:27+09:00",
   "label": "관심 단지 매물현황",
   "trade_labels": [
     "매매",
@@ -1039,13 +1039,13 @@ window.LAND_DATA = {
           "before": 62,
           "after": 62
         },
-        "전세": {
-          "before": 10,
-          "after": 10
-        },
         "월세": {
           "before": 2,
           "after": 2
+        },
+        "전세": {
+          "before": 10,
+          "after": 10
         },
         "전체": {
           "before": 74,
