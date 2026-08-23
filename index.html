@@ -134,11 +134,15 @@
   .tx-table tbody tr { transition:background .15s; }
   .tx-table tbody tr:hover td { background:rgba(169,87,47,.045); }
   .tx-table td.amt { font-weight:800; color:var(--ink); }
+  /* 실거래 상세: 거래금액은 뱃지(최고가/직거래)와 함께 항상 한 줄로. unit-table(fixed)은 제외 */
+  .tx-table:not(.unit-table) td.amt, .tx-table:not(.unit-table) td:first-child { white-space:nowrap; }
   .tx-kind { display:inline-block; background:var(--track); color:var(--ink-2); font-size:11px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; }
   .tx-hi-badge { display:inline-block; background:var(--accent); color:#fff; font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; }
   .unit-gap { display:inline-block; background:var(--accent-tint); color:var(--accent-deep); font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; margin-right:6px; }
   /* 평형별 표라도 열 너비를 고정해 동/타입/층/향/가격 컬럼이 서로 정렬되게 함 */
   .unit-table { table-layout:fixed; }
+  /* 좁은 화면에서 표가 넘치면 잘리지 않고 그 표만 가로 스크롤 (detail 은 overflow:hidden) */
+  .tx-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
   .unit-table th:nth-child(1), .unit-table td:nth-child(1) { width:14%; }
   .unit-table th:nth-child(2), .unit-table td:nth-child(2) { width:15%; }
   .unit-table th:nth-child(3), .unit-table td:nth-child(3) { width:13%; }
@@ -215,7 +219,7 @@
 </head>
 <body>
 <div class="wrap"><div id="app"><div class="state-msg">데이터를 불러오는 중…</div></div></div>
-<script src="data.js?v=fa2db628b9e5"></script>
+<script src="data.js?v=7b330edbe53e"></script>
 <script>
 var DATA = null;
 var GAP_COLOR = '#A9572F';  /* --accent 와 동일(인라인 style·SVG 속성용 hex) */
@@ -522,7 +526,7 @@ function renderTxDetail(name, color){
     }).join('');
     return '<div class="tx-size"><div class="tx-size-head"><span class="size-badge">'+sz+'㎡</span>'+
       '<span class="size-count">'+sub+'</span></div>'+
-      '<table class="tx-table"><thead><tr><th>거래일</th><th>동</th><th>타입</th><th>층</th><th>'+amtHead+'</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+      '<div class="tx-table-wrap"><table class="tx-table"><thead><tr><th>거래일</th><th>동</th><th>타입</th><th>층</th><th>'+amtHead+'</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
   }).join('');
   return '<div class="detail"><div class="detail-head" style="background:'+color+'0d">'+
     '<div><button class="back-btn" id="backBtn">← 전체 단지로</button>'+
