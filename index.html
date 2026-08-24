@@ -150,6 +150,11 @@
   .trade-n { display:inline-block; margin-left:5px; background:var(--neg); color:#fff; font-size:9px; font-weight:800; line-height:1; padding:2px 5px; border-radius:999px; vertical-align:middle; }
   .trade-toggle button.active .trade-n { background:#fff; color:var(--neg); }
   .unit-pc { font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink-2); }
+  /* 소멸(제거) 매물 행: 흐리게 + 가격 취소선 + 빨간 '제거' 태그 */
+  .tx-table tr.unit-gone td { color:var(--muted); }
+  .tx-table tr.unit-gone td.amt { font-weight:600; }
+  .tx-table tr.unit-gone td.amt s { color:var(--muted); }
+  .unit-removed { display:inline-block; background:var(--info); color:#fff; font-size:10.5px; font-weight:800; padding:1px 6px; border-radius:6px; vertical-align:middle; margin-right:5px; }
   .unit-gap { display:inline-block; background:var(--accent-tint); color:var(--accent-deep); font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; margin-right:6px; }
   /* 좁은 화면에서 표가 넘치면 잘리지 않고 그 표만 가로 스크롤 (detail 은 overflow:hidden) */
   .tx-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
@@ -344,13 +349,21 @@ function distBlocks(listings, color){
 
 // 매물 목록 — 평형별 실제 매물의 동·층·향·가격(+갭)을 표로. 동 오름차순 → 층 내림차순 정렬.
 function unitBlocks(listings, name){
+  name = name || state.selected;
   var isRent = state.trade==='월세';
-  var maps = unitChangeMaps(name || state.selected);
+  var maps = unitChangeMaps(name);
   var bySize = {};
   listings.forEach(function(l){ (bySize[l.size]=bySize[l.size]||[]).push(l); });
-  var sizes = Object.keys(bySize).map(Number).sort(function(a,b){return b-a;});
+  // 이번(직전) 수집에서 제거된 매물 — 현재 거래유형만, 평형별. 활성 목록엔 없으므로 별도로 붙인다.
+  var goneBySize = {};
+  (((DATA.changes||{})[name]||{}).gone||[]).forEach(function(g){
+    if(g.tx===state.trade){ (goneBySize[g.size]=goneBySize[g.size]||[]).push(g); }
+  });
+  // 활성 + 소멸 평형 합집합(큰 평형 순) — 전량 제거된 평형도 표시되게
+  var sizes = Array.from(new Set(Object.keys(bySize).concat(Object.keys(goneBySize)).map(Number)))
+    .sort(function(a,b){return b-a;});
   return sizes.map(function(sz){
-    var arr = bySize[sz].slice().sort(function(a,b){
+    var arr = (bySize[sz]||[]).slice().sort(function(a,b){
       var pa=a.price_num||0, pb=b.price_num||0; if(pa!==pb) return pb-pa;  // 가격 높은 순
       var da=parseInt(a.dong)||0, db=parseInt(b.dong)||0; if(da!==db) return da-db;
       return (parseInt(b.floor)||0)-(parseInt(a.floor)||0);
@@ -368,11 +381,23 @@ function unitBlocks(listings, name){
         '<td class="dt">'+esc((l.dir||'-').replace(/향$/,''))+'</td>'+
         '<td class="amt">'+gap+nb+pcHtml+esc(priceText(l))+'</td></tr>';
     }).join('');
+    // 소멸 매물: 평형 그룹 맨 아래에 흐리게 + '제거' 태그 + 가격 취소선 (타입은 정보 없어 '-')
+    var goneArr = (goneBySize[sz]||[]);
+    var goneRows = goneArr.map(function(g){
+      // 타입: unit_type(예:109A) 우선, 없으면(구 수집분) type(면적, 예:109㎡(전용84))로 폴백
+      var gType = g.unit_type || (g.type && g.type!=='-' ? g.type : '') || '-';
+      return '<tr class="unit-gone"><td class="dt">'+esc(gType)+'</td>'+
+        '<td class="dt">'+esc(g.dong||'-')+'</td>'+
+        '<td class="dt">'+esc(g.floor||'-')+'</td>'+
+        '<td class="dt">'+esc((g.dir||'-').replace(/향$/,''))+'</td>'+
+        '<td class="amt"><span class="unit-removed">제거</span><s>'+esc(priceText(g))+'</s></td></tr>';
+    }).join('');
+    var countTxt = arr.length+'건' + (goneArr.length? ' · 제거 '+goneArr.length : '');
     // 실거래가처럼 평형별로 별도 테이블 + 헤더(타입·동·층·향·가격)
     return '<div class="tx-size"><div class="tx-size-head"><span class="size-badge">'+sz+'㎡</span>'+
-      '<span class="size-count">'+arr.length+'건</span></div>'+
+      '<span class="size-count">'+countTxt+'</span></div>'+
       '<div class="tx-table-wrap"><table class="tx-table"><thead><tr><th>타입</th><th>동</th><th>층</th><th>향</th><th>'+
-      (isRent?'보증금/월세':'가격')+'</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
+      (isRent?'보증금/월세':'가격')+'</th></tr></thead><tbody>'+rows+goneRows+'</tbody></table></div></div>';
   }).join('');
 }
 
