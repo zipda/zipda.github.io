@@ -384,9 +384,8 @@ function unitBlocks(listings, name){
     // 소멸 매물: 평형 그룹 맨 아래에 흐리게 + '제거' 태그 + 가격 취소선 (타입은 정보 없어 '-')
     var goneArr = (goneBySize[sz]||[]);
     var goneRows = goneArr.map(function(g){
-      // 타입: unit_type(예:109A) 우선, 없으면(구 수집분) type(면적, 예:109㎡(전용84))로 폴백
-      var gType = g.unit_type || (g.type && g.type!=='-' ? g.type : '') || '-';
-      return '<tr class="unit-gone"><td class="dt">'+esc(gType)+'</td>'+
+      // 타입: unit_type 있으면 표기, 없으면 '-' (활성 매물·실거래와 동일. 면적으로 폴백하지 않음)
+      return '<tr class="unit-gone"><td class="dt">'+(g.unit_type?esc(g.unit_type):'-')+'</td>'+
         '<td class="dt">'+esc(g.dong||'-')+'</td>'+
         '<td class="dt">'+esc(g.floor||'-')+'</td>'+
         '<td class="dt">'+esc((g.dir||'-').replace(/향$/,''))+'</td>'+
