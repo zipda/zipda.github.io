@@ -134,20 +134,24 @@
   .tx-table tbody tr { transition:background .15s; }
   .tx-table tbody tr:hover td { background:rgba(169,87,47,.045); }
   .tx-table td.amt { font-weight:800; color:var(--ink); }
-  /* 실거래 상세: 거래금액은 뱃지(최고가/직거래)와 함께 항상 한 줄로. unit-table(fixed)은 제외 */
+  /* 실거래·매물목록 상세: 거래금액은 뱃지(최고가/직거래/N)와 함께 항상 한 줄로. 첫 컬럼도 한 줄 유지 */
   .tx-table td.amt { white-space:nowrap; }
-  .tx-table:not(.unit-table) td:first-child { white-space:nowrap; }
+  .tx-table td:first-child { white-space:nowrap; }
   .tx-kind { display:inline-block; background:var(--track); color:var(--ink-2); font-size:11px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; }
   .tx-hi-badge { display:inline-block; background:var(--accent); color:#fff; font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; }
+  .tx-n-badge { display:inline-block; background:var(--pos); color:#fff; font-size:10.5px; font-weight:800; padding:1px 6px; border-radius:6px; vertical-align:middle; margin-right:5px; }
+  /* 매물 변동(신규/소멸/가격변동) 표시 — 매물현황·추이·변동 탭 공통. 색: 초록=신규 · 빨강=소멸 · 골드=가격변동 */
+  .chg-chips { display:flex; flex-wrap:wrap; gap:5px; padding-left:9px; margin:10px 0 2px; }
+  .chg-chip { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:800; padding:2px 9px; border-radius:999px; border:1px solid var(--line); color:var(--faint); background:var(--surface); }
+  .chg-chip.on { border-color:transparent; background:var(--track); color:var(--ink); }
+  .chg-micro { display:inline-flex; gap:5px; font-variant-numeric:tabular-nums; }
+  .chg-n { color:var(--pos); font-weight:800; }
+  .chg-g { color:var(--neg); font-weight:800; }
+  .chg-p { color:var(--gold); font-weight:800; }
+  .unit-pc { font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink-2); }
   .unit-gap { display:inline-block; background:var(--accent-tint); color:var(--accent-deep); font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; margin-right:6px; }
-  /* 평형별 표라도 열 너비를 고정해 동/타입/층/향/가격 컬럼이 서로 정렬되게 함 */
   /* 좁은 화면에서 표가 넘치면 잘리지 않고 그 표만 가로 스크롤 (detail 은 overflow:hidden) */
   .tx-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
-  .unit-table th:nth-child(1), .unit-table td:nth-child(1) { width:14%; }
-  .unit-table th:nth-child(2), .unit-table td:nth-child(2) { width:15%; }
-  .unit-table th:nth-child(3), .unit-table td:nth-child(3) { width:13%; }
-  .unit-table th:nth-child(4), .unit-table td:nth-child(4) { width:16%; }
-  .unit-table th:nth-child(5), .unit-table td:nth-child(5) { width:42%; }
   .tx-table td.dt { color:var(--ink-2); white-space:nowrap; }
   .tx-table tr.tx-hi td { background:var(--accent-tint); color:var(--accent-deep); font-weight:700; }
   .tx-table tr.tx-hi td:first-child { border-top-left-radius:7px; border-bottom-left-radius:7px; }
@@ -308,6 +312,7 @@ function renderCard(name, listings, color){
     '<div class="card-top"><div><div class="card-name">'+esc(name)+'</div>'+
       '<div class="card-sizes">'+sizes.map(function(s){return s+'㎡';}).join(' · ')+'</div></div>'+
       '<div class="card-arrow">→</div></div>'+
+    changeChips(name)+
     '<div class="card-bottom"><div><div class="card-count">'+stat.n+'<small>건</small></div>'+
       '<div class="card-range">'+fmt(stat.min)+'억 ~ '+fmt(stat.max)+'억</div></div>'+gapBadge+'</div>'+
     '<div class="card-bar"><div style="width:'+(100-stat.gapPct)+'%;background:'+color+';opacity:.35"></div>'+
@@ -338,8 +343,9 @@ function distBlocks(listings, color){
 }
 
 // 매물 목록 — 평형별 실제 매물의 동·층·향·가격(+갭)을 표로. 동 오름차순 → 층 내림차순 정렬.
-function unitBlocks(listings){
+function unitBlocks(listings, name){
   var isRent = state.trade==='월세';
+  var maps = unitChangeMaps(name || state.selected);
   var bySize = {};
   listings.forEach(function(l){ (bySize[l.size]=bySize[l.size]||[]).push(l); });
   var sizes = Object.keys(bySize).map(Number).sort(function(a,b){return b-a;});
@@ -351,16 +357,21 @@ function unitBlocks(listings){
     });
     var rows = arr.map(function(l){
       var gap = l.gap ? '<span class="unit-gap">갭</span>' : '';  // 가격 왼쪽에 배치
+      // 이번 수집 변동 매칭: 시그니처(거래유형·평형·동·층·향·가격라벨)로 신규/가격변동 표기
+      var sig = maps.sig(l.tx, l.size, l.dong, l.floor, l.dir, l.price_label);
+      var nb = maps.news[sig] ? '<span class="tx-n-badge">N</span>' : '';
+      var pc = maps.pcs[sig];
+      var pcHtml = pc ? '<span class="unit-pc">'+esc(pc.before)+' <span class="'+(pc.up?'arrow-up':'arrow-down')+'">'+(pc.up?'▲':'▼')+'</span></span> ' : '';
       return '<tr><td class="dt">'+(l.unit_type?esc(l.unit_type):'-')+'</td>'+
         '<td class="dt">'+esc(l.dong||'-')+'</td>'+
         '<td class="dt">'+esc(l.floor||'-')+'</td>'+
         '<td class="dt">'+esc((l.dir||'-').replace(/향$/,''))+'</td>'+
-        '<td class="amt">'+gap+esc(priceText(l))+'</td></tr>';
+        '<td class="amt">'+gap+nb+pcHtml+esc(priceText(l))+'</td></tr>';
     }).join('');
     // 실거래가처럼 평형별로 별도 테이블 + 헤더(타입·동·층·향·가격)
     return '<div class="tx-size"><div class="tx-size-head"><span class="size-badge">'+sz+'㎡</span>'+
       '<span class="size-count">'+arr.length+'건</span></div>'+
-      '<div class="tx-table-wrap"><table class="tx-table unit-table"><thead><tr><th>타입</th><th>동</th><th>층</th><th>향</th><th>'+
+      '<div class="tx-table-wrap"><table class="tx-table"><thead><tr><th>타입</th><th>동</th><th>층</th><th>향</th><th>'+
       (isRent?'보증금/월세':'가격')+'</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
   }).join('');
 }
@@ -369,7 +380,7 @@ function renderDetail(name, listings, color){
   var stat = summarize(listings);
   var gapInfo = stat.gap>0 ? '<span class="gapinfo"> · 갭·세낀 '+stat.gap+'건 ('+stat.gapPct+'%)</span>' : '';
   var mode = state.listMode || 'dist';
-  var blocks = mode==='units' ? unitBlocks(listings) : distBlocks(listings, color);
+  var blocks = mode==='units' ? unitBlocks(listings, name) : distBlocks(listings, color);
   // 보기 전환: 가격 분포(요약) ↔ 매물 목록(동·층·향까지 상세)
   var seg = '<div class="gap-filter" style="margin-bottom:16px;">'+
     '<button class="gap-toggle '+(mode==='dist'?'active':'')+'" data-listmode="dist">가격 분포</button>'+
@@ -383,7 +394,7 @@ function renderDetail(name, listings, color){
     '<div class="detail-body">'+seg+(blocks||'<div class="no-change">표시할 매물이 없습니다.</div>')+'</div></div>';
 }
 
-function renderSizeTrendRow(label, series, color){
+function renderSizeTrendRow(label, series, color, chg){
   var counts = series.map(function(s){return s.n;});
   var avgs = series.map(function(s){return s.avg;});
   var dates = series.map(function(s){return s.date;});
@@ -398,7 +409,8 @@ function renderSizeTrendRow(label, series, color){
     var cls = d>0?'up':(d<0?'down':'flat');
     avgHtml = '<span class="trend-delta '+cls+'">평균가 '+(d>0?'+':'')+d+'억</span>';
   }
-  return '<div class="size-trend-row"><div class="size-trend-top"><span class="size-trend-label">'+esc(label)+'</span>'+
+  var chgHtml = hasAnyChange(chg) ? '<span style="margin-left:7px;">'+changeMicro(chg)+'</span>' : '';
+  return '<div class="size-trend-row"><div class="size-trend-top"><span style="display:flex;align-items:center;"><span class="size-trend-label">'+esc(label)+'</span>'+chgHtml+'</span>'+
     '<div style="display:flex;gap:6px;"><span class="trend-delta '+nCls+'">매물 '+(nDelta>0?'+':'')+nDelta+'건</span>'+avgHtml+'</div></div>'+
     '<div class="trend-body">'+
       '<div><div class="trend-block-label">매물 수</div><div class="trend-block-value">'+firstN+'건 → '+lastN+'건</div>'+
@@ -418,10 +430,10 @@ function renderTrendCard(name, sizeSeries, color){
   var rows = keys.map(function(k){
     var parts = k.split('|');
     var label = (state.trade==='all'? parts[0]+' ':'') + parts[1] + '㎡';
-    return renderSizeTrendRow(label, sizeSeries[k], color);
+    return renderSizeTrendRow(label, sizeSeries[k], color, sizeChange(name, parts[0], +parts[1]));
   }).join('');
   return '<div class="trend-card"><div class="trend-card-head"><span class="trend-dot" style="background:'+color+'"></span>'+
-    '<span class="trend-card-name">'+esc(name)+'</span></div>'+rows+'</div>';
+    '<span class="trend-card-name">'+esc(name)+'</span></div>'+changeChips(name)+rows+'</div>';
 }
 
 function changeLine(it){
@@ -434,6 +446,64 @@ function changeView(d){
   function f(list){ return (list||[]).filter(function(it){ return it.tx===state.trade; }); }
   return { before_count:c.before||0, after_count:c.after||0,
            new:f(d.new), gone:f(d.gone), price_changes:f(d.price_changes) };
+}
+
+// ── 매물 변동(이번 수집 신규/소멸/가격변동) 공통 유틸 ──
+var TX_SHORT = {'매매':'매', '전세':'전', '월세':'월'};
+// 단지의 거래유형별 변동 집계 → {거래유형:{n:신규, g:소멸, p:가격변동}} (변동 있거나 매물이 존재하는 유형만)
+function cxChanges(name){
+  var d = (DATA.changes||{})[name] || {}, counts = d.counts || {};
+  var out = {};
+  (DATA.trade_labels||[]).forEach(function(tx){
+    function cnt(list){ return (list||[]).filter(function(it){return it.tx===tx;}).length; }
+    var n=cnt(d.new), g=cnt(d.gone), p=cnt(d.price_changes);
+    var c=counts[tx], present = c && ((c.before||0)>0 || (c.after||0)>0);
+    if(present || n || g || p) out[tx] = {n:n, g:g, p:p};
+  });
+  return out;
+}
+function hasAnyChange(c){ return !!(c && (c.n||c.g||c.p)); }
+// 신규/소멸/가격변동 건수를 색 있는 마이크로 카운트로 (+2 −1 ~1)
+function changeMicro(c){
+  if(!hasAnyChange(c)) return '';
+  var m='';
+  if(c.n) m += '<span class="chg-n">+'+c.n+'</span>';
+  if(c.g) m += '<span class="chg-g">−'+c.g+'</span>';
+  if(c.p) m += '<span class="chg-p">~'+c.p+'</span>';
+  return '<span class="chg-micro">'+m+'</span>';
+}
+// 매·전·월 칩 (단지에 변동이 하나라도 있을 때만 렌더). 변동 유형은 점등+건수, 무변동 유형은 흐린 라벨.
+function changeChips(name){
+  var ch = cxChanges(name);
+  var txs = (DATA.trade_labels||[]).filter(function(tx){return ch[tx];});
+  if(!txs.some(function(tx){return hasAnyChange(ch[tx]);})) return '';  // 변동 전무 → 칩 없음
+  var chips = txs.map(function(tx){
+    var c=ch[tx], on=hasAnyChange(c);
+    return '<span class="chg-chip'+(on?' on':'')+'">'+TX_SHORT[tx]+(on?' '+changeMicro(c):'')+'</span>';
+  }).join('');
+  return '<div class="chg-chips">'+chips+'</div>';
+}
+// 특정 평형(거래유형+size)의 변동 건수 — 추이 행 마킹용
+function sizeChange(name, tx, size){
+  var d = (DATA.changes||{})[name] || {};
+  function cnt(list){ return (list||[]).filter(function(it){return it.tx===tx && (it.size|0)===(size|0);}).length; }
+  return {n:cnt(d.new), g:cnt(d.gone), p:cnt(d.price_changes)};
+}
+// 개별 매물 행 매칭용 시그니처 맵(신규/가격변동) — 상세 '매물 목록'에서 행에 N·▲▼ 표기
+function unitChangeMaps(name){
+  var d = (DATA.changes||{})[name] || {};
+  function sig(tx,size,dong,floor,dir,label){ return [tx,size|0,dong,floor,dir,label].join('|'); }
+  var news={}, pcs={};
+  (d.new||[]).forEach(function(it){ news[sig(it.tx,it.size,it.dong,it.floor,it.dir,it.price_label)]=1; });
+  (d.price_changes||[]).forEach(function(it){
+    // 이전가도 현재가(priceText)와 같은 표기로: 월세는 원문 라벨, 그 외는 fmt+억 (예: 9.5억)
+    var beforeTxt = it.tx==='월세'
+      ? (it.before_label || '')
+      : (it.before!=null ? fmt(it.before)+'억' : (it.before_label || ''));
+    pcs[sig(it.tx,it.size,it.dong,it.floor,it.dir,it.after_label)] =
+      {before:beforeTxt, up:it.after>it.before};
+  });
+  return {news:news, pcs:pcs, sig:sig};
 }
 
 function renderChangeCard(name, diff, color){
@@ -456,7 +526,7 @@ function renderChangeCard(name, diff, color){
   }
   if(!diff.new.length && !diff.gone.length && !diff.price_changes.length) body = '<div class="no-change">변동 없음</div>';
   return '<div class="change-card" style="border-top-color:'+color+'"><div class="change-card-title">'+esc(name)+'</div>'+
-    '<div class="change-card-sub">'+diff.before_count+' → '+diff.after_count+'건</div>'+body+'</div>';
+    '<div class="change-card-sub">'+diff.before_count+' → '+diff.after_count+'건</div>'+changeChips(name)+body+'</div>';
 }
 
 // ── 실거래가 탭 ──
@@ -479,6 +549,24 @@ function txAmount(t){  // 월세는 보증금/월세, 그 외는 억
   if(state.trade==='월세') return (t.price>0?fmt(t.price)+'억':'0')+'/'+t.rent;
   return fmt(t.price)+'억';
 }
+// 실거래가: 이번 수집 신규 거래를 매·전·월 칩으로 (매물 changeChips 와 동일한 칩 구조, 신규 1종만).
+// 실거래(확정 계약)는 소멸·가격변동 개념이 없어 초록 '신규 N'만 표기. 상단 토글과 무관하게 세 유형 동시.
+function txChangeChips(name){
+  var g = (DATA.real_prices||{})[name] || {};
+  var present = {}, neu = {};
+  Object.keys(g).forEach(function(k){
+    if(!g[k] || !g[k].length) return;
+    var tx = k.split('|')[0];
+    present[tx] = 1;
+    g[k].forEach(function(t){ if(t.new) neu[tx] = (neu[tx]||0)+1; });
+  });
+  if(!Object.keys(neu).length) return '';  // 이번 수집 신규 실거래 전무 → 칩 없음
+  var chips = (DATA.trade_labels||[]).filter(function(tx){return present[tx];}).map(function(tx){
+    var c = neu[tx]||0;
+    return '<span class="chg-chip'+(c?' on':'')+'">'+TX_SHORT[tx]+(c?' <span class="chg-n">N'+c+'</span>':'')+'</span>';
+  }).join('');
+  return '<div class="chg-chips">'+chips+'</div>';
+}
 function renderTxCard(name, color){
   var isRent = state.trade==='월세';
   var sizes = txSizes(name);
@@ -490,7 +578,7 @@ function renderTxCard(name, color){
     });
   });
   var recBadge = newRecCnt>0
-    ? '<div class="tx-new-badge">🆕 신고가 '+newRecCnt+'건</div>'
+    ? '<div class="tx-new-badge">🆕 신고가</div>'
     : '<div></div>';
   var types = txTypes(name);
   var typesLine = types.length
@@ -502,6 +590,7 @@ function renderTxCard(name, color){
       '<div class="card-sizes">'+(sizes.length?sizes.map(function(s){return s+'㎡';}).join(' · '):'실거래 없음')+'</div>'+
       typesLine+'</div>'+
       '<div class="card-arrow">→</div></div>'+
+    txChangeChips(name)+
     '<div class="card-bottom"><div><div class="card-count">'+total+'<small>건</small></div>'+
       (!isRent && maxA?'<div class="card-range">최고가 '+fmt(maxA)+'억</div>':'')+'</div>'+recBadge+'</div>'+
     '</button>';
@@ -519,11 +608,12 @@ function renderTxDetail(name, color){
       var rec = t.record ? '<span class="tx-hi-badge">최고가</span> ' : '';
       // 거래방식 배지: 기본(중개거래)은 노이즈라 생략, 직거래/분양권 등만 표기
       var kind = (t.deal_type && t.deal_type!=='중개거래') ? '<span class="tx-kind">'+esc(t.deal_type)+'</span> ' : '';
+      var nb = t.new ? '<span class="tx-n-badge">N</span>' : '';  // 이번 수집 신규 거래
       var cls = t.record ? 'tx-hi' : '';  // 최고가 행은 배경 강조 유지
       // 동(아실) · 타입(네이버 세부 평형명) — 별도 컬럼, 둘 다 일반 텍스트. 없으면 '-'
       var dongTxt = t.dong ? esc(t.dong) : '-';
       var typeTxt = t.unit_type ? esc(t.unit_type) : '-';
-      return '<tr class="'+cls+'"><td>'+esc(t.date)+'</td><td class="dt">'+typeTxt+'</td><td class="dt">'+dongTxt+'</td><td>'+esc(t.floor)+'</td><td class="amt">'+rec+kind+txAmount(t)+'</td></tr>';
+      return '<tr class="'+cls+'"><td>'+esc(t.date)+'</td><td class="dt">'+typeTxt+'</td><td class="dt">'+dongTxt+'</td><td>'+esc(t.floor)+'</td><td class="amt">'+nb+rec+kind+txAmount(t)+'</td></tr>';
     }).join('');
     return '<div class="tx-size"><div class="tx-size-head"><span class="size-badge">'+sz+'㎡</span>'+
       '<span class="size-count">'+sub+'</span></div>'+
@@ -635,7 +725,8 @@ function render(){
 }
 
 function wire(){
-  document.querySelectorAll('[data-trade]').forEach(function(b){ b.onclick=function(){ state.trade=b.getAttribute('data-trade'); state.selected=null; state.gapFilter='all'; render(); scrollTo({top:0,behavior:'smooth'}); }; });
+  // 거래유형 변경 시 선택 단지·보기(매물목록/가격분포)를 유지한다. 해당 거래유형에 매물/실거래가 없으면 render 가 알아서 목록으로 되돌린다.
+  document.querySelectorAll('[data-trade]').forEach(function(b){ b.onclick=function(){ state.trade=b.getAttribute('data-trade'); state.gapFilter='all'; render(); scrollTo({top:0,behavior:'smooth'}); }; });
   document.querySelectorAll('[data-tab]').forEach(function(b){ b.onclick=function(){ state.tab=b.getAttribute('data-tab'); state.selected=null; render(); }; });
   document.querySelectorAll('[data-complex]').forEach(function(b){ b.onclick=function(){ state.selected=b.getAttribute('data-complex'); state.listMode='dist'; render(); scrollTo({top:0,behavior:'smooth'}); }; });
   document.querySelectorAll('[data-gapf]').forEach(function(b){ b.onclick=function(){ state.gapFilter=b.getAttribute('data-gapf'); render(); }; });
