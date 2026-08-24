@@ -1084,7 +1084,8 @@ window.LAND_DATA = {
           "type": "109㎡(전용84)",
           "dir": "남서향",
           "price": 4.5,
-          "price_label": "4억 5,000/110"
+          "price_label": "4억 5,000/110",
+          "unit_type": "109C"
         }
       ],
       "price_changes": []
