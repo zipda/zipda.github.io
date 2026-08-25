@@ -8,10 +8,7 @@
 <meta property="og:title" content="부동산 매물현황 대시보드" />
 <meta property="og:description" content="단지별 매물현황 · 평형별 추이 · 매물 변동을 한눈에 확인하세요." />
 <meta property="og:type" content="website" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<!-- 웹폰트 미사용: OS 기본 시스템 폰트 스택 사용 (참조 대시보드와 동일 글자체) -->
 <style>
   * { box-sizing: border-box; }
   /* ===== 웜 에디토리얼 팔레트 (아이보리 페이퍼 · 에스프레소 · 테라코타) ===== */
@@ -22,8 +19,8 @@
     --accent:#A9572F; --accent-deep:#8A4423; --accent-tint:#F0E1D3;
     --line:#E3DBC9; --line-soft:#ECE5D5; --track:#E7DFCF; --track-soft:#EEE7D7;
     --pos:#3F7D5A; --neg:#B3452F; --info:#3B6E8F; --gold:#B0842B;
-    --font-sans:"Pretendard Variable","Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
-    --font-serif:"Gowun Batang","Nanum Myeongjo",serif;
+    --font-sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    --font-serif:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
     --shadow-sm:0 1px 2px rgba(58,42,24,.05), 0 1px 3px rgba(58,42,24,.04);
     --shadow-md:0 8px 26px rgba(58,42,24,.10), 0 2px 8px rgba(58,42,24,.05);
     --radius:16px;
@@ -88,16 +85,23 @@
     .wrap{padding:30px 16px 60px;}
     .headrow h1{font-size:27px;}
     .grid{grid-template-columns:1fr;}
-    .stats, .stats.four, .stats.two{grid-template-columns:1fr 1fr;}
+    /* 매물현황 매매의 통계 3장(총 매물·갭·세낀·가격 범위)은 모바일에서도 한 줄 */
+    .stats{grid-template-columns:repeat(3,1fr); gap:7px;}
+    .stats.four, .stats.two{grid-template-columns:1fr 1fr;}
+    .stat-card{padding:10px 8px;}
+    .stat-label{font-size:9.5px; margin-bottom:5px; letter-spacing:-.02em;}
+    .stat-value{font-size:16px;}
+    .stat-value small{font-size:9px; margin-left:2px;}
     .tabbar button{font-size:12px; padding:9px 4px;}
     .tx-table{font-size:12px;} .tx-table th, .tx-table td{padding:5px 4px;}
+    .change-table{font-size:11.5px;} .change-table th, .change-table td{padding:8px 6px;}
   }
   .card { position:relative; text-align:left; width:100%; border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); padding:18px 18px 16px; cursor:pointer; box-shadow:var(--shadow-sm); overflow:hidden; transition:transform .2s cubic-bezier(.2,.7,.2,1), box-shadow .2s, border-color .2s; animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
   .card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--faint); }
   .accent { position:absolute; left:0; top:0; bottom:0; width:4px; }
   .card-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; padding-left:9px; }
   .card-name { font-size:17px; font-weight:800; color:var(--ink); letter-spacing:-.01em; }
-  .card-n-badge { display:inline-block; margin-left:7px; background:var(--neg); color:#fff; font-size:11px; font-weight:800; line-height:1; padding:2px 6px; border-radius:999px; vertical-align:middle; }
+  .card-n-badge { display:inline-block; margin-left:7px; background:var(--pos); color:#fff; font-size:11px; font-weight:800; line-height:1; padding:2px 6px; border-radius:999px; vertical-align:middle; }
   .card-sizes { font-size:12px; color:var(--muted); margin-top:4px; font-variant-numeric:tabular-nums; }
   .card-types { font-size:12px; color:var(--muted); margin-top:5px; font-variant-numeric:tabular-nums; }
   .card-arrow { color:var(--faint); font-size:18px; transition:transform .2s, color .2s; }
@@ -124,6 +128,7 @@
   .size-head { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
   .size-badge { background:var(--ink); color:#fff; font-size:12px; font-weight:700; padding:3px 11px; border-radius:999px; font-variant-numeric:tabular-nums; }
   .size-count { font-size:12px; color:var(--muted); font-weight:600; font-variant-numeric:tabular-nums; }
+  .tx-peak { color:var(--accent-deep); font-weight:800; font-size:12.5px; }
   .tx-record-badge { background:var(--accent-tint); color:var(--accent-deep); font-size:12px; font-weight:800; padding:3px 10px; border-radius:999px; text-align:center; }
   .tx-new-badge { background:var(--accent-tint); color:var(--accent-deep); font-size:12px; font-weight:800; padding:3px 10px; border-radius:999px; text-align:center; }
   .tx-size { margin-top:22px; }
@@ -139,28 +144,29 @@
   .tx-table td.amt { white-space:nowrap; }
   .tx-table td:first-child { white-space:nowrap; }
   .tx-kind { display:inline-block; background:var(--track); color:var(--ink-2); font-size:11px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; }
-  .tx-hi-badge { display:inline-block; background:var(--accent); color:#fff; font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; }
-  .tx-n-badge { display:inline-block; background:var(--neg); color:#fff; font-size:10.5px; font-weight:800; padding:1px 6px; border-radius:6px; vertical-align:middle; margin-right:5px; }
+  .tx-hi-badge { display:inline-block; background:var(--accent); color:#fff; font-size:10.5px; font-weight:800; padding:1px 8px; border-radius:6px; vertical-align:middle; box-shadow:0 1px 2px rgba(138,68,35,.25); }
+  .tx-n-badge { display:inline-block; background:var(--pos); color:#fff; font-size:10.5px; font-weight:800; padding:1px 6px; border-radius:6px; vertical-align:middle; margin-right:5px; }
   /* 매물 변동(신규/소멸/가격변동) 색: 초록=신규 · 빨강=소멸 · 골드=가격변동. 추이 평형행 마이크로 카운트에 사용 */
   .chg-micro { display:inline-flex; gap:5px; font-variant-numeric:tabular-nums; }
   .chg-n { color:var(--pos); font-weight:800; }
   .chg-g { color:var(--neg); font-weight:800; }
   .chg-p { color:var(--gold); font-weight:800; }
   /* 상단 거래유형 토글의 업데이트(N) 배지 */
-  .trade-n { display:inline-block; margin-left:5px; background:var(--neg); color:#fff; font-size:9px; font-weight:800; line-height:1; padding:2px 5px; border-radius:999px; vertical-align:middle; }
-  .trade-toggle button.active .trade-n { background:#fff; color:var(--neg); }
+  .trade-n { display:inline-block; margin-left:5px; background:var(--pos); color:#fff; font-size:9px; font-weight:800; line-height:1; padding:2px 5px; border-radius:999px; vertical-align:middle; }
+  .trade-toggle button.active .trade-n { background:#fff; color:var(--pos); }
   .unit-pc { font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink-2); }
   /* 소멸(제거) 매물 행: 흐리게 + 가격 취소선 + 빨간 '제거' 태그 */
-  .tx-table tr.unit-gone td { color:var(--muted); }
+  .tx-table tr.unit-gone td { color:var(--muted); text-decoration:line-through; }
   .tx-table tr.unit-gone td.amt { font-weight:600; }
-  .tx-table tr.unit-gone td.amt s { color:var(--muted); }
+  .tx-table tr.unit-gone .unit-removed { text-decoration:none; }  /* '제거' 배지는 취소선 제외 */
   .unit-removed { display:inline-block; background:var(--info); color:#fff; font-size:10.5px; font-weight:800; padding:1px 6px; border-radius:6px; vertical-align:middle; margin-right:5px; }
   .unit-gap { display:inline-block; background:var(--accent-tint); color:var(--accent-deep); font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; margin-right:6px; }
   /* 좁은 화면에서 표가 넘치면 잘리지 않고 그 표만 가로 스크롤 (detail 은 overflow:hidden) */
   .tx-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
   .tx-table td.dt { color:var(--ink-2); white-space:nowrap; }
-  .tx-table tr.tx-hi td { background:var(--accent-tint); color:var(--accent-deep); font-weight:700; }
-  .tx-table tr.tx-hi td:first-child { border-top-left-radius:7px; border-bottom-left-radius:7px; }
+  .tx-table tr.tx-hi td { background:var(--accent-tint); color:var(--accent-deep); font-weight:800; }
+  .tx-table tr.tx-hi td.amt { color:var(--accent-deep); font-weight:900; }
+  .tx-table tr.tx-hi td:first-child { border-top-left-radius:7px; border-bottom-left-radius:7px; box-shadow:inset 3px 0 0 var(--accent); }
   .tx-table tr.tx-hi td:last-child { border-top-right-radius:7px; border-bottom-right-radius:7px; }
   /* 가격 행: 테이블 레이아웃 → 모든 행이 라벨/건수 열 너비를 공유해 게이지바가 함께 정렬·축소됨 */
   .price-rows { width:100%; border-collapse:collapse; table-layout:auto; font-variant-numeric:tabular-nums; }
@@ -192,13 +198,14 @@
   .trend-block-value { font-size:13px; font-weight:700; color:var(--ink); margin:3px 0 7px; font-variant-numeric:tabular-nums; }
   .spark-dates { display:flex; justify-content:space-between; font-size:9px; color:var(--faint); margin-top:3px; }
 
-  .change-table-wrap { overflow-x:auto; margin-bottom:18px; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow-sm); animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
-  .change-table { width:100%; border-collapse:collapse; background:var(--surface); overflow:hidden; font-size:13px; font-variant-numeric:tabular-nums; }
-  .change-table th, .change-table td { padding:10px 11px; text-align:center; border-bottom:1px solid var(--line-soft); }
-  .change-table th { background:var(--track-soft); color:var(--ink-2); font-weight:700; font-size:11.5px; letter-spacing:.01em; }
+  .change-table-wrap { overflow:hidden; overflow-x:auto; -webkit-overflow-scrolling:touch; margin-bottom:18px; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow-sm); background:var(--surface); animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
+  .change-table { width:100%; border-collapse:collapse; background:var(--surface); font-size:13px; font-variant-numeric:tabular-nums; }
+  .change-table th, .change-table td { padding:10px 9px; text-align:center; border-bottom:1px solid var(--line-soft); white-space:nowrap; }
+  .change-table th { background:var(--ink); color:#fff; font-weight:700; font-size:11.5px; letter-spacing:.02em; }
   .change-table td.name { text-align:left; font-weight:700; color:var(--ink); }
+  .change-table tbody tr:nth-child(even) td { background:#F6F1E6; }
   .change-table tr:last-child td { border-bottom:none; }
-  .change-table tr.total td { font-weight:800; background:var(--track-soft); }
+  .change-table tr.total td { font-weight:800; background:var(--track); border-top:2px solid var(--line); }
   .delta-up { color:var(--neg); font-weight:700; } .delta-down { color:var(--info); font-weight:700; } .delta-flat { color:var(--muted); }
 
   .change-card { background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--faint); border-radius:14px; padding:16px 18px; margin-bottom:14px; box-shadow:var(--shadow-sm); animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
@@ -229,7 +236,7 @@
 </head>
 <body>
 <div class="wrap"><div id="app"><div class="state-msg">데이터를 불러오는 중…</div></div></div>
-<script src="data.js?v=7b3c4ae60df5"></script>
+<script src="data.js?v=b7a868f1f155"></script>
 <script>
 var DATA = null;
 var GAP_COLOR = '#A9572F';  /* --accent 와 동일(인라인 style·SVG 속성용 hex) */
@@ -389,7 +396,7 @@ function unitBlocks(listings, name){
         '<td class="dt">'+esc(g.dong||'-')+'</td>'+
         '<td class="dt">'+esc(g.floor||'-')+'</td>'+
         '<td class="dt">'+esc((g.dir||'-').replace(/향$/,''))+'</td>'+
-        '<td class="amt"><span class="unit-removed">제거</span><s>'+esc(priceText(g))+'</s></td></tr>';
+        '<td class="amt"><span class="unit-removed">제거</span>'+esc(priceText(g))+'</td></tr>';
     }).join('');
     var countTxt = arr.length+'건' + (goneArr.length? ' · 제거 '+goneArr.length : '');
     // 실거래가처럼 평형별로 별도 테이블 + 헤더(타입·동·층·향·가격)
@@ -422,6 +429,10 @@ function renderSizeTrendRow(label, series, color, chg){
   var counts = series.map(function(s){return s.n;});
   var avgs = series.map(function(s){return s.avg;});
   var dates = series.map(function(s){return s.date;});
+  // 날짜 라벨은 시작·마지막만 표기(수집일이 많아도 겹치지 않게). space-between 로 양 끝 정렬.
+  var dateEnds = dates.length<=1
+    ? dates.map(function(d){return '<span>'+d+'</span>';}).join('')
+    : '<span>'+dates[0]+'</span><span>'+dates[dates.length-1]+'</span>';
   var firstN=counts[0], lastN=counts[counts.length-1];
   var validAvgs = avgs.filter(function(v){return v!==null && v!==undefined;});
   var firstAvg = validAvgs.length?validAvgs[0]:null, lastAvg = validAvgs.length?validAvgs[validAvgs.length-1]:null;
@@ -439,10 +450,10 @@ function renderSizeTrendRow(label, series, color, chg){
     '<div class="trend-body">'+
       '<div><div class="trend-block-label">매물 수</div><div class="trend-block-value">'+firstN+'건 → '+lastN+'건</div>'+
         '<div>'+sparkline(counts,color,150,34)+'</div>'+
-        '<div class="spark-dates" style="width:150px;">'+dates.map(function(d){return '<span>'+d+'</span>';}).join('')+'</div></div>'+
+        '<div class="spark-dates" style="width:150px;">'+dateEnds+'</div></div>'+
       '<div><div class="trend-block-label">평균가</div><div class="trend-block-value">'+(firstAvg!==null?fmt(firstAvg)+'억':'-')+' → '+(lastAvg!==null?fmt(lastAvg)+'억':'-')+'</div>'+
         '<div>'+sparkline(avgs,GAP_COLOR,150,34)+'</div>'+
-        '<div class="spark-dates" style="width:150px;">'+dates.map(function(d){return '<span>'+d+'</span>';}).join('')+'</div></div>'+
+        '<div class="spark-dates" style="width:150px;">'+dateEnds+'</div></div>'+
     '</div></div>';
 }
 
@@ -461,7 +472,9 @@ function renderTrendCard(name, sizeSeries, color){
 }
 
 function changeLine(it){
-  return (it.tx?it.tx+' · ':'') + it.size+'㎡ · '+esc(it.dong)+'동 · '+esc(it.floor)+(it.dir&&it.dir!=='-'?' · '+esc(it.dir):'');
+  // 순서: 평형 · 타입 · 동 · 층 · 향. 거래유형(매매/전세/월세)은 상단 버튼으로 구분되므로 생략.
+  var t = it.unit_type ? ' · '+esc(it.unit_type) : '';
+  return it.size+'㎡'+t+' · '+esc(it.dong)+'동 · '+esc(it.floor)+(it.dir&&it.dir!=='-'?' · '+esc(it.dir):'');
 }
 // 금액 표기 통일: 월세는 보증금/월세 원문 라벨, 그 외는 fmt+억(예: 10.5억)
 function amt(it, val, label){ return (it && it.tx==='월세') ? esc(label||'-') : (fmt(val)+'억'); }
@@ -608,7 +621,7 @@ function renderTxDetail(name, color){
     var list = DATA.real_prices[name][state.trade+'|'+sz]||[];
     var total = txTotal(name, state.trade+'|'+sz);  // 실제 전체 건수(표시 제한 무관)
     var maxP = list.reduce(function(m,t){return Math.max(m,t.price);},0);
-    var sub = isRent ? ('총 '+total+'건') : ('총 '+total+'건 · 최고 '+fmt(maxP)+'억');
+    var sub = isRent ? ('총 '+total+'건') : ('총 '+total+'건 · <span class="tx-peak">최고 '+fmt(maxP)+'억</span>');
     var rows = list.map(function(t){
       // 최고가 배지: 직거래 배지와 동일하게 label(pill) 형태로 표기
       var rec = t.record ? '<span class="tx-hi-badge">최고가</span> ' : '';
@@ -725,8 +738,9 @@ function render(){
     '<div class="eyebrow">부동산 매물 리포트</div>'+
     '<div class="headrow"><h1>'+esc(DATA.label)+'</h1>'+
     '<p class="sub">조사일 '+esc((DATA.generated_at||'').slice(0,10))+' · '+complexCount+'개 단지 · 대표매물 '+totalStat.n+'건</p></div>'+
+    tabbar +
     '<div class="trade-toggle">'+tradeBtns+'</div>'+
-    tabbar + body;
+    body;
 
   wire();
 }

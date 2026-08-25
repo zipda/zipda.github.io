@@ -1092,7 +1092,8 @@ window.LAND_DATA = {
           "type": "109㎡(전용84)",
           "dir": "남서향",
           "price": 10.0,
-          "price_label": "10억"
+          "price_label": "10억",
+          "unit_type": "109C"
         },
         {
           "tx": "매매",
@@ -1102,7 +1103,8 @@ window.LAND_DATA = {
           "type": "100㎡(전용77)",
           "dir": "남서향",
           "price": 10.3,
-          "price_label": "10억 3,000"
+          "price_label": "10억 3,000",
+          "unit_type": "100"
         }
       ],
       "gone": [
@@ -1164,7 +1166,8 @@ window.LAND_DATA = {
           "before": 14.0,
           "after": 15.5,
           "before_label": "14억",
-          "after_label": "15억 5,000"
+          "after_label": "15억 5,000",
+          "unit_type": "151B"
         },
         {
           "tx": "매매",
@@ -1178,7 +1181,8 @@ window.LAND_DATA = {
           "before": 15.5,
           "after": 14.0,
           "before_label": "15억 5,000",
-          "after_label": "14억"
+          "after_label": "14억",
+          "unit_type": "151B"
         }
       ]
     }
