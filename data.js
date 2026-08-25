@@ -1,5 +1,5 @@
 window.LAND_DATA = {
-  "generated_at": "2026-08-24T15:00:02+09:00",
+  "generated_at": "2026-08-25T12:22:46+09:00",
   "label": "관심 단지 매물현황",
   "trade_labels": [
     "매매",
@@ -7,8 +7,8 @@ window.LAND_DATA = {
     "월세"
   ],
   "change_dates": {
-    "before": "08.23",
-    "after": "08.24"
+    "before": "08.24",
+    "after": "08.25"
   },
   "colors": {
     "영흥숲푸르지오파크비엔": "#6C7FB5"
@@ -228,9 +228,9 @@ window.LAND_DATA = {
         "size": 117,
         "area": "151㎡(전용117)",
         "unit_type": "151B",
-        "price": 14.0,
-        "price_label": "14억",
-        "price_num": 140000,
+        "price": 15.5,
+        "price_label": "15억 5,000",
+        "price_num": 155000,
         "dong": "109",
         "floor": "고/24",
         "dir": "남동향",
@@ -396,7 +396,7 @@ window.LAND_DATA = {
         "tx": "매매",
         "size": 84,
         "area": "109㎡(전용84)",
-        "unit_type": "109C",
+        "unit_type": "109A",
         "price": 10.0,
         "price_label": "10억",
         "price_num": 100000,
@@ -410,9 +410,9 @@ window.LAND_DATA = {
         "size": 117,
         "area": "151㎡(전용117)",
         "unit_type": "151B",
-        "price": 15.5,
-        "price_label": "15억 5,000",
-        "price_num": 155000,
+        "price": 14.0,
+        "price_label": "14억",
+        "price_num": 140000,
         "dong": "109",
         "floor": "고/24",
         "dir": "남동향",
@@ -485,19 +485,6 @@ window.LAND_DATA = {
       },
       {
         "tx": "매매",
-        "size": 84,
-        "area": "109㎡(전용84)",
-        "unit_type": "109A",
-        "price": 10.0,
-        "price_label": "10억",
-        "price_num": 100000,
-        "dong": "107",
-        "floor": "중/25",
-        "dir": "남동향",
-        "gap": false
-      },
-      {
-        "tx": "매매",
         "size": 117,
         "area": "151㎡(전용117)",
         "unit_type": "151B",
@@ -533,19 +520,6 @@ window.LAND_DATA = {
         "dong": "107",
         "floor": "3/25",
         "dir": "남동향",
-        "gap": false
-      },
-      {
-        "tx": "매매",
-        "size": 77,
-        "area": "100㎡(전용77)",
-        "unit_type": "100",
-        "price": 10.3,
-        "price_label": "10억 3,000",
-        "price_num": 103000,
-        "dong": "108",
-        "floor": "12/25",
-        "dir": "남서향",
         "gap": false
       },
       {
@@ -902,19 +876,6 @@ window.LAND_DATA = {
       {
         "tx": "매매",
         "size": 84,
-        "area": "109㎡(전용84)",
-        "unit_type": "109C",
-        "price": 10.0,
-        "price_label": "10억",
-        "price_num": 100000,
-        "dong": "107",
-        "floor": "16/25",
-        "dir": "남서향",
-        "gap": false
-      },
-      {
-        "tx": "매매",
-        "size": 84,
         "area": "110㎡(전용84)",
         "unit_type": "110D",
         "price": 11.5,
@@ -952,16 +913,29 @@ window.LAND_DATA = {
         "gap": false
       },
       {
-        "tx": "전세",
+        "tx": "매매",
+        "size": 84,
+        "area": "109㎡(전용84)",
+        "unit_type": "109C",
+        "price": 10.0,
+        "price_label": "10억",
+        "price_num": 100000,
+        "dong": "107",
+        "floor": "중/25",
+        "dir": "남서향",
+        "gap": true
+      },
+      {
+        "tx": "매매",
         "size": 77,
         "area": "100㎡(전용77)",
         "unit_type": "100",
-        "price": 6.0,
-        "price_label": "6억",
-        "price_num": 60000,
-        "dong": "110",
-        "floor": "6/25",
-        "dir": "남동향",
+        "price": 10.3,
+        "price_label": "10억 3,000",
+        "price_num": 103000,
+        "dong": "108",
+        "floor": "중/25",
+        "dir": "남서향",
         "gap": false
       }
     ]
@@ -978,6 +952,11 @@ window.LAND_DATA = {
           "date": "08.24",
           "n": 7,
           "avg": 9.51
+        },
+        {
+          "date": "08.25",
+          "n": 7,
+          "avg": 9.51
         }
       ],
       "매매|84": [
@@ -990,6 +969,11 @@ window.LAND_DATA = {
           "date": "08.24",
           "n": 43,
           "avg": 10.45
+        },
+        {
+          "date": "08.25",
+          "n": 42,
+          "avg": 10.46
         }
       ],
       "매매|117": [
@@ -1000,6 +984,11 @@ window.LAND_DATA = {
         },
         {
           "date": "08.24",
+          "n": 12,
+          "avg": 14.39
+        },
+        {
+          "date": "08.25",
           "n": 12,
           "avg": 14.39
         }
@@ -1014,6 +1003,11 @@ window.LAND_DATA = {
           "date": "08.24",
           "n": 1,
           "avg": 4.0
+        },
+        {
+          "date": "08.25",
+          "n": 1,
+          "avg": 4.0
         }
       ],
       "전세|77": [
@@ -1026,6 +1020,11 @@ window.LAND_DATA = {
           "date": "08.24",
           "n": 2,
           "avg": 6.0
+        },
+        {
+          "date": "08.25",
+          "n": 1,
+          "avg": 6.0
         }
       ],
       "전세|84": [
@@ -1036,6 +1035,11 @@ window.LAND_DATA = {
         },
         {
           "date": "08.24",
+          "n": 7,
+          "avg": 7.03
+        },
+        {
+          "date": "08.25",
           "n": 7,
           "avg": 7.03
         }
@@ -1050,6 +1054,11 @@ window.LAND_DATA = {
           "date": "08.24",
           "n": 1,
           "avg": 9.2
+        },
+        {
+          "date": "08.25",
+          "n": 1,
+          "avg": 9.2
         }
       ]
     }
@@ -1057,38 +1066,121 @@ window.LAND_DATA = {
   "changes": {
     "영흥숲푸르지오파크비엔": {
       "counts": {
-        "매매": {
-          "before": 62,
-          "after": 62
-        },
         "월세": {
-          "before": 2,
+          "before": 1,
           "after": 1
         },
         "전세": {
           "before": 10,
-          "after": 10
+          "after": 9
+        },
+        "매매": {
+          "before": 62,
+          "after": 61
         },
         "전체": {
-          "before": 74,
-          "after": 73
+          "before": 73,
+          "after": 71
         }
       },
-      "new": [],
-      "gone": [
+      "new": [
         {
-          "tx": "월세",
+          "tx": "매매",
           "size": 84,
-          "dong": "106",
-          "floor": "고/24",
+          "dong": "107",
+          "floor": "중/25",
           "type": "109㎡(전용84)",
           "dir": "남서향",
-          "price": 4.5,
-          "price_label": "4억 5,000/110",
-          "unit_type": "109C"
+          "price": 10.0,
+          "price_label": "10억"
+        },
+        {
+          "tx": "매매",
+          "size": 77,
+          "dong": "108",
+          "floor": "중/25",
+          "type": "100㎡(전용77)",
+          "dir": "남서향",
+          "price": 10.3,
+          "price_label": "10억 3,000"
         }
       ],
-      "price_changes": []
+      "gone": [
+        {
+          "tx": "매매",
+          "size": 84,
+          "dong": "107",
+          "floor": "중/25",
+          "type": "109㎡(전용84)",
+          "unit_type": "109A",
+          "dir": "남동향",
+          "price": 10.0,
+          "price_label": "10억"
+        },
+        {
+          "tx": "매매",
+          "size": 77,
+          "dong": "108",
+          "floor": "12/25",
+          "type": "100㎡(전용77)",
+          "unit_type": "100",
+          "dir": "남서향",
+          "price": 10.3,
+          "price_label": "10억 3,000"
+        },
+        {
+          "tx": "매매",
+          "size": 84,
+          "dong": "107",
+          "floor": "16/25",
+          "type": "109㎡(전용84)",
+          "unit_type": "109C",
+          "dir": "남서향",
+          "price": 10.0,
+          "price_label": "10억"
+        },
+        {
+          "tx": "전세",
+          "size": 77,
+          "dong": "110",
+          "floor": "6/25",
+          "type": "100㎡(전용77)",
+          "unit_type": "100",
+          "dir": "남동향",
+          "price": 6.0,
+          "price_label": "6억"
+        }
+      ],
+      "price_changes": [
+        {
+          "tx": "매매",
+          "size": 117,
+          "dong": "109",
+          "floor": "고/24",
+          "type": "151㎡(전용117)",
+          "dir": "남동향",
+          "price": 15.5,
+          "price_label": "15억 5,000",
+          "before": 14.0,
+          "after": 15.5,
+          "before_label": "14억",
+          "after_label": "15억 5,000"
+        },
+        {
+          "tx": "매매",
+          "size": 117,
+          "dong": "109",
+          "floor": "고/24",
+          "type": "151㎡(전용117)",
+          "dir": "남동향",
+          "price": 14.0,
+          "price_label": "14억",
+          "before": 15.5,
+          "after": 14.0,
+          "before_label": "15억 5,000",
+          "after_label": "14억"
+        }
+      ]
     }
   },
   "real_prices": {
@@ -1101,6 +1193,7 @@ window.LAND_DATA = {
           "floor": 12,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "106",
           "unit_type": "109A"
@@ -1112,6 +1205,7 @@ window.LAND_DATA = {
           "floor": 2,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "109C"
@@ -1123,6 +1217,7 @@ window.LAND_DATA = {
           "floor": 7,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "108",
           "unit_type": "109A"
@@ -1134,6 +1229,7 @@ window.LAND_DATA = {
           "floor": 6,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "109B"
@@ -1145,6 +1241,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "109C"
@@ -1156,6 +1253,7 @@ window.LAND_DATA = {
           "floor": 15,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "110D"
@@ -1167,6 +1265,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "107",
           "unit_type": "109A"
@@ -1178,6 +1277,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "109B"
@@ -1189,6 +1289,7 @@ window.LAND_DATA = {
           "floor": 2,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": "109A"
@@ -1200,6 +1301,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "109A"
@@ -1211,6 +1313,7 @@ window.LAND_DATA = {
           "floor": 5,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": "109C"
@@ -1222,6 +1325,7 @@ window.LAND_DATA = {
           "floor": 2,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": ""
@@ -1233,6 +1337,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": ""
@@ -1244,6 +1349,7 @@ window.LAND_DATA = {
           "floor": 7,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "111",
           "unit_type": ""
@@ -1255,6 +1361,7 @@ window.LAND_DATA = {
           "floor": 2,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "112",
           "unit_type": ""
@@ -1266,6 +1373,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "107",
           "unit_type": ""
@@ -1277,6 +1385,7 @@ window.LAND_DATA = {
           "floor": 11,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "109B"
@@ -1288,6 +1397,7 @@ window.LAND_DATA = {
           "floor": 20,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "109B"
@@ -1299,6 +1409,7 @@ window.LAND_DATA = {
           "floor": 7,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "106",
           "unit_type": "109C"
@@ -1310,6 +1421,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "109C"
@@ -1321,6 +1433,7 @@ window.LAND_DATA = {
           "floor": 14,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "112",
           "unit_type": ""
@@ -1332,6 +1445,7 @@ window.LAND_DATA = {
           "floor": 17,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": ""
@@ -1343,6 +1457,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "109B"
@@ -1354,6 +1469,7 @@ window.LAND_DATA = {
           "floor": 3,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": ""
@@ -1365,6 +1481,7 @@ window.LAND_DATA = {
           "floor": 3,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "112",
           "unit_type": ""
@@ -1376,6 +1493,7 @@ window.LAND_DATA = {
           "floor": 5,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "107",
           "unit_type": ""
@@ -1387,6 +1505,7 @@ window.LAND_DATA = {
           "floor": 9,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "107",
           "unit_type": ""
@@ -1398,6 +1517,7 @@ window.LAND_DATA = {
           "floor": 24,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "108",
           "unit_type": ""
@@ -1409,6 +1529,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": ""
@@ -1420,6 +1541,7 @@ window.LAND_DATA = {
           "floor": 24,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "110D"
@@ -1431,6 +1553,7 @@ window.LAND_DATA = {
           "floor": 25,
           "record": true,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -1444,6 +1567,7 @@ window.LAND_DATA = {
           "floor": 11,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "149A"
@@ -1455,6 +1579,7 @@ window.LAND_DATA = {
           "floor": 25,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "151B"
@@ -1466,6 +1591,7 @@ window.LAND_DATA = {
           "floor": 24,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "149A"
@@ -1477,6 +1603,7 @@ window.LAND_DATA = {
           "floor": 15,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "151B"
@@ -1488,6 +1615,7 @@ window.LAND_DATA = {
           "floor": 9,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "149A"
@@ -1499,6 +1627,7 @@ window.LAND_DATA = {
           "floor": 21,
           "record": true,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "151B"
@@ -1510,6 +1639,7 @@ window.LAND_DATA = {
           "floor": 6,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "151B"
@@ -1521,6 +1651,7 @@ window.LAND_DATA = {
           "floor": 22,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "151B"
@@ -1532,6 +1663,7 @@ window.LAND_DATA = {
           "floor": 17,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "151B"
@@ -1543,6 +1675,7 @@ window.LAND_DATA = {
           "floor": 16,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": ""
@@ -1554,6 +1687,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -1565,6 +1699,7 @@ window.LAND_DATA = {
           "floor": 11,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "직거래",
           "dong": "",
           "unit_type": ""
@@ -1576,6 +1711,7 @@ window.LAND_DATA = {
           "floor": 13,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "직거래",
           "dong": "",
           "unit_type": ""
@@ -1587,6 +1723,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -1598,6 +1735,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -1609,6 +1747,7 @@ window.LAND_DATA = {
           "floor": 20,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "직거래",
           "dong": "",
           "unit_type": ""
@@ -1620,6 +1759,7 @@ window.LAND_DATA = {
           "floor": 21,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "직거래",
           "dong": "",
           "unit_type": ""
@@ -1633,6 +1773,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "112",
           "unit_type": "109A"
@@ -1644,6 +1785,7 @@ window.LAND_DATA = {
           "floor": 13,
           "record": true,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "109B"
@@ -1655,9 +1797,22 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "111",
           "unit_type": "109A"
+        },
+        {
+          "date": "26.08.07",
+          "price": 9.32,
+          "rent": 0,
+          "floor": 13,
+          "record": false,
+          "new_record": false,
+          "new": true,
+          "deal_type": "중개거래",
+          "dong": "103",
+          "unit_type": "109C"
         },
         {
           "date": "26.08.06",
@@ -1666,6 +1821,7 @@ window.LAND_DATA = {
           "floor": 8,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "109B"
@@ -1677,6 +1833,7 @@ window.LAND_DATA = {
           "floor": 14,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": "109C"
@@ -1688,6 +1845,7 @@ window.LAND_DATA = {
           "floor": 17,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "106",
           "unit_type": "109C"
@@ -1699,6 +1857,7 @@ window.LAND_DATA = {
           "floor": 2,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "109A"
@@ -1710,6 +1869,7 @@ window.LAND_DATA = {
           "floor": 17,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "109B"
@@ -1721,6 +1881,7 @@ window.LAND_DATA = {
           "floor": 24,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "109B"
@@ -1732,6 +1893,7 @@ window.LAND_DATA = {
           "floor": 20,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "107",
           "unit_type": "109A"
@@ -1743,6 +1905,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": "109A"
@@ -1754,6 +1917,7 @@ window.LAND_DATA = {
           "floor": 8,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": "109C"
@@ -1765,6 +1929,7 @@ window.LAND_DATA = {
           "floor": 3,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": "109C"
@@ -1776,6 +1941,7 @@ window.LAND_DATA = {
           "floor": 11,
           "record": true,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "109C"
@@ -1787,6 +1953,7 @@ window.LAND_DATA = {
           "floor": 15,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "109B"
@@ -1798,6 +1965,7 @@ window.LAND_DATA = {
           "floor": 25,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": ""
@@ -1809,6 +1977,7 @@ window.LAND_DATA = {
           "floor": 7,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": ""
@@ -1820,6 +1989,7 @@ window.LAND_DATA = {
           "floor": 15,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": ""
@@ -1831,6 +2001,7 @@ window.LAND_DATA = {
           "floor": 11,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": ""
@@ -1842,6 +2013,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "110D"
@@ -1853,6 +2025,7 @@ window.LAND_DATA = {
           "floor": 5,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": ""
@@ -1864,6 +2037,7 @@ window.LAND_DATA = {
           "floor": 13,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": ""
@@ -1875,6 +2049,7 @@ window.LAND_DATA = {
           "floor": 21,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "107",
           "unit_type": ""
@@ -1886,6 +2061,7 @@ window.LAND_DATA = {
           "floor": 20,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "110D"
@@ -1897,6 +2073,7 @@ window.LAND_DATA = {
           "floor": 17,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "108",
           "unit_type": ""
@@ -1908,6 +2085,7 @@ window.LAND_DATA = {
           "floor": 12,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "111",
           "unit_type": ""
@@ -1919,6 +2097,7 @@ window.LAND_DATA = {
           "floor": 6,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "110D"
@@ -1930,6 +2109,7 @@ window.LAND_DATA = {
           "floor": 12,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": ""
@@ -1941,19 +2121,9 @@ window.LAND_DATA = {
           "floor": 25,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "107",
-          "unit_type": ""
-        },
-        {
-          "date": "25.10.02",
-          "price": 9.2,
-          "rent": 0,
-          "floor": 19,
-          "record": false,
-          "new_record": false,
-          "deal_type": "중개거래",
-          "dong": "111",
           "unit_type": ""
         }
       ],
@@ -1965,6 +2135,7 @@ window.LAND_DATA = {
           "floor": 13,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "109B"
@@ -1976,6 +2147,7 @@ window.LAND_DATA = {
           "floor": 3,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "108",
           "unit_type": "109C"
@@ -1987,6 +2159,7 @@ window.LAND_DATA = {
           "floor": 17,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "109C"
@@ -1998,6 +2171,7 @@ window.LAND_DATA = {
           "floor": 8,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "109A"
@@ -2009,6 +2183,7 @@ window.LAND_DATA = {
           "floor": 19,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "108",
           "unit_type": "109A"
@@ -2020,6 +2195,7 @@ window.LAND_DATA = {
           "floor": 2,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "109A"
@@ -2031,6 +2207,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "109C"
@@ -2042,6 +2219,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": "109A"
@@ -2053,6 +2231,7 @@ window.LAND_DATA = {
           "floor": 8,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": "109A"
@@ -2064,6 +2243,7 @@ window.LAND_DATA = {
           "floor": 21,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "110D"
@@ -2075,6 +2255,7 @@ window.LAND_DATA = {
           "floor": 14,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": "109C"
@@ -2086,6 +2267,7 @@ window.LAND_DATA = {
           "floor": 8,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": ""
@@ -2097,6 +2279,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "110D"
@@ -2108,6 +2291,7 @@ window.LAND_DATA = {
           "floor": 17,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "110D"
@@ -2119,6 +2303,7 @@ window.LAND_DATA = {
           "floor": 13,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2130,6 +2315,7 @@ window.LAND_DATA = {
           "floor": 10,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "111",
           "unit_type": ""
@@ -2141,6 +2327,7 @@ window.LAND_DATA = {
           "floor": 17,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "110D"
@@ -2152,6 +2339,7 @@ window.LAND_DATA = {
           "floor": 14,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "109C"
@@ -2163,6 +2351,7 @@ window.LAND_DATA = {
           "floor": 11,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": ""
@@ -2174,6 +2363,7 @@ window.LAND_DATA = {
           "floor": 16,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "108",
           "unit_type": "109C"
@@ -2185,6 +2375,7 @@ window.LAND_DATA = {
           "floor": 5,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "109B"
@@ -2196,6 +2387,7 @@ window.LAND_DATA = {
           "floor": 7,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": "109C"
@@ -2207,6 +2399,7 @@ window.LAND_DATA = {
           "floor": 11,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "111",
           "unit_type": ""
@@ -2218,6 +2411,7 @@ window.LAND_DATA = {
           "floor": 10,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "107",
           "unit_type": ""
@@ -2229,6 +2423,7 @@ window.LAND_DATA = {
           "floor": 23,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "108",
           "unit_type": ""
@@ -2240,6 +2435,7 @@ window.LAND_DATA = {
           "floor": 9,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": ""
@@ -2251,6 +2447,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": ""
@@ -2262,6 +2459,7 @@ window.LAND_DATA = {
           "floor": 10,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "107",
           "unit_type": ""
@@ -2273,6 +2471,7 @@ window.LAND_DATA = {
           "floor": 3,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "108",
           "unit_type": ""
@@ -2284,6 +2483,7 @@ window.LAND_DATA = {
           "floor": 15,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "110D"
@@ -2297,6 +2497,7 @@ window.LAND_DATA = {
           "floor": 3,
           "record": true,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2308,6 +2509,7 @@ window.LAND_DATA = {
           "floor": 7,
           "record": true,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2319,6 +2521,7 @@ window.LAND_DATA = {
           "floor": 9,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": "100"
@@ -2330,6 +2533,7 @@ window.LAND_DATA = {
           "floor": 3,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "107",
           "unit_type": "100"
@@ -2341,6 +2545,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2352,6 +2557,7 @@ window.LAND_DATA = {
           "floor": 11,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2363,6 +2569,7 @@ window.LAND_DATA = {
           "floor": 25,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2374,6 +2581,7 @@ window.LAND_DATA = {
           "floor": 16,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "직거래",
           "dong": "",
           "unit_type": ""
@@ -2385,6 +2593,7 @@ window.LAND_DATA = {
           "floor": 16,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "직거래",
           "dong": "",
           "unit_type": ""
@@ -2398,6 +2607,7 @@ window.LAND_DATA = {
           "floor": 16,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2409,6 +2619,7 @@ window.LAND_DATA = {
           "floor": 6,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2420,6 +2631,7 @@ window.LAND_DATA = {
           "floor": 9,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2431,6 +2643,7 @@ window.LAND_DATA = {
           "floor": 2,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2442,6 +2655,7 @@ window.LAND_DATA = {
           "floor": 16,
           "record": true,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2453,6 +2667,7 @@ window.LAND_DATA = {
           "floor": 12,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2464,6 +2679,7 @@ window.LAND_DATA = {
           "floor": 12,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2475,6 +2691,7 @@ window.LAND_DATA = {
           "floor": 20,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2486,6 +2703,7 @@ window.LAND_DATA = {
           "floor": 23,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2497,6 +2715,7 @@ window.LAND_DATA = {
           "floor": 11,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2508,6 +2727,7 @@ window.LAND_DATA = {
           "floor": 22,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2519,6 +2739,7 @@ window.LAND_DATA = {
           "floor": 3,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2530,6 +2751,7 @@ window.LAND_DATA = {
           "floor": 15,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2541,6 +2763,7 @@ window.LAND_DATA = {
           "floor": 19,
           "record": true,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2552,6 +2775,7 @@ window.LAND_DATA = {
           "floor": 9,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2563,6 +2787,7 @@ window.LAND_DATA = {
           "floor": 19,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2574,6 +2799,7 @@ window.LAND_DATA = {
           "floor": 23,
           "record": true,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2585,6 +2811,7 @@ window.LAND_DATA = {
           "floor": 17,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2596,6 +2823,7 @@ window.LAND_DATA = {
           "floor": 13,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2607,6 +2835,7 @@ window.LAND_DATA = {
           "floor": 3,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2618,6 +2847,7 @@ window.LAND_DATA = {
           "floor": 5,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2629,6 +2859,7 @@ window.LAND_DATA = {
           "floor": 6,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2640,6 +2871,7 @@ window.LAND_DATA = {
           "floor": 13,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2651,6 +2883,7 @@ window.LAND_DATA = {
           "floor": 6,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2662,6 +2895,7 @@ window.LAND_DATA = {
           "floor": 12,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2673,6 +2907,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2684,6 +2919,7 @@ window.LAND_DATA = {
           "floor": 22,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2695,6 +2931,7 @@ window.LAND_DATA = {
           "floor": 3,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2706,6 +2943,7 @@ window.LAND_DATA = {
           "floor": 23,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2717,6 +2955,7 @@ window.LAND_DATA = {
           "floor": 20,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2730,6 +2969,7 @@ window.LAND_DATA = {
           "floor": 22,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2741,6 +2981,7 @@ window.LAND_DATA = {
           "floor": 6,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2752,6 +2993,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2763,6 +3005,7 @@ window.LAND_DATA = {
           "floor": 24,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2774,6 +3017,7 @@ window.LAND_DATA = {
           "floor": 23,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -2785,6 +3029,7 @@ window.LAND_DATA = {
           "floor": 21,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2796,6 +3041,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2807,6 +3053,7 @@ window.LAND_DATA = {
           "floor": 6,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2818,6 +3065,7 @@ window.LAND_DATA = {
           "floor": 24,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2829,6 +3077,7 @@ window.LAND_DATA = {
           "floor": 21,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2840,6 +3089,7 @@ window.LAND_DATA = {
           "floor": 5,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2853,6 +3103,7 @@ window.LAND_DATA = {
           "floor": 8,
           "record": true,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "149A"
@@ -2864,6 +3115,7 @@ window.LAND_DATA = {
           "floor": 5,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "151B"
@@ -2875,6 +3127,7 @@ window.LAND_DATA = {
           "floor": 12,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "151B"
@@ -2886,6 +3139,7 @@ window.LAND_DATA = {
           "floor": 5,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "151B"
@@ -2897,6 +3151,7 @@ window.LAND_DATA = {
           "floor": 6,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "151B"
@@ -2908,6 +3163,7 @@ window.LAND_DATA = {
           "floor": 10,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": ""
@@ -2919,6 +3175,7 @@ window.LAND_DATA = {
           "floor": 6,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": ""
@@ -2930,6 +3187,7 @@ window.LAND_DATA = {
           "floor": 19,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": ""
@@ -2941,6 +3199,7 @@ window.LAND_DATA = {
           "floor": 10,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": ""
@@ -2952,6 +3211,7 @@ window.LAND_DATA = {
           "floor": 20,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "149A"
@@ -2963,6 +3223,7 @@ window.LAND_DATA = {
           "floor": 22,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": ""
@@ -2974,6 +3235,7 @@ window.LAND_DATA = {
           "floor": 8,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": ""
@@ -2985,6 +3247,7 @@ window.LAND_DATA = {
           "floor": 13,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "149A"
@@ -2996,6 +3259,7 @@ window.LAND_DATA = {
           "floor": 7,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "149A"
@@ -3007,6 +3271,7 @@ window.LAND_DATA = {
           "floor": 14,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": ""
@@ -3018,6 +3283,7 @@ window.LAND_DATA = {
           "floor": 15,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3029,6 +3295,7 @@ window.LAND_DATA = {
           "floor": 16,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": ""
@@ -3040,6 +3307,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": ""
@@ -3051,6 +3319,7 @@ window.LAND_DATA = {
           "floor": 16,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3062,6 +3331,7 @@ window.LAND_DATA = {
           "floor": 24,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3073,6 +3343,7 @@ window.LAND_DATA = {
           "floor": 5,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3084,6 +3355,7 @@ window.LAND_DATA = {
           "floor": 5,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3095,6 +3367,7 @@ window.LAND_DATA = {
           "floor": 17,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3106,6 +3379,7 @@ window.LAND_DATA = {
           "floor": 20,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3117,6 +3391,7 @@ window.LAND_DATA = {
           "floor": 10,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3128,6 +3403,7 @@ window.LAND_DATA = {
           "floor": 25,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3139,6 +3415,7 @@ window.LAND_DATA = {
           "floor": 7,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3150,6 +3427,7 @@ window.LAND_DATA = {
           "floor": 7,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3161,6 +3439,7 @@ window.LAND_DATA = {
           "floor": 13,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3172,6 +3451,7 @@ window.LAND_DATA = {
           "floor": 11,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3185,6 +3465,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "151B"
@@ -3196,6 +3477,7 @@ window.LAND_DATA = {
           "floor": 12,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "149A"
@@ -3207,6 +3489,7 @@ window.LAND_DATA = {
           "floor": 24,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "151B"
@@ -3218,6 +3501,7 @@ window.LAND_DATA = {
           "floor": 22,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "149A"
@@ -3229,6 +3513,7 @@ window.LAND_DATA = {
           "floor": 22,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "151B"
@@ -3240,6 +3525,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "151B"
@@ -3251,6 +3537,7 @@ window.LAND_DATA = {
           "floor": 16,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "151B"
@@ -3262,6 +3549,7 @@ window.LAND_DATA = {
           "floor": 6,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "149A"
@@ -3273,6 +3561,7 @@ window.LAND_DATA = {
           "floor": 12,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "149A"
@@ -3284,6 +3573,7 @@ window.LAND_DATA = {
           "floor": 12,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3295,6 +3585,7 @@ window.LAND_DATA = {
           "floor": 12,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3306,6 +3597,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3317,6 +3609,7 @@ window.LAND_DATA = {
           "floor": 18,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3328,6 +3621,7 @@ window.LAND_DATA = {
           "floor": 4,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3339,6 +3633,7 @@ window.LAND_DATA = {
           "floor": 22,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3350,6 +3645,7 @@ window.LAND_DATA = {
           "floor": 7,
           "record": false,
           "new_record": false,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3360,7 +3656,7 @@ window.LAND_DATA = {
   "real_price_totals": {
     "영흥숲푸르지오파크비엔": {
       "매매|77": 9,
-      "매매|84": 96,
+      "매매|84": 97,
       "매매|117": 17,
       "월세|77": 11,
       "월세|84": 82,
