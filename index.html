@@ -236,7 +236,7 @@
 </head>
 <body>
 <div class="wrap"><div id="app"><div class="state-msg">데이터를 불러오는 중…</div></div></div>
-<script src="data.js?v=d66fe3f8395e"></script>
+<script src="data.js?v=50a4f01f89a7"></script>
 <script>
 var DATA = null;
 var GAP_COLOR = '#A9572F';  /* --accent 와 동일(인라인 style·SVG 속성용 hex) */
@@ -392,11 +392,12 @@ function unitBlocks(listings, name){
     var goneArr = (goneBySize[sz]||[]);
     var goneRows = goneArr.map(function(g){
       // 타입: unit_type 있으면 표기, 없으면 '-' (활성 매물·실거래와 동일. 면적으로 폴백하지 않음)
+      var ggap = g.gap ? '<span class="unit-gap">갭</span>' : '';  // 소멸 매물도 갭 여부 표기
       return '<tr class="unit-gone"><td class="dt">'+(g.unit_type?esc(g.unit_type):'-')+'</td>'+
         '<td class="dt">'+esc(g.dong||'-')+'</td>'+
         '<td class="dt">'+esc(g.floor||'-')+'</td>'+
         '<td class="dt">'+esc((g.dir||'-').replace(/향$/,''))+'</td>'+
-        '<td class="amt"><span class="unit-removed">제거</span>'+esc(priceText(g))+'</td></tr>';
+        '<td class="amt">'+ggap+'<span class="unit-removed">제거</span>'+esc(priceText(g))+'</td></tr>';
     }).join('');
     var countTxt = arr.length+'건' + (goneArr.length? ' · 제거 '+goneArr.length : '');
     // 실거래가처럼 평형별로 별도 테이블 + 헤더(타입·동·층·향·가격)
@@ -472,9 +473,10 @@ function renderTrendCard(name, sizeSeries, color){
 }
 
 function changeLine(it){
-  // 순서: 평형 · 타입 · 동 · 층 · 향. 거래유형(매매/전세/월세)은 상단 버튼으로 구분되므로 생략.
+  // 순서: [갭] 평형 · 타입 · 동 · 층 · 향. 거래유형(매매/전세/월세)은 상단 버튼으로 구분되므로 생략.
+  var g = it.gap ? '<span class="unit-gap">갭</span>' : '';  // 갭·세낀 물건 표기
   var t = it.unit_type ? ' · '+esc(it.unit_type) : '';
-  return it.size+'㎡'+t+' · '+esc(it.dong)+'동 · '+esc(it.floor)+(it.dir&&it.dir!=='-'?' · '+esc(it.dir):'');
+  return g+it.size+'㎡'+t+' · '+esc(it.dong)+'동 · '+esc(it.floor)+(it.dir&&it.dir!=='-'?' · '+esc(it.dir):'');
 }
 // 금액 표기 통일: 월세는 보증금/월세 원문 라벨, 그 외는 fmt+억(예: 10.5억)
 function amt(it, val, label){ return (it && it.tx==='월세') ? esc(label||'-') : (fmt(val)+'억'); }
