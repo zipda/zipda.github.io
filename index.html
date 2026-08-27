@@ -76,6 +76,8 @@
 
   .toolbar { display:flex; align-items:center; justify-content:space-between; gap:8px 10px; flex-wrap:wrap; margin:8px 0 14px; }
   .toolbar-title { font-size:15px; font-weight:800; color:var(--ink); letter-spacing:-.01em; }
+  .date-select { font-family:inherit; font-size:13px; font-weight:700; color:var(--ink); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:5px 10px; cursor:pointer; vertical-align:middle; }
+  .date-select:focus { outline:none; border-color:var(--accent); }
   .gap-toggle { border:none; background:transparent; color:var(--ink-2); padding:6px 14px; border-radius:999px; font-size:12px; font-weight:700; cursor:pointer; white-space:nowrap; transition:color .18s, background .18s; }
   .gap-toggle:hover { color:var(--ink); }
   .gap-toggle.active { background:var(--surface-2); color:var(--accent); box-shadow:var(--shadow-sm); }
@@ -94,7 +96,6 @@
     .stat-value small{font-size:9px; margin-left:2px;}
     .tabbar button{font-size:12px; padding:9px 4px;}
     .tx-table{font-size:12px;} .tx-table th, .tx-table td{padding:5px 4px;}
-    .change-table{font-size:11.5px;} .change-table th, .change-table td{padding:8px 6px;}
   }
   .card { position:relative; text-align:left; width:100%; border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); padding:18px 18px 16px; cursor:pointer; box-shadow:var(--shadow-sm); overflow:hidden; transition:transform .2s cubic-bezier(.2,.7,.2,1), box-shadow .2s, border-color .2s; animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
   .card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--faint); }
@@ -146,20 +147,9 @@
   .tx-kind { display:inline-block; background:var(--track); color:var(--ink-2); font-size:11px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; }
   .tx-hi-badge { display:inline-block; background:var(--accent); color:#fff; font-size:10.5px; font-weight:800; padding:1px 8px; border-radius:6px; vertical-align:middle; box-shadow:0 1px 2px rgba(138,68,35,.25); }
   .tx-n-badge { display:inline-block; background:var(--pos); color:#fff; font-size:10.5px; font-weight:800; padding:1px 6px; border-radius:6px; vertical-align:middle; margin-right:5px; }
-  /* 매물 변동(신규/소멸/가격변동) 색: 초록=신규 · 빨강=소멸 · 골드=가격변동. 추이 평형행 마이크로 카운트에 사용 */
-  .chg-micro { display:inline-flex; gap:5px; font-variant-numeric:tabular-nums; }
-  .chg-n { color:var(--pos); font-weight:800; }
-  .chg-g { color:var(--neg); font-weight:800; }
-  .chg-p { color:var(--gold); font-weight:800; }
   /* 상단 거래유형 토글의 업데이트(N) 배지 */
   .trade-n { display:inline-block; margin-left:5px; background:var(--pos); color:#fff; font-size:9px; font-weight:800; line-height:1; padding:2px 5px; border-radius:999px; vertical-align:middle; }
   .trade-toggle button.active .trade-n { background:#fff; color:var(--pos); }
-  .unit-pc { font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink-2); }
-  /* 소멸(제거) 매물 행: 흐리게 + 가격 취소선 + 빨간 '제거' 태그 */
-  .tx-table tr.unit-gone td { color:var(--muted); text-decoration:line-through; }
-  .tx-table tr.unit-gone td.amt { font-weight:600; }
-  .tx-table tr.unit-gone .unit-removed { text-decoration:none; }  /* '제거' 배지는 취소선 제외 */
-  .unit-removed { display:inline-block; background:var(--info); color:#fff; font-size:10.5px; font-weight:800; padding:1px 6px; border-radius:6px; vertical-align:middle; margin-right:5px; }
   .unit-gap { display:inline-block; background:var(--accent-tint); color:var(--accent-deep); font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; margin-right:6px; }
   /* 좁은 화면에서 표가 넘치면 잘리지 않고 그 표만 가로 스크롤 (detail 은 overflow:hidden) */
   .tx-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
@@ -207,6 +197,13 @@
   .change-table tr:last-child td { border-bottom:none; }
   .change-table tr.total td { font-weight:800; background:var(--track); border-top:2px solid var(--line); }
   .delta-up { color:var(--neg); font-weight:700; } .delta-down { color:var(--info); font-weight:700; } .delta-flat { color:var(--muted); }
+  /* 좁은 화면: 매물변동 표 글자를 줄여 한 번에 최대한 많이 보이게(넘치면 wrap 의 가로 스크롤).
+     base .change-table 규칙 '뒤'에 와야 우선 적용된다(같은 specificity → 나중 선언 우선). */
+  @media (max-width:640px){
+    .change-table { font-size:10px; }
+    .change-table th, .change-table td { padding:6px 3px; }
+    .change-table th { font-size:9px; letter-spacing:0; }
+  }
 
   .change-card { background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--faint); border-radius:14px; padding:16px 18px; margin-bottom:14px; box-shadow:var(--shadow-sm); animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
   .change-card-title { font-size:16px; font-weight:800; letter-spacing:-.01em; }
@@ -236,13 +233,13 @@
 </head>
 <body>
 <div class="wrap"><div id="app"><div class="state-msg">데이터를 불러오는 중…</div></div></div>
-<script src="data.js?v=50a4f01f89a7"></script>
+<script src="data.js?v=f773a37d94d7"></script>
 <script>
 var DATA = null;
 var GAP_COLOR = '#A9572F';  /* --accent 와 동일(인라인 style·SVG 속성용 hex) */
 // gapFilter: 'all' | 'gap' | 'nogap' (매매에서만 적용)
 // listMode: 매물현황 단지 상세의 보기 방식 ('dist'=가격 분포 / 'units'=개별 매물 목록)
-var state = { trade: null, tab: 'tx', selected: null, gapFilter: 'all', listMode: 'dist' };
+var state = { trade: null, tab: 'tx', selected: null, gapFilter: 'all', listMode: 'dist', changeStart: null };
 
 function esc(s){ var d=document.createElement('div'); d.textContent = (s==null?'':s); return d.innerHTML; }
 function fmt(p){ return (Math.round(p*100)/100).toFixed(2).replace(/\.?0+$/, ''); }
@@ -322,7 +319,7 @@ function renderCard(name, listings, color){
     : '<div></div>';
   return '<button class="card" data-complex="'+esc(name)+'">'+
     '<div class="accent" style="background:'+color+'"></div>'+
-    '<div class="card-top"><div><div class="card-name">'+esc(name)+cardN(name)+'</div>'+
+    '<div class="card-top"><div><div class="card-name">'+esc(name)+'</div>'+
       '<div class="card-sizes">'+sizes.map(function(s){return s+'㎡';}).join(' · ')+'</div></div>'+
       '<div class="card-arrow">→</div></div>'+
     '<div class="card-bottom"><div><div class="card-count">'+stat.n+'<small>건</small></div>'+
@@ -355,20 +352,13 @@ function distBlocks(listings, color){
 }
 
 // 매물 목록 — 평형별 실제 매물의 동·층·향·가격(+갭)을 표로. 동 오름차순 → 층 내림차순 정렬.
+// 변동(신규/소멸/가격변동)은 표기하지 않는다 — 변동은 '매물변동' 탭에서만 다룬다.
 function unitBlocks(listings, name){
   name = name || state.selected;
   var isRent = state.trade==='월세';
-  var maps = unitChangeMaps(name);
   var bySize = {};
   listings.forEach(function(l){ (bySize[l.size]=bySize[l.size]||[]).push(l); });
-  // 이번(직전) 수집에서 제거된 매물 — 현재 거래유형만, 평형별. 활성 목록엔 없으므로 별도로 붙인다.
-  var goneBySize = {};
-  (((DATA.changes||{})[name]||{}).gone||[]).forEach(function(g){
-    if(g.tx===state.trade){ (goneBySize[g.size]=goneBySize[g.size]||[]).push(g); }
-  });
-  // 활성 + 소멸 평형 합집합(큰 평형 순) — 전량 제거된 평형도 표시되게
-  var sizes = Array.from(new Set(Object.keys(bySize).concat(Object.keys(goneBySize)).map(Number)))
-    .sort(function(a,b){return b-a;});
+  var sizes = Array.from(new Set(Object.keys(bySize).map(Number))).sort(function(a,b){return b-a;});
   return sizes.map(function(sz){
     var arr = (bySize[sz]||[]).slice().sort(function(a,b){
       var pa=a.price_num||0, pb=b.price_num||0; if(pa!==pb) return pb-pa;  // 가격 높은 순
@@ -376,35 +366,18 @@ function unitBlocks(listings, name){
       return (parseInt(b.floor)||0)-(parseInt(a.floor)||0);
     });
     var rows = arr.map(function(l){
-      var gap = l.gap ? '<span class="unit-gap">갭</span>' : '';  // 가격 왼쪽에 배치
-      // 이번 수집 변동 매칭: 시그니처(거래유형·평형·동·층·향·가격라벨)로 신규/가격변동 표기
-      var sig = maps.sig(l.tx, l.size, l.dong, l.floor, l.dir, l.price_label);
-      var nb = maps.news[sig] ? '<span class="tx-n-badge">N</span>' : '';
-      var pc = maps.pcs[sig];
-      var pcHtml = pc ? '<span class="unit-pc">'+esc(pc.before)+' <span class="'+(pc.up?'arrow-up':'arrow-down')+'">'+(pc.up?'▲':'▼')+'</span></span> ' : '';
+      var gap = l.gap ? '<span class="unit-gap">갭</span>' : '';  // 갭·세낀만 표기(변동 표기 없음)
       return '<tr><td class="dt">'+(l.unit_type?esc(l.unit_type):'-')+'</td>'+
         '<td class="dt">'+esc(l.dong||'-')+'</td>'+
         '<td class="dt">'+esc(l.floor||'-')+'</td>'+
         '<td class="dt">'+esc((l.dir||'-').replace(/향$/,''))+'</td>'+
-        '<td class="amt">'+gap+nb+pcHtml+esc(priceText(l))+'</td></tr>';
+        '<td class="amt">'+gap+esc(priceText(l))+'</td></tr>';
     }).join('');
-    // 소멸 매물: 평형 그룹 맨 아래에 흐리게 + '제거' 태그 + 가격 취소선 (타입은 정보 없어 '-')
-    var goneArr = (goneBySize[sz]||[]);
-    var goneRows = goneArr.map(function(g){
-      // 타입: unit_type 있으면 표기, 없으면 '-' (활성 매물·실거래와 동일. 면적으로 폴백하지 않음)
-      var ggap = g.gap ? '<span class="unit-gap">갭</span>' : '';  // 소멸 매물도 갭 여부 표기
-      return '<tr class="unit-gone"><td class="dt">'+(g.unit_type?esc(g.unit_type):'-')+'</td>'+
-        '<td class="dt">'+esc(g.dong||'-')+'</td>'+
-        '<td class="dt">'+esc(g.floor||'-')+'</td>'+
-        '<td class="dt">'+esc((g.dir||'-').replace(/향$/,''))+'</td>'+
-        '<td class="amt">'+ggap+'<span class="unit-removed">제거</span>'+esc(priceText(g))+'</td></tr>';
-    }).join('');
-    var countTxt = arr.length+'건' + (goneArr.length? ' · 제거 '+goneArr.length : '');
     // 실거래가처럼 평형별로 별도 테이블 + 헤더(타입·동·층·향·가격)
     return '<div class="tx-size"><div class="tx-size-head"><span class="size-badge">'+sz+'㎡</span>'+
-      '<span class="size-count">'+countTxt+'</span></div>'+
+      '<span class="size-count">'+arr.length+'건</span></div>'+
       '<div class="tx-table-wrap"><table class="tx-table"><thead><tr><th>타입</th><th>동</th><th>층</th><th>향</th><th>'+
-      (isRent?'보증금/월세':'가격')+'</th></tr></thead><tbody>'+rows+goneRows+'</tbody></table></div></div>';
+      (isRent?'보증금/월세':'가격')+'</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
   }).join('');
 }
 
@@ -426,7 +399,7 @@ function renderDetail(name, listings, color){
     '<div class="detail-body">'+seg+(blocks||'<div class="no-change">표시할 매물이 없습니다.</div>')+'</div></div>';
 }
 
-function renderSizeTrendRow(label, series, color, chg){
+function renderSizeTrendRow(label, series, color){
   var counts = series.map(function(s){return s.n;});
   var avgs = series.map(function(s){return s.avg;});
   var dates = series.map(function(s){return s.date;});
@@ -445,8 +418,7 @@ function renderSizeTrendRow(label, series, color, chg){
     var cls = d>0?'up':(d<0?'down':'flat');
     avgHtml = '<span class="trend-delta '+cls+'">평균가 '+(d>0?'+':'')+d+'억</span>';
   }
-  var chgHtml = hasAnyChange(chg) ? '<span style="margin-left:7px;">'+changeMicro(chg)+'</span>' : '';
-  return '<div class="size-trend-row"><div class="size-trend-top"><span style="display:flex;align-items:center;"><span class="size-trend-label">'+esc(label)+'</span>'+chgHtml+'</span>'+
+  return '<div class="size-trend-row"><div class="size-trend-top"><span class="size-trend-label">'+esc(label)+'</span>'+
     '<div style="display:flex;gap:6px;"><span class="trend-delta '+nCls+'">매물 '+(nDelta>0?'+':'')+nDelta+'건</span>'+avgHtml+'</div></div>'+
     '<div class="trend-body">'+
       '<div><div class="trend-block-label">매물 수</div><div class="trend-block-value">'+firstN+'건 → '+lastN+'건</div>'+
@@ -466,10 +438,10 @@ function renderTrendCard(name, sizeSeries, color){
   var rows = keys.map(function(k){
     var parts = k.split('|');
     var label = (state.trade==='all'? parts[0]+' ':'') + parts[1] + '㎡';
-    return renderSizeTrendRow(label, sizeSeries[k], color, sizeChange(name, parts[0], +parts[1]));
+    return renderSizeTrendRow(label, sizeSeries[k], color);
   }).join('');
   return '<div class="trend-card"><div class="trend-card-head"><span class="trend-dot" style="background:'+color+'"></span>'+
-    '<span class="trend-card-name">'+esc(name)+'</span>'+cardN(name)+'</div>'+rows+'</div>';
+    '<span class="trend-card-name">'+esc(name)+'</span></div>'+rows+'</div>';
 }
 
 function changeLine(it){
@@ -488,8 +460,6 @@ function changeView(d){
            new:f(d.new), gone:f(d.gone), price_changes:f(d.price_changes) };
 }
 
-// ── 매물 변동(이번 수집 신규/소멸/가격변동) 공통 유틸 ──
-function hasAnyChange(c){ return !!(c && (c.n||c.g||c.p)); }
 // 특정 단지가 현재 탭 기준으로 거래유형 tx 에 '업데이트'가 있는지.
 //  · 실거래가 탭(tx): 이번 수집 신규 실거래(t.new) 존재
 //  · 매물현황/추이/변동 탭: 변동(신규/소멸/가격변동) 존재
@@ -510,39 +480,8 @@ function tradeHasUpdate(tx){
   var names = state.tab==='tx' ? Object.keys(DATA.real_prices||{}) : Object.keys(DATA.changes||{});
   return names.some(function(name){ return complexTradeUpdate(name, tx); });
 }
-// 단지 카드의 N 배지: 현재 선택 거래유형에 이 단지가 업데이트를 갖고 있으면 표시(어느 단지 때문에 토글 N 인지 식별).
+// 단지 카드의 N 배지(실거래가 탭 전용): 현재 거래유형에 새 실거래가 있는 단지면 표시.
 function cardN(name){ return complexTradeUpdate(name, state.trade) ? '<span class="card-n-badge">N</span>' : ''; }
-// 신규/소멸/가격변동 건수를 색 있는 마이크로 카운트로 (+2 −1 ~1)
-function changeMicro(c){
-  if(!hasAnyChange(c)) return '';
-  var m='';
-  if(c.n) m += '<span class="chg-n">+'+c.n+'</span>';
-  if(c.g) m += '<span class="chg-g">−'+c.g+'</span>';
-  if(c.p) m += '<span class="chg-p">~'+c.p+'</span>';
-  return '<span class="chg-micro">'+m+'</span>';
-}
-// 특정 평형(거래유형+size)의 변동 건수 — 추이 행 마킹용
-function sizeChange(name, tx, size){
-  var d = (DATA.changes||{})[name] || {};
-  function cnt(list){ return (list||[]).filter(function(it){return it.tx===tx && (it.size|0)===(size|0);}).length; }
-  return {n:cnt(d.new), g:cnt(d.gone), p:cnt(d.price_changes)};
-}
-// 개별 매물 행 매칭용 시그니처 맵(신규/가격변동) — 상세 '매물 목록'에서 행에 N·▲▼ 표기
-function unitChangeMaps(name){
-  var d = (DATA.changes||{})[name] || {};
-  function sig(tx,size,dong,floor,dir,label){ return [tx,size|0,dong,floor,dir,label].join('|'); }
-  var news={}, pcs={};
-  (d.new||[]).forEach(function(it){ news[sig(it.tx,it.size,it.dong,it.floor,it.dir,it.price_label)]=1; });
-  (d.price_changes||[]).forEach(function(it){
-    // 이전가도 현재가(priceText)와 같은 표기로: 월세는 원문 라벨, 그 외는 fmt+억 (예: 9.5억)
-    var beforeTxt = it.tx==='월세'
-      ? (it.before_label || '')
-      : (it.before!=null ? fmt(it.before)+'억' : (it.before_label || ''));
-    pcs[sig(it.tx,it.size,it.dong,it.floor,it.dir,it.after_label)] =
-      {before:beforeTxt, up:it.after>it.before};
-  });
-  return {news:news, pcs:pcs, sig:sig};
-}
 
 function renderChangeCard(name, diff, color){
   var body='';
@@ -565,7 +504,7 @@ function renderChangeCard(name, diff, color){
     });
   }
   if(!diff.new.length && !diff.gone.length && !diff.price_changes.length) body = '<div class="no-change">변동 없음</div>';
-  return '<div class="change-card" style="border-top-color:'+color+'"><div class="change-card-title">'+esc(name)+cardN(name)+'</div>'+
+  return '<div class="change-card" style="border-top-color:'+color+'"><div class="change-card-title">'+esc(name)+'</div>'+
     '<div class="change-card-sub">'+diff.before_count+' → '+diff.after_count+'건</div>'+body+'</div>';
 }
 
@@ -654,7 +593,9 @@ function render(){
   var totalStat = summarize(allL);
 
   var tradeBtns = DATA.trade_labels.map(function(t){
-    var n = tradeHasUpdate(t) ? '<span class="trade-n">N</span>' : '';  // 현재 탭 기준 업데이트 있으면 N
+    // N 배지는 실거래가(새 실거래)·매물변동(변동)에서만. 매물현황·매물추이엔 표시하지 않는다.
+    // N 배지는 실거래가 탭(새 실거래)에서만. 매물현황·매물추이·매물변동엔 표시하지 않는다.
+    var n = (state.tab==='tx' && tradeHasUpdate(t)) ? '<span class="trade-n">N</span>' : '';
     return '<button class="'+(state.trade===t?'active':'')+'" data-trade="'+t+'">'+t+n+'</button>';
   }).join('');
 
@@ -711,8 +652,25 @@ function render(){
     body += '<div class="toolbar"><div class="toolbar-title">조사일별 평형 변화</div></div>';
     body += cards || '<div class="state-msg">추이 데이터가 없습니다.</div>';
   } else {
+    // 기준일(시작) 선택 — 끝은 항상 최신(고정). 기본 기준일은 직전일(후보 목록의 마지막).
+    var startOpts = DATA.change_starts || [];
+    var startFull = state.changeStart;
+    if(!startFull || !startOpts.some(function(o){return o.v===startFull;}))
+      startFull = startOpts.length ? startOpts[startOpts.length-1].v : null;
+    var curChanges = (startFull && (DATA.changes_by_start||{})[startFull]) || DATA.changes || {};
+    var endLabel = DATA.change_end || (DATA.change_dates||{}).after || '-';
+    // 기준일 선택 UI (후보가 2개 이상일 때만) — 드롭다운으로 기준일을 고르면 '기준일 → 최신일' 비교.
+    // 날짜가 늘어도 공간을 차지하지 않도록 버튼이 아닌 select 로 표시한다.
+    if(startOpts.length>1){
+      var opts = startOpts.map(function(o){
+        return '<option value="'+esc(o.v)+'"'+(o.v===startFull?' selected':'')+'>'+esc(o.l)+'</option>';
+      }).join('');
+      body += '<div class="toolbar"><div class="toolbar-title">기준일 '+
+        '<select class="date-select" id="changeStartSel" aria-label="비교 기준일">'+opts+'</select> '+
+        '<span style="color:var(--muted);font-weight:600;font-size:12px;">→ '+esc(endLabel)+' (최신)</span></div></div>';
+    }
     var views = {};
-    Object.keys(DATA.changes).forEach(function(n){ views[n]=changeView(DATA.changes[n]); });
+    Object.keys(curChanges).forEach(function(n){ views[n]=changeView(curChanges[n]); });
     var chNames = Object.keys(views).sort(function(a,b){return views[b].after_count-views[a].after_count;});
     var totB=0,totA=0,totNew=0,totGone=0,totPc=0;
     chNames.forEach(function(n){var d=views[n]; totB+=d.before_count; totA+=d.after_count; totNew+=d.new.length; totGone+=d.gone.length; totPc+=d.price_changes.length;});
@@ -730,7 +688,7 @@ function render(){
     }).join('');
     var tdCls = totDelta>0?'delta-up':(totDelta<0?'delta-down':'delta-flat');
     var tdTxt = totDelta>0?('▲'+totDelta):(totDelta<0?('▼'+Math.abs(totDelta)):'-');
-    body += '<div class="change-table-wrap"><table class="change-table"><thead><tr><th>단지</th><th>'+DATA.change_dates.before+'</th><th>'+DATA.change_dates.after+'</th><th>증감</th><th>신규</th><th>소멸</th><th>가격변동</th></tr></thead><tbody>'+
+    body += '<div class="change-table-wrap"><table class="change-table"><thead><tr><th>단지</th><th>기준</th><th>최신</th><th>증감</th><th>신규</th><th>소멸</th><th>가격변동</th></tr></thead><tbody>'+
       trows+'<tr class="total"><td class="name">합계</td><td>'+totB+'</td><td>'+totA+'</td><td class="'+tdCls+'">'+tdTxt+'</td><td>'+totNew+'</td><td>'+totGone+'</td><td>'+totPc+'</td></tr></tbody></table></div>';
     body += chNames.map(function(n){return renderChangeCard(n,views[n],colorOf(n));}).join('');
   }
@@ -754,6 +712,7 @@ function wire(){
   document.querySelectorAll('[data-complex]').forEach(function(b){ b.onclick=function(){ state.selected=b.getAttribute('data-complex'); state.listMode='dist'; render(); scrollTo({top:0,behavior:'smooth'}); }; });
   document.querySelectorAll('[data-gapf]').forEach(function(b){ b.onclick=function(){ state.gapFilter=b.getAttribute('data-gapf'); render(); }; });
   document.querySelectorAll('[data-listmode]').forEach(function(b){ b.onclick=function(){ state.listMode=b.getAttribute('data-listmode'); render(); }; });
+  var csSel=document.getElementById('changeStartSel'); if(csSel) csSel.onchange=function(){ state.changeStart=this.value; render(); };
   var back=document.getElementById('backBtn'); if(back) back.onclick=function(){ state.selected=null; render(); };
 }
 
