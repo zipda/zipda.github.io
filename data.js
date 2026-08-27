@@ -1,5 +1,5 @@
 window.LAND_DATA = {
-  "generated_at": "2026-08-26T17:04:23+09:00",
+  "generated_at": "2026-08-27T09:57:40+09:00",
   "label": "관심 단지 매물현황",
   "trade_labels": [
     "매매",
@@ -7,8 +7,8 @@ window.LAND_DATA = {
     "월세"
   ],
   "change_dates": {
-    "before": "08.25",
-    "after": "08.26"
+    "before": "08.26",
+    "after": "08.27"
   },
   "colors": {
     "영흥숲푸르지오파크비엔": "#6C7FB5"
@@ -117,19 +117,6 @@ window.LAND_DATA = {
         "dong": "101",
         "floor": "9/25",
         "dir": "남동향",
-        "gap": false
-      },
-      {
-        "tx": "매매",
-        "size": 84,
-        "area": "109㎡(전용84)",
-        "unit_type": "109B",
-        "price": 9.9,
-        "price_label": "9억 9,000",
-        "price_num": 99000,
-        "dong": "105",
-        "floor": "10/23",
-        "dir": "남서향",
         "gap": false
       },
       {
@@ -566,9 +553,9 @@ window.LAND_DATA = {
         "size": 84,
         "area": "110㎡(전용84)",
         "unit_type": "110D",
-        "price": 4.0,
-        "price_label": "4억/150",
-        "price_num": 40000,
+        "price": 2.0,
+        "price_label": "2억/250",
+        "price_num": 20000,
         "dong": "103",
         "floor": "고/25",
         "dir": "남동향",
@@ -852,9 +839,9 @@ window.LAND_DATA = {
         "size": 84,
         "area": "109㎡(전용84)",
         "unit_type": "109C",
-        "price": 11.0,
-        "price_label": "11억",
-        "price_num": 110000,
+        "price": 11.5,
+        "price_label": "11억 5,000",
+        "price_num": 115000,
         "dong": "103",
         "floor": "저/25",
         "dir": "남서향",
@@ -962,6 +949,11 @@ window.LAND_DATA = {
           "date": "08.26",
           "n": 7,
           "avg": 9.51
+        },
+        {
+          "date": "08.27",
+          "n": 7,
+          "avg": 9.51
         }
       ],
       "매매|84": [
@@ -984,6 +976,11 @@ window.LAND_DATA = {
           "date": "08.26",
           "n": 42,
           "avg": 10.49
+        },
+        {
+          "date": "08.27",
+          "n": 41,
+          "avg": 10.51
         }
       ],
       "매매|117": [
@@ -1004,6 +1001,11 @@ window.LAND_DATA = {
         },
         {
           "date": "08.26",
+          "n": 12,
+          "avg": 14.39
+        },
+        {
+          "date": "08.27",
           "n": 12,
           "avg": 14.39
         }
@@ -1028,6 +1030,11 @@ window.LAND_DATA = {
           "date": "08.26",
           "n": 1,
           "avg": 4.0
+        },
+        {
+          "date": "08.27",
+          "n": 1,
+          "avg": 2.0
         }
       ],
       "전세|77": [
@@ -1050,6 +1057,11 @@ window.LAND_DATA = {
           "date": "08.26",
           "n": 1,
           "avg": 6.0
+        },
+        {
+          "date": "08.27",
+          "n": 1,
+          "avg": 6.0
         }
       ],
       "전세|84": [
@@ -1070,6 +1082,11 @@ window.LAND_DATA = {
         },
         {
           "date": "08.26",
+          "n": 7,
+          "avg": 7.03
+        },
+        {
+          "date": "08.27",
           "n": 7,
           "avg": 7.03
         }
@@ -1094,6 +1111,11 @@ window.LAND_DATA = {
           "date": "08.26",
           "n": 1,
           "avg": 9.2
+        },
+        {
+          "date": "08.27",
+          "n": 1,
+          "avg": 9.2
         }
       ]
     }
@@ -1103,68 +1125,65 @@ window.LAND_DATA = {
       "counts": {
         "매매": {
           "before": 61,
-          "after": 61
-        },
-        "월세": {
-          "before": 1,
-          "after": 1
+          "after": 60
         },
         "전세": {
           "before": 9,
           "after": 9
         },
+        "월세": {
+          "before": 1,
+          "after": 1
+        },
         "전체": {
           "before": 71,
-          "after": 71
+          "after": 70
         }
       },
       "new": [],
-      "gone": [],
+      "gone": [
+        {
+          "tx": "매매",
+          "size": 84,
+          "dong": "105",
+          "floor": "10/23",
+          "type": "109㎡(전용84)",
+          "unit_type": "109B",
+          "dir": "남서향",
+          "price": 9.9,
+          "price_label": "9억 9,000"
+        }
+      ],
       "price_changes": [
         {
           "tx": "매매",
           "size": 84,
           "dong": "103",
-          "floor": "고/25",
+          "floor": "저/25",
           "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남동향",
-          "price": 11.6,
-          "price_label": "11억 6,000",
+          "unit_type": "109C",
+          "dir": "남서향",
+          "price": 11.5,
+          "price_label": "11억 5,000",
           "before": 11.0,
-          "after": 11.6,
+          "after": 11.5,
           "before_label": "11억",
-          "after_label": "11억 6,000"
+          "after_label": "11억 5,000"
         },
         {
-          "tx": "매매",
+          "tx": "월세",
           "size": 84,
           "dong": "103",
           "floor": "고/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109C",
+          "type": "110㎡(전용84)",
+          "unit_type": "110D",
           "dir": "남동향",
-          "price": 11.0,
-          "price_label": "11억",
-          "before": 11.6,
-          "after": 11.0,
-          "before_label": "11억 6,000",
-          "after_label": "11억"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "107",
-          "floor": "중/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남동향",
-          "price": 11.0,
-          "price_label": "11억",
-          "before": 10.0,
-          "after": 11.0,
-          "before_label": "10억",
-          "after_label": "11억"
+          "price": 2.0,
+          "price_label": "2억/250",
+          "before": 4.0,
+          "after": 2.0,
+          "before_label": "4억/150",
+          "after_label": "2억/250"
         }
       ]
     }
@@ -1172,6 +1191,18 @@ window.LAND_DATA = {
   "real_prices": {
     "영흥숲푸르지오파크비엔": {
       "전세|84": [
+        {
+          "date": "26.08.26",
+          "price": 6.9,
+          "rent": 0,
+          "floor": 20,
+          "record": false,
+          "new_record": false,
+          "new": true,
+          "deal_type": "중개거래",
+          "dong": "112",
+          "unit_type": "109A"
+        },
         {
           "date": "26.08.21",
           "price": 6.5,
@@ -1519,18 +1550,6 @@ window.LAND_DATA = {
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": ""
-        },
-        {
-          "date": "25.12.20",
-          "price": 5.78,
-          "rent": 0,
-          "floor": 24,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "102",
-          "unit_type": "110D"
         },
         {
           "date": "24.10.14",
@@ -3648,7 +3667,7 @@ window.LAND_DATA = {
       "월세|84": 82,
       "월세|117": 16,
       "전세|77": 41,
-      "전세|84": 305,
+      "전세|84": 306,
       "전세|117": 38
     }
   }
