@@ -592,11 +592,24 @@ function render(){
   var allL = []; names.forEach(function(n){ allL = allL.concat(listings[n]); });
   var totalStat = summarize(allL);
 
+  // 매물변동: 선택된 기준일 창(_cw). 기본은 직전일(어제). 드롭다운 변경 시 render() 로 재계산되어 동적.
+  var _csOpts = DATA.change_starts || [];
+  var _cs = state.changeStart;
+  if(!_cs || !_csOpts.some(function(o){return o.v===_cs;})) _cs = _csOpts.length ? _csOpts[_csOpts.length-1].v : null;
+  var _cw = (_cs && (DATA.changes_by_start||{})[_cs]) || DATA.changes || {};
+  function _winTradeChange(tx){  // 그 창에서 거래유형 tx 에 변동(신규/소멸/가격변동)이 있나
+    return Object.keys(_cw).some(function(n){
+      var c=_cw[n]||{};
+      return ['new','gone','price_changes'].some(function(k){
+        return (c[k]||[]).some(function(it){return it.tx===tx;});
+      });
+    });
+  }
+
   var tradeBtns = DATA.trade_labels.map(function(t){
-    // N 배지는 실거래가(새 실거래)·매물변동(변동)에서만. 매물현황·매물추이엔 표시하지 않는다.
-    // N 배지는 실거래가 탭(새 실거래)에서만. 매물현황·매물추이·매물변동엔 표시하지 않는다.
-    var n = (state.tab==='tx' && tradeHasUpdate(t)) ? '<span class="trade-n">N</span>' : '';
-    return '<button class="'+(state.trade===t?'active':'')+'" data-trade="'+t+'">'+t+n+'</button>';
+    // N: 실거래가 탭=새 실거래 / 매물변동 탭=선택 기준일 창의 해당 거래유형 변동. (매물현황·매물추이엔 없음)
+    var hasN = (state.tab==='tx' && tradeHasUpdate(t)) || (state.tab==='changes' && _winTradeChange(t));
+    return '<button class="'+(state.trade===t?'active':'')+'" data-trade="'+t+'">'+t+(hasN?'<span class="trade-n">N</span>':'')+'</button>';
   }).join('');
 
   var tabbar = '<div class="tabbar">'+
