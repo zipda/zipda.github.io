@@ -1,5 +1,5 @@
 window.LAND_DATA = {
-  "generated_at": "2026-08-28T12:33:52+09:00",
+  "generated_at": "2026-08-28T18:42:56+09:00",
   "label": "관심 단지 매물현황",
   "trade_labels": [
     "매매",
@@ -82,78 +82,6 @@ window.LAND_DATA = {
             "gap": false,
             "price": 11.0,
             "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "102",
-            "floor": "21/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남서향",
-            "gap": true,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "113",
-            "floor": "16/21",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.7,
-            "price_label": "9억 7,000"
-          },
-          {
-            "tx": "전세",
-            "size": 77,
-            "dong": "110",
-            "floor": "6/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 6.0,
-            "price_label": "6억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "102",
-            "floor": "고/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109B",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "110",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.0,
-            "price_label": "10억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "106",
-            "floor": "저/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.5,
-            "price_label": "10억 5,000"
           }
         ],
         "gone": [
@@ -232,54 +160,6 @@ window.LAND_DATA = {
           {
             "tx": "매매",
             "size": 84,
-            "dong": "113",
-            "floor": "16/21",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.7,
-            "price_label": "9억 7,000"
-          },
-          {
-            "tx": "전세",
-            "size": 77,
-            "dong": "110",
-            "floor": "6/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 6.0,
-            "price_label": "6억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "110",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.0,
-            "price_label": "10억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "102",
-            "floor": "고/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109B",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
             "dong": "106",
             "floor": "중/24",
             "type": "109㎡(전용84)",
@@ -288,18 +168,6 @@ window.LAND_DATA = {
             "gap": false,
             "price": 10.5,
             "price_label": "10억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "106",
-            "floor": "저/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.0,
-            "price_label": "10억"
           },
           {
             "tx": "전세",
@@ -321,18 +189,6 @@ window.LAND_DATA = {
             "type": "109㎡(전용84)",
             "unit_type": "109A",
             "dir": "남동향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "102",
-            "floor": "21/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남서향",
             "gap": false,
             "price": 11.0,
             "price_label": "11억"
@@ -380,12 +236,44 @@ window.LAND_DATA = {
             "unit_type": "110D",
             "dir": "남동향",
             "gap": false,
-            "price": 2.0,
-            "price_label": "2억/250",
+            "price": 3.0,
+            "price_label": "3억/200",
             "before": 4.0,
-            "after": 2.0,
+            "after": 3.0,
             "before_label": "4억/150",
-            "after_label": "2억/250"
+            "after_label": "3억/200"
+          },
+          {
+            "tx": "매매",
+            "size": 84,
+            "dong": "104",
+            "floor": "고/25",
+            "type": "110㎡(전용84)",
+            "unit_type": "110D",
+            "dir": "남서향",
+            "gap": true,
+            "price": 9.5,
+            "price_label": "9억 5,000",
+            "before": 9.49,
+            "after": 9.5,
+            "before_label": "9억 4,900",
+            "after_label": "9억 5,000"
+          },
+          {
+            "tx": "매매",
+            "size": 84,
+            "dong": "106",
+            "floor": "저/24",
+            "type": "109㎡(전용84)",
+            "unit_type": "109A",
+            "dir": "남서향",
+            "gap": false,
+            "price": 10.5,
+            "price_label": "10억 5,000",
+            "before": 10.0,
+            "after": 10.5,
+            "before_label": "10억",
+            "after_label": "10억 5,000"
           },
           {
             "tx": "매매",
@@ -438,78 +326,6 @@ window.LAND_DATA = {
             "gap": false,
             "price": 11.0,
             "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "102",
-            "floor": "21/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남서향",
-            "gap": true,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "113",
-            "floor": "16/21",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.7,
-            "price_label": "9억 7,000"
-          },
-          {
-            "tx": "전세",
-            "size": 77,
-            "dong": "110",
-            "floor": "6/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 6.0,
-            "price_label": "6억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "102",
-            "floor": "고/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109B",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "110",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.0,
-            "price_label": "10억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "106",
-            "floor": "저/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.5,
-            "price_label": "10억 5,000"
           }
         ],
         "gone": [
@@ -528,54 +344,6 @@ window.LAND_DATA = {
           {
             "tx": "매매",
             "size": 84,
-            "dong": "113",
-            "floor": "16/21",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.7,
-            "price_label": "9억 7,000"
-          },
-          {
-            "tx": "전세",
-            "size": 77,
-            "dong": "110",
-            "floor": "6/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 6.0,
-            "price_label": "6억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "110",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.0,
-            "price_label": "10억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "102",
-            "floor": "고/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109B",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
             "dong": "106",
             "floor": "중/24",
             "type": "109㎡(전용84)",
@@ -584,18 +352,6 @@ window.LAND_DATA = {
             "gap": false,
             "price": 10.5,
             "price_label": "10억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "106",
-            "floor": "저/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.0,
-            "price_label": "10억"
           },
           {
             "tx": "전세",
@@ -617,18 +373,6 @@ window.LAND_DATA = {
             "type": "109㎡(전용84)",
             "unit_type": "109A",
             "dir": "남동향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "102",
-            "floor": "21/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남서향",
             "gap": false,
             "price": 11.0,
             "price_label": "11억"
@@ -676,12 +420,44 @@ window.LAND_DATA = {
             "unit_type": "110D",
             "dir": "남동향",
             "gap": false,
-            "price": 2.0,
-            "price_label": "2억/250",
+            "price": 3.0,
+            "price_label": "3억/200",
             "before": 4.0,
-            "after": 2.0,
+            "after": 3.0,
             "before_label": "4억/150",
-            "after_label": "2억/250"
+            "after_label": "3억/200"
+          },
+          {
+            "tx": "매매",
+            "size": 84,
+            "dong": "104",
+            "floor": "고/25",
+            "type": "110㎡(전용84)",
+            "unit_type": "110D",
+            "dir": "남서향",
+            "gap": true,
+            "price": 9.5,
+            "price_label": "9억 5,000",
+            "before": 9.49,
+            "after": 9.5,
+            "before_label": "9억 4,900",
+            "after_label": "9억 5,000"
+          },
+          {
+            "tx": "매매",
+            "size": 84,
+            "dong": "106",
+            "floor": "저/24",
+            "type": "109㎡(전용84)",
+            "unit_type": "109A",
+            "dir": "남서향",
+            "gap": false,
+            "price": 10.5,
+            "price_label": "10억 5,000",
+            "before": 10.0,
+            "after": 10.5,
+            "before_label": "10억",
+            "after_label": "10억 5,000"
           },
           {
             "tx": "매매",
@@ -722,66 +498,40 @@ window.LAND_DATA = {
             "after": 68
           }
         },
-        "new": [
+        "new": [],
+        "gone": [],
+        "price_changes": [
+          {
+            "tx": "월세",
+            "size": 84,
+            "dong": "103",
+            "floor": "고/25",
+            "type": "110㎡(전용84)",
+            "unit_type": "110D",
+            "dir": "남동향",
+            "gap": false,
+            "price": 3.0,
+            "price_label": "3억/200",
+            "before": 2.0,
+            "after": 3.0,
+            "before_label": "2억/250",
+            "after_label": "3억/200"
+          },
           {
             "tx": "매매",
             "size": 84,
-            "dong": "102",
-            "floor": "21/25",
+            "dong": "104",
+            "floor": "고/25",
             "type": "110㎡(전용84)",
             "unit_type": "110D",
             "dir": "남서향",
             "gap": true,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "113",
-            "floor": "16/21",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.7,
-            "price_label": "9억 7,000"
-          },
-          {
-            "tx": "전세",
-            "size": 77,
-            "dong": "110",
-            "floor": "6/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 6.0,
-            "price_label": "6억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "102",
-            "floor": "고/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109B",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "110",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.0,
-            "price_label": "10억"
+            "price": 9.5,
+            "price_label": "9억 5,000",
+            "before": 9.49,
+            "after": 9.5,
+            "before_label": "9억 4,900",
+            "after_label": "9억 5,000"
           },
           {
             "tx": "매매",
@@ -793,120 +543,13 @@ window.LAND_DATA = {
             "dir": "남서향",
             "gap": false,
             "price": 10.5,
-            "price_label": "10억 5,000"
+            "price_label": "10억 5,000",
+            "before": 10.0,
+            "after": 10.5,
+            "before_label": "10억",
+            "after_label": "10억 5,000"
           }
-        ],
-        "gone": [
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "113",
-            "floor": "16/21",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.7,
-            "price_label": "9억 7,000"
-          },
-          {
-            "tx": "전세",
-            "size": 77,
-            "dong": "110",
-            "floor": "6/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 6.0,
-            "price_label": "6억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "110",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.0,
-            "price_label": "10억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "102",
-            "floor": "고/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109B",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "106",
-            "floor": "중/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.5,
-            "price_label": "10억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "106",
-            "floor": "저/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.0,
-            "price_label": "10억"
-          },
-          {
-            "tx": "전세",
-            "size": 84,
-            "dong": "106",
-            "floor": "고/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남서향",
-            "gap": false,
-            "price": 6.7,
-            "price_label": "6억 7,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "108",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남동향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "102",
-            "floor": "21/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          }
-        ],
-        "price_changes": []
+        ]
       }
     }
   },
@@ -940,6 +583,32 @@ window.LAND_DATA = {
         "floor": "21/25",
         "dir": "남동향",
         "gap": true
+      },
+      {
+        "tx": "매매",
+        "size": 84,
+        "area": "109㎡(전용84)",
+        "unit_type": "109A",
+        "price": 9.7,
+        "price_label": "9억 7,000",
+        "price_num": 97000,
+        "dong": "113",
+        "floor": "16/21",
+        "dir": "남서향",
+        "gap": false
+      },
+      {
+        "tx": "전세",
+        "size": 77,
+        "area": "100㎡(전용77)",
+        "unit_type": "100",
+        "price": 6.0,
+        "price_label": "6억",
+        "price_num": 60000,
+        "dong": "110",
+        "floor": "6/25",
+        "dir": "남서향",
+        "gap": false
       },
       {
         "tx": "매매",
@@ -1167,6 +836,19 @@ window.LAND_DATA = {
         "size": 84,
         "area": "109㎡(전용84)",
         "unit_type": "109A",
+        "price": 10.0,
+        "price_label": "10억",
+        "price_num": 100000,
+        "dong": "110",
+        "floor": "중/25",
+        "dir": "남서향",
+        "gap": false
+      },
+      {
+        "tx": "매매",
+        "size": 84,
+        "area": "109㎡(전용84)",
+        "unit_type": "109A",
         "price": 11.0,
         "price_label": "11억",
         "price_num": 110000,
@@ -1212,6 +894,19 @@ window.LAND_DATA = {
         "dong": "103",
         "floor": "저/25",
         "dir": "남동향",
+        "gap": false
+      },
+      {
+        "tx": "매매",
+        "size": 84,
+        "area": "109㎡(전용84)",
+        "unit_type": "109B",
+        "price": 11.0,
+        "price_label": "11억",
+        "price_num": 110000,
+        "dong": "102",
+        "floor": "고/25",
+        "dir": "남서향",
         "gap": false
       },
       {
@@ -1388,9 +1083,9 @@ window.LAND_DATA = {
         "size": 84,
         "area": "110㎡(전용84)",
         "unit_type": "110D",
-        "price": 2.0,
-        "price_label": "2억/250",
-        "price_num": 20000,
+        "price": 3.0,
+        "price_label": "3억/200",
+        "price_num": 30000,
         "dong": "103",
         "floor": "고/25",
         "dir": "남동향",
@@ -1427,13 +1122,26 @@ window.LAND_DATA = {
         "size": 84,
         "area": "110㎡(전용84)",
         "unit_type": "110D",
-        "price": 9.49,
-        "price_label": "9억 4,900",
-        "price_num": 94900,
+        "price": 9.5,
+        "price_label": "9억 5,000",
+        "price_num": 95000,
         "dong": "104",
         "floor": "고/25",
         "dir": "남서향",
         "gap": true
+      },
+      {
+        "tx": "매매",
+        "size": 84,
+        "area": "109㎡(전용84)",
+        "unit_type": "109A",
+        "price": 10.5,
+        "price_label": "10억 5,000",
+        "price_num": 105000,
+        "dong": "106",
+        "floor": "저/24",
+        "dir": "남서향",
+        "gap": false
       },
       {
         "tx": "매매",
@@ -1620,6 +1328,19 @@ window.LAND_DATA = {
       {
         "tx": "매매",
         "size": 84,
+        "area": "110㎡(전용84)",
+        "unit_type": "110D",
+        "price": 11.0,
+        "price_label": "11억",
+        "price_num": 110000,
+        "dong": "102",
+        "floor": "21/25",
+        "dir": "남서향",
+        "gap": true
+      },
+      {
+        "tx": "매매",
+        "size": 84,
         "area": "109㎡(전용84)",
         "unit_type": "109C",
         "price": 11.5,
@@ -1718,84 +1439,6 @@ window.LAND_DATA = {
         "price_num": 110000,
         "dong": "108",
         "floor": "중/25",
-        "dir": "남서향",
-        "gap": false
-      },
-      {
-        "tx": "매매",
-        "size": 84,
-        "area": "110㎡(전용84)",
-        "unit_type": "110D",
-        "price": 11.0,
-        "price_label": "11억",
-        "price_num": 110000,
-        "dong": "102",
-        "floor": "21/25",
-        "dir": "남서향",
-        "gap": true
-      },
-      {
-        "tx": "매매",
-        "size": 84,
-        "area": "109㎡(전용84)",
-        "unit_type": "109A",
-        "price": 9.7,
-        "price_label": "9억 7,000",
-        "price_num": 97000,
-        "dong": "113",
-        "floor": "16/21",
-        "dir": "남서향",
-        "gap": false
-      },
-      {
-        "tx": "전세",
-        "size": 77,
-        "area": "100㎡(전용77)",
-        "unit_type": "100",
-        "price": 6.0,
-        "price_label": "6억",
-        "price_num": 60000,
-        "dong": "110",
-        "floor": "6/25",
-        "dir": "남서향",
-        "gap": false
-      },
-      {
-        "tx": "매매",
-        "size": 84,
-        "area": "109㎡(전용84)",
-        "unit_type": "109B",
-        "price": 11.0,
-        "price_label": "11억",
-        "price_num": 110000,
-        "dong": "102",
-        "floor": "고/25",
-        "dir": "남서향",
-        "gap": false
-      },
-      {
-        "tx": "매매",
-        "size": 84,
-        "area": "109㎡(전용84)",
-        "unit_type": "109A",
-        "price": 10.0,
-        "price_label": "10억",
-        "price_num": 100000,
-        "dong": "110",
-        "floor": "중/25",
-        "dir": "남서향",
-        "gap": false
-      },
-      {
-        "tx": "매매",
-        "size": 84,
-        "area": "109㎡(전용84)",
-        "unit_type": "109A",
-        "price": 10.5,
-        "price_label": "10억 5,000",
-        "price_num": 105000,
-        "dong": "106",
-        "floor": "저/24",
         "dir": "남서향",
         "gap": false
       }
@@ -1928,7 +1571,7 @@ window.LAND_DATA = {
         {
           "date": "08.28",
           "n": 1,
-          "avg": 2.0
+          "avg": 3.0
         }
       ],
       "전세|77": [
@@ -2049,66 +1692,40 @@ window.LAND_DATA = {
           "after": 68
         }
       },
-      "new": [
+      "new": [],
+      "gone": [],
+      "price_changes": [
+        {
+          "tx": "월세",
+          "size": 84,
+          "dong": "103",
+          "floor": "고/25",
+          "type": "110㎡(전용84)",
+          "unit_type": "110D",
+          "dir": "남동향",
+          "gap": false,
+          "price": 3.0,
+          "price_label": "3억/200",
+          "before": 2.0,
+          "after": 3.0,
+          "before_label": "2억/250",
+          "after_label": "3억/200"
+        },
         {
           "tx": "매매",
           "size": 84,
-          "dong": "102",
-          "floor": "21/25",
+          "dong": "104",
+          "floor": "고/25",
           "type": "110㎡(전용84)",
           "unit_type": "110D",
           "dir": "남서향",
           "gap": true,
-          "price": 11.0,
-          "price_label": "11억"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "113",
-          "floor": "16/21",
-          "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남서향",
-          "gap": false,
-          "price": 9.7,
-          "price_label": "9억 7,000"
-        },
-        {
-          "tx": "전세",
-          "size": 77,
-          "dong": "110",
-          "floor": "6/25",
-          "type": "100㎡(전용77)",
-          "unit_type": "100",
-          "dir": "남서향",
-          "gap": false,
-          "price": 6.0,
-          "price_label": "6억"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "102",
-          "floor": "고/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109B",
-          "dir": "남서향",
-          "gap": false,
-          "price": 11.0,
-          "price_label": "11억"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "110",
-          "floor": "중/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남서향",
-          "gap": false,
-          "price": 10.0,
-          "price_label": "10억"
+          "price": 9.5,
+          "price_label": "9억 5,000",
+          "before": 9.49,
+          "after": 9.5,
+          "before_label": "9억 4,900",
+          "after_label": "9억 5,000"
         },
         {
           "tx": "매매",
@@ -2120,120 +1737,13 @@ window.LAND_DATA = {
           "dir": "남서향",
           "gap": false,
           "price": 10.5,
-          "price_label": "10억 5,000"
+          "price_label": "10억 5,000",
+          "before": 10.0,
+          "after": 10.5,
+          "before_label": "10억",
+          "after_label": "10억 5,000"
         }
-      ],
-      "gone": [
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "113",
-          "floor": "16/21",
-          "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남서향",
-          "gap": false,
-          "price": 9.7,
-          "price_label": "9억 7,000"
-        },
-        {
-          "tx": "전세",
-          "size": 77,
-          "dong": "110",
-          "floor": "6/25",
-          "type": "100㎡(전용77)",
-          "unit_type": "100",
-          "dir": "남서향",
-          "gap": false,
-          "price": 6.0,
-          "price_label": "6억"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "110",
-          "floor": "중/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남서향",
-          "gap": false,
-          "price": 10.0,
-          "price_label": "10억"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "102",
-          "floor": "고/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109B",
-          "dir": "남서향",
-          "gap": false,
-          "price": 11.0,
-          "price_label": "11억"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "106",
-          "floor": "중/24",
-          "type": "109㎡(전용84)",
-          "unit_type": "109C",
-          "dir": "남서향",
-          "gap": false,
-          "price": 10.5,
-          "price_label": "10억 5,000"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "106",
-          "floor": "저/24",
-          "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남서향",
-          "gap": false,
-          "price": 10.0,
-          "price_label": "10억"
-        },
-        {
-          "tx": "전세",
-          "size": 84,
-          "dong": "106",
-          "floor": "고/24",
-          "type": "109㎡(전용84)",
-          "unit_type": "109C",
-          "dir": "남서향",
-          "gap": false,
-          "price": 6.7,
-          "price_label": "6억 7,000"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "108",
-          "floor": "중/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남동향",
-          "gap": false,
-          "price": 11.0,
-          "price_label": "11억"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "102",
-          "floor": "21/25",
-          "type": "110㎡(전용84)",
-          "unit_type": "110D",
-          "dir": "남서향",
-          "gap": false,
-          "price": 11.0,
-          "price_label": "11억"
-        }
-      ],
-      "price_changes": []
+      ]
     }
   },
   "real_prices": {
