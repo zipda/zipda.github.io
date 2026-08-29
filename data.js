@@ -1,5 +1,5 @@
 window.LAND_DATA = {
-  "generated_at": "2026-08-29T10:04:23+09:00",
+  "generated_at": "2026-08-29T10:52:07+09:00",
   "label": "관심 단지 매물현황",
   "trade_labels": [
     "매매",
@@ -29,21 +29,21 @@ window.LAND_DATA = {
     "2026-08-23": {
       "영흥숲푸르지오파크비엔": {
         "counts": {
+          "월세": {
+            "before": 2,
+            "after": 1
+          },
           "전세": {
             "before": 10,
             "after": 8
           },
           "매매": {
             "before": 62,
-            "after": 57
-          },
-          "월세": {
-            "before": 2,
-            "after": 1
+            "after": 58
           },
           "전체": {
             "before": 74,
-            "after": 66
+            "after": 67
           }
         },
         "new": [
@@ -82,6 +82,18 @@ window.LAND_DATA = {
             "gap": false,
             "price": 11.0,
             "price_label": "11억"
+          },
+          {
+            "tx": "매매",
+            "size": 84,
+            "dong": "111",
+            "floor": "중/25",
+            "type": "109㎡(전용84)",
+            "unit_type": "109C",
+            "dir": "남동향",
+            "gap": false,
+            "price": 12.3,
+            "price_label": "12억 3,000"
           }
         ],
         "gone": [
@@ -337,21 +349,21 @@ window.LAND_DATA = {
     "2026-08-26": {
       "영흥숲푸르지오파크비엔": {
         "counts": {
+          "월세": {
+            "before": 1,
+            "after": 1
+          },
           "전세": {
             "before": 9,
             "after": 8
           },
           "매매": {
             "before": 61,
-            "after": 57
-          },
-          "월세": {
-            "before": 1,
-            "after": 1
+            "after": 58
           },
           "전체": {
             "before": 71,
-            "after": 66
+            "after": 67
           }
         },
         "new": [
@@ -366,6 +378,18 @@ window.LAND_DATA = {
             "gap": false,
             "price": 11.0,
             "price_label": "11억"
+          },
+          {
+            "tx": "매매",
+            "size": 84,
+            "dong": "111",
+            "floor": "중/25",
+            "type": "109㎡(전용84)",
+            "unit_type": "109C",
+            "dir": "남동향",
+            "gap": false,
+            "price": 12.3,
+            "price_label": "12억 3,000"
           }
         ],
         "gone": [
@@ -545,24 +569,37 @@ window.LAND_DATA = {
     "2026-08-28": {
       "영흥숲푸르지오파크비엔": {
         "counts": {
+          "월세": {
+            "before": 1,
+            "after": 1
+          },
           "전세": {
             "before": 8,
             "after": 8
           },
           "매매": {
             "before": 59,
-            "after": 57
-          },
-          "월세": {
-            "before": 1,
-            "after": 1
+            "after": 58
           },
           "전체": {
             "before": 68,
-            "after": 66
+            "after": 67
           }
         },
-        "new": [],
+        "new": [
+          {
+            "tx": "매매",
+            "size": 84,
+            "dong": "111",
+            "floor": "중/25",
+            "type": "109㎡(전용84)",
+            "unit_type": "109C",
+            "dir": "남동향",
+            "gap": false,
+            "price": 12.3,
+            "price_label": "12억 3,000"
+          }
+        ],
         "gone": [
           {
             "tx": "매매",
@@ -1367,7 +1404,7 @@ window.LAND_DATA = {
         "dong": "102",
         "floor": "21/25",
         "dir": "남서향",
-        "gap": true
+        "gap": false
       },
       {
         "tx": "매매",
@@ -1472,6 +1509,19 @@ window.LAND_DATA = {
         "floor": "중/25",
         "dir": "남서향",
         "gap": false
+      },
+      {
+        "tx": "매매",
+        "size": 84,
+        "area": "109㎡(전용84)",
+        "unit_type": "109C",
+        "price": 12.3,
+        "price_label": "12억 3,000",
+        "price_num": 123000,
+        "dong": "111",
+        "floor": "중/25",
+        "dir": "남동향",
+        "gap": false
       }
     ]
   },
@@ -1547,8 +1597,8 @@ window.LAND_DATA = {
         },
         {
           "date": "08.29",
-          "n": 39,
-          "avg": 10.55
+          "n": 40,
+          "avg": 10.59
         }
       ],
       "매매|117": [
@@ -1741,24 +1791,37 @@ window.LAND_DATA = {
   "changes": {
     "영흥숲푸르지오파크비엔": {
       "counts": {
+        "월세": {
+          "before": 1,
+          "after": 1
+        },
         "전세": {
           "before": 8,
           "after": 8
         },
         "매매": {
           "before": 59,
-          "after": 57
-        },
-        "월세": {
-          "before": 1,
-          "after": 1
+          "after": 58
         },
         "전체": {
           "before": 68,
-          "after": 66
+          "after": 67
         }
       },
-      "new": [],
+      "new": [
+        {
+          "tx": "매매",
+          "size": 84,
+          "dong": "111",
+          "floor": "중/25",
+          "type": "109㎡(전용84)",
+          "unit_type": "109C",
+          "dir": "남동향",
+          "gap": false,
+          "price": 12.3,
+          "price_label": "12억 3,000"
+        }
+      ],
       "gone": [
         {
           "tx": "매매",
