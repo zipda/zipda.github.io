@@ -96,6 +96,10 @@
     .stat-value small{font-size:9px; margin-left:2px;}
     .tabbar button{font-size:12px; padding:9px 4px;}
     .tx-table{font-size:12px;} .tx-table th, .tx-table td{padding:5px 4px;}
+    /* 매물변동 항목: 좁은 폰에서 한 줄에 들어가도록 글자 축소 + 설명은 줄바꿈 억제 */
+    .change-item-row{font-size:10.5px;}
+    .change-item-row > span:first-child{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .change-item-row .price{white-space:nowrap; flex-shrink:0;}
   }
   .card { position:relative; text-align:left; width:100%; border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); padding:18px 18px 16px; cursor:pointer; box-shadow:var(--shadow-sm); overflow:hidden; transition:transform .2s cubic-bezier(.2,.7,.2,1), box-shadow .2s, border-color .2s; animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
   .card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--faint); }
@@ -445,11 +449,12 @@ function renderTrendCard(name, sizeSeries, color){
 }
 
 function changeLine(it){
-  // 순서: [갭] 평형 · 타입 · 동 · 층 · 향. 거래유형(매매/전세/월세)은 상단 버튼으로 구분되므로 생략.
-  var g = it.gap ? '<span class="unit-gap">갭</span>' : '';  // 갭·세낀 물건 표기
+  // 순서: 평형 · 타입 · 동 · 층 · 향. 거래유형은 상단 버튼으로 구분되므로 생략. (갭 배지는 금액 왼쪽에 붙임)
   var t = it.unit_type ? ' · '+esc(it.unit_type) : '';
-  return g+it.size+'㎡'+t+' · '+esc(it.dong)+'동 · '+esc(it.floor)+(it.dir&&it.dir!=='-'?' · '+esc(it.dir):'');
+  return it.size+'㎡'+t+' · '+esc(it.dong)+'동 · '+esc(it.floor)+(it.dir&&it.dir!=='-'?' · '+esc(it.dir):'');
 }
+// 갭·세낀 배지 — 매물변동 항목에서 금액 왼쪽에 붙인다.
+function gapBadge(it){ return it.gap ? '<span class="unit-gap">갭</span>' : ''; }
 // 금액 표기 통일: 월세는 보증금/월세 원문 라벨, 그 외는 fmt+억(예: 10.5억)
 function amt(it, val, label){ return (it && it.tx==='월세') ? esc(label||'-') : (fmt(val)+'억'); }
 
@@ -487,11 +492,11 @@ function renderChangeCard(name, diff, color){
   var body='';
   if(diff.new.length){
     body += '<div class="change-tag tag-new">신규 '+diff.new.length+'건</div>';
-    diff.new.forEach(function(it){ body += '<div class="change-item-row"><span>'+changeLine(it)+'</span><span class="price">'+amt(it,it.price,it.price_label)+'</span></div>'; });
+    diff.new.forEach(function(it){ body += '<div class="change-item-row"><span>'+changeLine(it)+'</span><span class="price">'+gapBadge(it)+amt(it,it.price,it.price_label)+'</span></div>'; });
   }
   if(diff.gone.length){
     body += '<div class="change-tag tag-gone" style="margin-top:8px;">소멸 '+diff.gone.length+'건</div>';
-    diff.gone.forEach(function(it){ body += '<div class="change-item-row"><span>'+changeLine(it)+'</span><span class="price">'+amt(it,it.price,it.price_label)+'</span></div>'; });
+    diff.gone.forEach(function(it){ body += '<div class="change-item-row"><span>'+changeLine(it)+'</span><span class="price">'+gapBadge(it)+amt(it,it.price,it.price_label)+'</span></div>'; });
   }
   if(diff.price_changes.length){
     body += '<div class="change-tag tag-changed" style="margin-top:8px;">가격변동 '+diff.price_changes.length+'건</div>';
@@ -500,7 +505,7 @@ function renderChangeCard(name, diff, color){
       var isW = it.tx==='월세';  // 월세는 보증금/월세 원문 라벨 유지, 그 외는 10.5억 표기
       var b = isW ? (it.before_label||'-') : (fmt(it.before)+'억');
       var a = isW ? (it.after_label||'-') : (fmt(it.after)+'억');
-      body += '<div class="change-item-row"><span>'+changeLine(it)+'</span><span class="price">'+esc(b)+' → '+esc(a)+' <span class="'+cls+'">'+arrow+'</span></span></div>';
+      body += '<div class="change-item-row"><span>'+changeLine(it)+'</span><span class="price">'+gapBadge(it)+esc(b)+' → '+esc(a)+' <span class="'+cls+'">'+arrow+'</span></span></div>';
     });
   }
   if(!diff.new.length && !diff.gone.length && !diff.price_changes.length) body = '<div class="no-change">변동 없음</div>';
@@ -662,7 +667,6 @@ function render(){
     }
   } else if(state.tab==='trend'){
     var cards = names.map(function(n){ return DATA.trend[n]?renderTrendCard(n,DATA.trend[n],colorOf(n)):''; }).filter(Boolean).join('');
-    body += '<div class="toolbar"><div class="toolbar-title">조사일별 평형 변화</div></div>';
     body += cards || '<div class="state-msg">추이 데이터가 없습니다.</div>';
   } else {
     // 기준일(시작) 선택 — 끝은 항상 최신(고정). 기본 기준일은 직전일(후보 목록의 마지막).
