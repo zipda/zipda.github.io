@@ -1,5 +1,5 @@
 window.LAND_DATA = {
-  "generated_at": "2026-08-28T18:42:56+09:00",
+  "generated_at": "2026-08-29T10:04:23+09:00",
   "label": "관심 단지 매물현황",
   "trade_labels": [
     "매매",
@@ -7,43 +7,43 @@ window.LAND_DATA = {
     "월세"
   ],
   "change_dates": {
-    "before": "08.27",
-    "after": "08.28"
+    "before": "08.28",
+    "after": "08.29"
   },
-  "change_end": "08.28",
+  "change_end": "08.29",
   "change_starts": [
     {
       "v": "2026-08-23",
       "l": "전체 (08.23)"
     },
     {
-      "v": "2026-08-25",
-      "l": "3일 전 (08.25)"
+      "v": "2026-08-26",
+      "l": "3일 전 (08.26)"
     },
     {
-      "v": "2026-08-27",
-      "l": "어제 (08.27)"
+      "v": "2026-08-28",
+      "l": "어제 (08.28)"
     }
   ],
   "changes_by_start": {
     "2026-08-23": {
       "영흥숲푸르지오파크비엔": {
         "counts": {
-          "월세": {
-            "before": 2,
-            "after": 1
-          },
-          "매매": {
-            "before": 62,
-            "after": 59
-          },
           "전세": {
             "before": 10,
             "after": 8
           },
+          "매매": {
+            "before": 62,
+            "after": 57
+          },
+          "월세": {
+            "before": 2,
+            "after": 1
+          },
           "전체": {
             "before": 74,
-            "after": 68
+            "after": 66
           }
         },
         "new": [
@@ -192,6 +192,30 @@ window.LAND_DATA = {
             "gap": false,
             "price": 11.0,
             "price_label": "11억"
+          },
+          {
+            "tx": "매매",
+            "size": 77,
+            "dong": "111",
+            "floor": "중/25",
+            "type": "100㎡(전용77)",
+            "unit_type": "100",
+            "dir": "남서향",
+            "gap": false,
+            "price": 9.2,
+            "price_label": "9억 2,000"
+          },
+          {
+            "tx": "매매",
+            "size": 84,
+            "dong": "111",
+            "floor": "중/25",
+            "type": "109㎡(전용84)",
+            "unit_type": "109C",
+            "dir": "남동향",
+            "gap": false,
+            "price": 12.0,
+            "price_label": "12억"
           }
         ],
         "price_changes": [
@@ -226,6 +250,22 @@ window.LAND_DATA = {
             "after": 11.0,
             "before_label": "10억",
             "after_label": "11억"
+          },
+          {
+            "tx": "매매",
+            "size": 84,
+            "dong": "112",
+            "floor": "중/25",
+            "type": "109㎡(전용84)",
+            "unit_type": "109A",
+            "dir": "남서향",
+            "gap": true,
+            "price": 12.5,
+            "price_label": "12억 5,000",
+            "before": 10.8,
+            "after": 12.5,
+            "before_label": "10억 8,000",
+            "after_label": "12억 5,000"
           },
           {
             "tx": "월세",
@@ -294,24 +334,24 @@ window.LAND_DATA = {
         ]
       }
     },
-    "2026-08-25": {
+    "2026-08-26": {
       "영흥숲푸르지오파크비엔": {
         "counts": {
-          "월세": {
-            "before": 1,
-            "after": 1
-          },
-          "매매": {
-            "before": 61,
-            "after": 59
-          },
           "전세": {
             "before": 9,
             "after": 8
           },
+          "매매": {
+            "before": 61,
+            "after": 57
+          },
+          "월세": {
+            "before": 1,
+            "after": 1
+          },
           "전체": {
             "before": 71,
-            "after": 68
+            "after": 66
           }
         },
         "new": [
@@ -376,6 +416,30 @@ window.LAND_DATA = {
             "gap": false,
             "price": 11.0,
             "price_label": "11억"
+          },
+          {
+            "tx": "매매",
+            "size": 77,
+            "dong": "111",
+            "floor": "중/25",
+            "type": "100㎡(전용77)",
+            "unit_type": "100",
+            "dir": "남서향",
+            "gap": false,
+            "price": 9.2,
+            "price_label": "9억 2,000"
+          },
+          {
+            "tx": "매매",
+            "size": 84,
+            "dong": "111",
+            "floor": "중/25",
+            "type": "109㎡(전용84)",
+            "unit_type": "109C",
+            "dir": "남동향",
+            "gap": false,
+            "price": 12.0,
+            "price_label": "12억"
           }
         ],
         "price_changes": [
@@ -398,18 +462,18 @@ window.LAND_DATA = {
           {
             "tx": "매매",
             "size": 84,
-            "dong": "107",
+            "dong": "112",
             "floor": "중/25",
             "type": "109㎡(전용84)",
             "unit_type": "109A",
-            "dir": "남동향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억",
-            "before": 10.0,
-            "after": 11.0,
-            "before_label": "10억",
-            "after_label": "11억"
+            "dir": "남서향",
+            "gap": true,
+            "price": 12.5,
+            "price_label": "12억 5,000",
+            "before": 10.8,
+            "after": 12.5,
+            "before_label": "10억 8,000",
+            "after_label": "12억 5,000"
           },
           {
             "tx": "월세",
@@ -478,76 +542,69 @@ window.LAND_DATA = {
         ]
       }
     },
-    "2026-08-27": {
+    "2026-08-28": {
       "영흥숲푸르지오파크비엔": {
         "counts": {
-          "월세": {
-            "before": 1,
-            "after": 1
-          },
-          "매매": {
-            "before": 59,
-            "after": 59
-          },
           "전세": {
             "before": 8,
             "after": 8
           },
+          "매매": {
+            "before": 59,
+            "after": 57
+          },
+          "월세": {
+            "before": 1,
+            "after": 1
+          },
           "전체": {
             "before": 68,
-            "after": 68
+            "after": 66
           }
         },
         "new": [],
-        "gone": [],
-        "price_changes": [
+        "gone": [
           {
-            "tx": "월세",
+            "tx": "매매",
+            "size": 77,
+            "dong": "111",
+            "floor": "중/25",
+            "type": "100㎡(전용77)",
+            "unit_type": "100",
+            "dir": "남서향",
+            "gap": false,
+            "price": 9.2,
+            "price_label": "9억 2,000"
+          },
+          {
+            "tx": "매매",
             "size": 84,
-            "dong": "103",
-            "floor": "고/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
+            "dong": "111",
+            "floor": "중/25",
+            "type": "109㎡(전용84)",
+            "unit_type": "109C",
             "dir": "남동향",
             "gap": false,
-            "price": 3.0,
-            "price_label": "3억/200",
-            "before": 2.0,
-            "after": 3.0,
-            "before_label": "2억/250",
-            "after_label": "3억/200"
-          },
+            "price": 12.0,
+            "price_label": "12억"
+          }
+        ],
+        "price_changes": [
           {
             "tx": "매매",
             "size": 84,
-            "dong": "104",
-            "floor": "고/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남서향",
-            "gap": true,
-            "price": 9.5,
-            "price_label": "9억 5,000",
-            "before": 9.49,
-            "after": 9.5,
-            "before_label": "9억 4,900",
-            "after_label": "9억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "106",
-            "floor": "저/24",
+            "dong": "112",
+            "floor": "중/25",
             "type": "109㎡(전용84)",
             "unit_type": "109A",
             "dir": "남서향",
-            "gap": false,
-            "price": 10.5,
-            "price_label": "10억 5,000",
-            "before": 10.0,
-            "after": 10.5,
-            "before_label": "10억",
-            "after_label": "10억 5,000"
+            "gap": true,
+            "price": 12.5,
+            "price_label": "12억 5,000",
+            "before": 10.8,
+            "after": 12.5,
+            "before_label": "10억 8,000",
+            "after_label": "12억 5,000"
           }
         ]
       }
@@ -767,19 +824,6 @@ window.LAND_DATA = {
         "gap": false
       },
       {
-        "tx": "매매",
-        "size": 77,
-        "area": "100㎡(전용77)",
-        "unit_type": "100",
-        "price": 9.2,
-        "price_label": "9억 2,000",
-        "price_num": 92000,
-        "dong": "111",
-        "floor": "중/25",
-        "dir": "남서향",
-        "gap": false
-      },
-      {
         "tx": "전세",
         "size": 117,
         "area": "151㎡(전용117)",
@@ -953,9 +997,9 @@ window.LAND_DATA = {
         "size": 84,
         "area": "109㎡(전용84)",
         "unit_type": "109A",
-        "price": 10.8,
-        "price_label": "10억 8,000",
-        "price_num": 108000,
+        "price": 12.5,
+        "price_label": "12억 5,000",
+        "price_num": 125000,
         "dong": "112",
         "floor": "중/25",
         "dir": "남서향",
@@ -1102,19 +1146,6 @@ window.LAND_DATA = {
         "dong": "109",
         "floor": "저/24",
         "dir": "남서향",
-        "gap": false
-      },
-      {
-        "tx": "매매",
-        "size": 84,
-        "area": "109㎡(전용84)",
-        "unit_type": "109C",
-        "price": 12.0,
-        "price_label": "12억",
-        "price_num": 120000,
-        "dong": "111",
-        "floor": "중/25",
-        "dir": "남동향",
         "gap": false
       },
       {
@@ -1476,6 +1507,11 @@ window.LAND_DATA = {
           "date": "08.28",
           "n": 7,
           "avg": 9.51
+        },
+        {
+          "date": "08.29",
+          "n": 6,
+          "avg": 9.57
         }
       ],
       "매매|84": [
@@ -1508,6 +1544,11 @@ window.LAND_DATA = {
           "date": "08.28",
           "n": 40,
           "avg": 10.54
+        },
+        {
+          "date": "08.29",
+          "n": 39,
+          "avg": 10.55
         }
       ],
       "매매|117": [
@@ -1538,6 +1579,11 @@ window.LAND_DATA = {
         },
         {
           "date": "08.28",
+          "n": 12,
+          "avg": 14.39
+        },
+        {
+          "date": "08.29",
           "n": 12,
           "avg": 14.39
         }
@@ -1572,6 +1618,11 @@ window.LAND_DATA = {
           "date": "08.28",
           "n": 1,
           "avg": 3.0
+        },
+        {
+          "date": "08.29",
+          "n": 1,
+          "avg": 3.0
         }
       ],
       "전세|77": [
@@ -1604,6 +1655,11 @@ window.LAND_DATA = {
           "date": "08.28",
           "n": 1,
           "avg": 6.0
+        },
+        {
+          "date": "08.29",
+          "n": 1,
+          "avg": 6.0
         }
       ],
       "전세|84": [
@@ -1634,6 +1690,11 @@ window.LAND_DATA = {
         },
         {
           "date": "08.28",
+          "n": 6,
+          "avg": 7.08
+        },
+        {
+          "date": "08.29",
           "n": 6,
           "avg": 7.08
         }
@@ -1668,6 +1729,11 @@ window.LAND_DATA = {
           "date": "08.28",
           "n": 1,
           "avg": 9.2
+        },
+        {
+          "date": "08.29",
+          "n": 1,
+          "avg": 9.2
         }
       ]
     }
@@ -1675,79 +1741,434 @@ window.LAND_DATA = {
   "changes": {
     "영흥숲푸르지오파크비엔": {
       "counts": {
-        "월세": {
-          "before": 1,
-          "after": 1
-        },
-        "매매": {
-          "before": 59,
-          "after": 59
-        },
         "전세": {
           "before": 8,
           "after": 8
         },
+        "매매": {
+          "before": 59,
+          "after": 57
+        },
+        "월세": {
+          "before": 1,
+          "after": 1
+        },
         "전체": {
           "before": 68,
-          "after": 68
+          "after": 66
         }
       },
       "new": [],
-      "gone": [],
-      "price_changes": [
+      "gone": [
         {
-          "tx": "월세",
+          "tx": "매매",
+          "size": 77,
+          "dong": "111",
+          "floor": "중/25",
+          "type": "100㎡(전용77)",
+          "unit_type": "100",
+          "dir": "남서향",
+          "gap": false,
+          "price": 9.2,
+          "price_label": "9억 2,000"
+        },
+        {
+          "tx": "매매",
           "size": 84,
-          "dong": "103",
-          "floor": "고/25",
-          "type": "110㎡(전용84)",
-          "unit_type": "110D",
+          "dong": "111",
+          "floor": "중/25",
+          "type": "109㎡(전용84)",
+          "unit_type": "109C",
           "dir": "남동향",
           "gap": false,
-          "price": 3.0,
-          "price_label": "3억/200",
-          "before": 2.0,
-          "after": 3.0,
-          "before_label": "2억/250",
-          "after_label": "3억/200"
-        },
+          "price": 12.0,
+          "price_label": "12억"
+        }
+      ],
+      "price_changes": [
         {
           "tx": "매매",
           "size": 84,
-          "dong": "104",
-          "floor": "고/25",
-          "type": "110㎡(전용84)",
-          "unit_type": "110D",
-          "dir": "남서향",
-          "gap": true,
-          "price": 9.5,
-          "price_label": "9억 5,000",
-          "before": 9.49,
-          "after": 9.5,
-          "before_label": "9억 4,900",
-          "after_label": "9억 5,000"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "106",
-          "floor": "저/24",
+          "dong": "112",
+          "floor": "중/25",
           "type": "109㎡(전용84)",
           "unit_type": "109A",
           "dir": "남서향",
-          "gap": false,
-          "price": 10.5,
-          "price_label": "10억 5,000",
-          "before": 10.0,
-          "after": 10.5,
-          "before_label": "10억",
-          "after_label": "10억 5,000"
+          "gap": true,
+          "price": 12.5,
+          "price_label": "12억 5,000",
+          "before": 10.8,
+          "after": 12.5,
+          "before_label": "10억 8,000",
+          "after_label": "12억 5,000"
         }
       ]
     }
   },
   "real_prices": {
     "영흥숲푸르지오파크비엔": {
+      "매매|84": [
+        {
+          "date": "26.08.28",
+          "price": 9.5,
+          "rent": 0,
+          "floor": 9,
+          "record": false,
+          "new_record": false,
+          "new": true,
+          "deal_type": "중개거래",
+          "dong": "111",
+          "unit_type": "109C"
+        },
+        {
+          "date": "26.08.18",
+          "price": 9.2,
+          "rent": 0,
+          "floor": 18,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "112",
+          "unit_type": "109A"
+        },
+        {
+          "date": "26.08.14",
+          "price": 9.98,
+          "rent": 0,
+          "floor": 13,
+          "record": true,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "101",
+          "unit_type": "109B"
+        },
+        {
+          "date": "26.08.14",
+          "price": 9.9,
+          "rent": 0,
+          "floor": 18,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "111",
+          "unit_type": "109A"
+        },
+        {
+          "date": "26.08.07",
+          "price": 9.32,
+          "rent": 0,
+          "floor": 13,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "103",
+          "unit_type": "109C"
+        },
+        {
+          "date": "26.08.06",
+          "price": 9.2,
+          "rent": 0,
+          "floor": 8,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "104",
+          "unit_type": "109B"
+        },
+        {
+          "date": "26.08.06",
+          "price": 9.25,
+          "rent": 0,
+          "floor": 14,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "110",
+          "unit_type": "109C"
+        },
+        {
+          "date": "26.07.20",
+          "price": 9.15,
+          "rent": 0,
+          "floor": 17,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "106",
+          "unit_type": "109C"
+        },
+        {
+          "date": "26.07.11",
+          "price": 8.75,
+          "rent": 0,
+          "floor": 2,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "109",
+          "unit_type": "109A"
+        },
+        {
+          "date": "26.06.20",
+          "price": 9.16,
+          "rent": 0,
+          "floor": 17,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "105",
+          "unit_type": "109B"
+        },
+        {
+          "date": "26.06.20",
+          "price": 9.37,
+          "rent": 0,
+          "floor": 24,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "104",
+          "unit_type": "109B"
+        },
+        {
+          "date": "26.06.19",
+          "price": 9.5,
+          "rent": 0,
+          "floor": 20,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "107",
+          "unit_type": "109A"
+        },
+        {
+          "date": "26.06.09",
+          "price": 9.03,
+          "rent": 0,
+          "floor": 4,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "110",
+          "unit_type": "109A"
+        },
+        {
+          "date": "26.06.04",
+          "price": 9.1,
+          "rent": 0,
+          "floor": 8,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "113",
+          "unit_type": "109C"
+        },
+        {
+          "date": "26.04.25",
+          "price": 9.0,
+          "rent": 0,
+          "floor": 3,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "110",
+          "unit_type": "109C"
+        },
+        {
+          "date": "26.04.18",
+          "price": 9.98,
+          "rent": 0,
+          "floor": 11,
+          "record": true,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "102",
+          "unit_type": "109C"
+        },
+        {
+          "date": "26.03.25",
+          "price": 9.6,
+          "rent": 0,
+          "floor": 15,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "101",
+          "unit_type": "109B"
+        },
+        {
+          "date": "26.03.14",
+          "price": 9.64,
+          "rent": 0,
+          "floor": 25,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "101",
+          "unit_type": ""
+        },
+        {
+          "date": "26.02.27",
+          "price": 9.22,
+          "rent": 0,
+          "floor": 7,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "102",
+          "unit_type": ""
+        },
+        {
+          "date": "26.02.20",
+          "price": 9.25,
+          "rent": 0,
+          "floor": 15,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "110",
+          "unit_type": ""
+        },
+        {
+          "date": "26.01.29",
+          "price": 9.23,
+          "rent": 0,
+          "floor": 11,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "102",
+          "unit_type": ""
+        },
+        {
+          "date": "25.11.28",
+          "price": 9.0,
+          "rent": 0,
+          "floor": 4,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "104",
+          "unit_type": "110D"
+        },
+        {
+          "date": "25.11.20",
+          "price": 9.1,
+          "rent": 0,
+          "floor": 5,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "110",
+          "unit_type": ""
+        },
+        {
+          "date": "25.11.20",
+          "price": 9.6,
+          "rent": 0,
+          "floor": 13,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "110",
+          "unit_type": ""
+        },
+        {
+          "date": "25.11.18",
+          "price": 9.08,
+          "rent": 0,
+          "floor": 21,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "107",
+          "unit_type": ""
+        },
+        {
+          "date": "25.11.14",
+          "price": 9.27,
+          "rent": 0,
+          "floor": 20,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "109",
+          "unit_type": "110D"
+        },
+        {
+          "date": "25.11.08",
+          "price": 9.0,
+          "rent": 0,
+          "floor": 17,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "108",
+          "unit_type": ""
+        },
+        {
+          "date": "25.11.04",
+          "price": 8.98,
+          "rent": 0,
+          "floor": 12,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "111",
+          "unit_type": ""
+        },
+        {
+          "date": "25.10.15",
+          "price": 9.25,
+          "rent": 0,
+          "floor": 6,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "102",
+          "unit_type": "110D"
+        },
+        {
+          "date": "25.10.11",
+          "price": 9.1,
+          "rent": 0,
+          "floor": 12,
+          "record": false,
+          "new_record": false,
+          "new": false,
+          "deal_type": "중개거래",
+          "dong": "113",
+          "unit_type": ""
+        }
+      ],
       "전세|84": [
         {
           "date": "26.08.27",
@@ -1756,7 +2177,7 @@ window.LAND_DATA = {
           "floor": 20,
           "record": false,
           "new_record": false,
-          "new": true,
+          "new": false,
           "deal_type": "중개거래",
           "dong": "106",
           "unit_type": "109C"
@@ -2325,368 +2746,6 @@ window.LAND_DATA = {
           "new": false,
           "deal_type": "직거래",
           "dong": "",
-          "unit_type": ""
-        }
-      ],
-      "매매|84": [
-        {
-          "date": "26.08.18",
-          "price": 9.2,
-          "rent": 0,
-          "floor": 18,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "112",
-          "unit_type": "109A"
-        },
-        {
-          "date": "26.08.14",
-          "price": 9.98,
-          "rent": 0,
-          "floor": 13,
-          "record": true,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "101",
-          "unit_type": "109B"
-        },
-        {
-          "date": "26.08.14",
-          "price": 9.9,
-          "rent": 0,
-          "floor": 18,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "111",
-          "unit_type": "109A"
-        },
-        {
-          "date": "26.08.07",
-          "price": 9.32,
-          "rent": 0,
-          "floor": 13,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "103",
-          "unit_type": "109C"
-        },
-        {
-          "date": "26.08.06",
-          "price": 9.2,
-          "rent": 0,
-          "floor": 8,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "104",
-          "unit_type": "109B"
-        },
-        {
-          "date": "26.08.06",
-          "price": 9.25,
-          "rent": 0,
-          "floor": 14,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "110",
-          "unit_type": "109C"
-        },
-        {
-          "date": "26.07.20",
-          "price": 9.15,
-          "rent": 0,
-          "floor": 17,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "106",
-          "unit_type": "109C"
-        },
-        {
-          "date": "26.07.11",
-          "price": 8.75,
-          "rent": 0,
-          "floor": 2,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "109",
-          "unit_type": "109A"
-        },
-        {
-          "date": "26.06.20",
-          "price": 9.16,
-          "rent": 0,
-          "floor": 17,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "105",
-          "unit_type": "109B"
-        },
-        {
-          "date": "26.06.20",
-          "price": 9.37,
-          "rent": 0,
-          "floor": 24,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "104",
-          "unit_type": "109B"
-        },
-        {
-          "date": "26.06.19",
-          "price": 9.5,
-          "rent": 0,
-          "floor": 20,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "107",
-          "unit_type": "109A"
-        },
-        {
-          "date": "26.06.09",
-          "price": 9.03,
-          "rent": 0,
-          "floor": 4,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "110",
-          "unit_type": "109A"
-        },
-        {
-          "date": "26.06.04",
-          "price": 9.1,
-          "rent": 0,
-          "floor": 8,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "113",
-          "unit_type": "109C"
-        },
-        {
-          "date": "26.04.25",
-          "price": 9.0,
-          "rent": 0,
-          "floor": 3,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "110",
-          "unit_type": "109C"
-        },
-        {
-          "date": "26.04.18",
-          "price": 9.98,
-          "rent": 0,
-          "floor": 11,
-          "record": true,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "102",
-          "unit_type": "109C"
-        },
-        {
-          "date": "26.03.25",
-          "price": 9.6,
-          "rent": 0,
-          "floor": 15,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "101",
-          "unit_type": "109B"
-        },
-        {
-          "date": "26.03.14",
-          "price": 9.64,
-          "rent": 0,
-          "floor": 25,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "101",
-          "unit_type": ""
-        },
-        {
-          "date": "26.02.27",
-          "price": 9.22,
-          "rent": 0,
-          "floor": 7,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "102",
-          "unit_type": ""
-        },
-        {
-          "date": "26.02.20",
-          "price": 9.25,
-          "rent": 0,
-          "floor": 15,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "110",
-          "unit_type": ""
-        },
-        {
-          "date": "26.01.29",
-          "price": 9.23,
-          "rent": 0,
-          "floor": 11,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "102",
-          "unit_type": ""
-        },
-        {
-          "date": "25.11.28",
-          "price": 9.0,
-          "rent": 0,
-          "floor": 4,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "104",
-          "unit_type": "110D"
-        },
-        {
-          "date": "25.11.20",
-          "price": 9.1,
-          "rent": 0,
-          "floor": 5,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "110",
-          "unit_type": ""
-        },
-        {
-          "date": "25.11.20",
-          "price": 9.6,
-          "rent": 0,
-          "floor": 13,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "110",
-          "unit_type": ""
-        },
-        {
-          "date": "25.11.18",
-          "price": 9.08,
-          "rent": 0,
-          "floor": 21,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "107",
-          "unit_type": ""
-        },
-        {
-          "date": "25.11.14",
-          "price": 9.27,
-          "rent": 0,
-          "floor": 20,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "109",
-          "unit_type": "110D"
-        },
-        {
-          "date": "25.11.08",
-          "price": 9.0,
-          "rent": 0,
-          "floor": 17,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "108",
-          "unit_type": ""
-        },
-        {
-          "date": "25.11.04",
-          "price": 8.98,
-          "rent": 0,
-          "floor": 12,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "111",
-          "unit_type": ""
-        },
-        {
-          "date": "25.10.15",
-          "price": 9.25,
-          "rent": 0,
-          "floor": 6,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "102",
-          "unit_type": "110D"
-        },
-        {
-          "date": "25.10.11",
-          "price": 9.1,
-          "rent": 0,
-          "floor": 12,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "113",
-          "unit_type": ""
-        },
-        {
-          "date": "25.10.10",
-          "price": 9.43,
-          "rent": 0,
-          "floor": 25,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "107",
           "unit_type": ""
         }
       ],
@@ -4219,7 +4278,7 @@ window.LAND_DATA = {
   "real_price_totals": {
     "영흥숲푸르지오파크비엔": {
       "매매|77": 9,
-      "매매|84": 97,
+      "매매|84": 98,
       "매매|117": 17,
       "월세|77": 11,
       "월세|84": 82,
