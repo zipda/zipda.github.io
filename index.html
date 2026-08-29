@@ -216,10 +216,10 @@
   /* 좁은 화면: 매물변동 항목을 말줄임 없이 한 줄에 담기 위해 글자 축소(설명·금액 줄바꿈 억제).
      base .change-item-row 규칙 '뒤'에 와야 적용된다(같은 specificity → 나중 선언 우선). */
   @media (max-width:640px){
-    .change-item-row { font-size:10px; }
+    .change-item-row { font-size:11px; }
     .change-item-row > span:first-child { white-space:nowrap; }
     .change-item-row .price { white-space:nowrap; flex-shrink:0; }
-    .change-item-row .unit-gap { font-size:8.5px; padding:1px 3px; margin-right:3px; }
+    .change-item-row .unit-gap { font-size:9px; padding:1px 3px; margin-right:3px; }
   }
   .no-change { color:var(--muted); font-size:13px; padding:6px 0; }
 
