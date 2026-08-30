@@ -1,5 +1,5 @@
 window.LAND_DATA = {
-  "generated_at": "2026-08-29T18:38:33+09:00",
+  "generated_at": "2026-08-30T17:51:22+09:00",
   "label": "관심 단지 매물현황",
   "trade_labels": [
     "매매",
@@ -7,35 +7,35 @@ window.LAND_DATA = {
     "월세"
   ],
   "change_dates": {
-    "before": "08.28",
-    "after": "08.29"
+    "before": "08.29",
+    "after": "08.30"
   },
-  "change_end": "08.29",
+  "change_end": "08.30",
   "change_starts": [
     {
       "v": "2026-08-23",
-      "l": "전체 (08.23)"
+      "l": "1주 전 (08.23)"
     },
     {
-      "v": "2026-08-26",
-      "l": "3일 전 (08.26)"
+      "v": "2026-08-27",
+      "l": "3일 전 (08.27)"
     },
     {
-      "v": "2026-08-28",
-      "l": "어제 (08.28)"
+      "v": "2026-08-29",
+      "l": "어제 (08.29)"
     }
   ],
   "changes_by_start": {
     "2026-08-23": {
       "영흥숲푸르지오파크비엔": {
         "counts": {
-          "전세": {
-            "before": 10,
-            "after": 8
-          },
           "매매": {
             "before": 62,
             "after": 58
+          },
+          "전세": {
+            "before": 10,
+            "after": 8
           },
           "월세": {
             "before": 2,
@@ -394,284 +394,16 @@ window.LAND_DATA = {
         ]
       }
     },
-    "2026-08-26": {
+    "2026-08-27": {
       "영흥숲푸르지오파크비엔": {
         "counts": {
-          "전세": {
-            "before": 9,
-            "after": 8
-          },
-          "매매": {
-            "before": 61,
-            "after": 58
-          },
-          "월세": {
-            "before": 1,
-            "after": 1
-          },
-          "전체": {
-            "before": 71,
-            "after": 67
-          }
-        },
-        "new": [
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "108",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "111",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남동향",
-            "gap": false,
-            "price": 12.3,
-            "price_label": "12억 3,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "109",
-            "floor": "중/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남동향",
-            "gap": false,
-            "price": 12.5,
-            "price_label": "12억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 117,
-            "dong": "103",
-            "floor": "저/25",
-            "type": "149㎡(전용117)",
-            "unit_type": "149A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 13.7,
-            "price_label": "13억 7,000"
-          }
-        ],
-        "gone": [
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "105",
-            "floor": "10/23",
-            "type": "109㎡(전용84)",
-            "unit_type": "109B",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.9,
-            "price_label": "9억 9,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "106",
-            "floor": "중/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.5,
-            "price_label": "10억 5,000"
-          },
-          {
-            "tx": "전세",
-            "size": 84,
-            "dong": "106",
-            "floor": "고/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남서향",
-            "gap": false,
-            "price": 6.7,
-            "price_label": "6억 7,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "108",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남동향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 77,
-            "dong": "111",
-            "floor": "중/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.2,
-            "price_label": "9억 2,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "111",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남동향",
-            "gap": false,
-            "price": 12.0,
-            "price_label": "12억"
-          },
-          {
-            "tx": "매매",
-            "size": 117,
-            "dong": "103",
-            "floor": "저/25",
-            "type": "149㎡(전용117)",
-            "unit_type": "149A",
-            "dir": "남동향",
-            "gap": false,
-            "price": 13.7,
-            "price_label": "13억 7,000"
-          },
-          {
-            "tx": "매매",
-            "size": 77,
-            "dong": "112",
-            "floor": "중/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.5,
-            "price_label": "9억 5,000"
-          }
-        ],
-        "price_changes": [
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "106",
-            "floor": "중/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.5,
-            "price_label": "10억 5,000",
-            "before": 10.0,
-            "after": 10.5,
-            "before_label": "10억",
-            "after_label": "10억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "112",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": true,
-            "price": 12.5,
-            "price_label": "12억 5,000",
-            "before": 10.8,
-            "after": 12.5,
-            "before_label": "10억 8,000",
-            "after_label": "12억 5,000"
-          },
-          {
-            "tx": "월세",
-            "size": 84,
-            "dong": "103",
-            "floor": "고/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남동향",
-            "gap": false,
-            "price": 3.0,
-            "price_label": "3억/200",
-            "before": 4.0,
-            "after": 3.0,
-            "before_label": "4억/150",
-            "after_label": "3억/200"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "104",
-            "floor": "고/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남서향",
-            "gap": true,
-            "price": 9.5,
-            "price_label": "9억 5,000",
-            "before": 9.49,
-            "after": 9.5,
-            "before_label": "9억 4,900",
-            "after_label": "9억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "106",
-            "floor": "저/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.5,
-            "price_label": "10억 5,000",
-            "before": 10.0,
-            "after": 10.5,
-            "before_label": "10억",
-            "after_label": "10억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "103",
-            "floor": "저/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.5,
-            "price_label": "11억 5,000",
-            "before": 11.0,
-            "after": 11.5,
-            "before_label": "11억",
-            "after_label": "11억 5,000"
-          }
-        ]
-      }
-    },
-    "2026-08-28": {
-      "영흥숲푸르지오파크비엔": {
-        "counts": {
-          "전세": {
-            "before": 8,
-            "after": 8
-          },
           "매매": {
             "before": 59,
             "after": 58
+          },
+          "전세": {
+            "before": 8,
+            "after": 8
           },
           "월세": {
             "before": 1,
@@ -786,8 +518,106 @@ window.LAND_DATA = {
             "after": 12.5,
             "before_label": "10억 8,000",
             "after_label": "12억 5,000"
+          },
+          {
+            "tx": "월세",
+            "size": 84,
+            "dong": "103",
+            "floor": "고/25",
+            "type": "110㎡(전용84)",
+            "unit_type": "110D",
+            "dir": "남동향",
+            "gap": false,
+            "price": 3.0,
+            "price_label": "3억/200",
+            "before": 2.0,
+            "after": 3.0,
+            "before_label": "2억/250",
+            "after_label": "3억/200"
+          },
+          {
+            "tx": "매매",
+            "size": 84,
+            "dong": "104",
+            "floor": "고/25",
+            "type": "110㎡(전용84)",
+            "unit_type": "110D",
+            "dir": "남서향",
+            "gap": true,
+            "price": 9.5,
+            "price_label": "9억 5,000",
+            "before": 9.49,
+            "after": 9.5,
+            "before_label": "9억 4,900",
+            "after_label": "9억 5,000"
+          },
+          {
+            "tx": "매매",
+            "size": 84,
+            "dong": "106",
+            "floor": "저/24",
+            "type": "109㎡(전용84)",
+            "unit_type": "109A",
+            "dir": "남서향",
+            "gap": false,
+            "price": 10.5,
+            "price_label": "10억 5,000",
+            "before": 10.0,
+            "after": 10.5,
+            "before_label": "10억",
+            "after_label": "10억 5,000"
           }
         ]
+      }
+    },
+    "2026-08-29": {
+      "영흥숲푸르지오파크비엔": {
+        "counts": {
+          "매매": {
+            "before": 58,
+            "after": 58
+          },
+          "전세": {
+            "before": 8,
+            "after": 8
+          },
+          "월세": {
+            "before": 1,
+            "after": 1
+          },
+          "전체": {
+            "before": 67,
+            "after": 67
+          }
+        },
+        "new": [],
+        "gone": [
+          {
+            "tx": "매매",
+            "size": 117,
+            "dong": "103",
+            "floor": "저/25",
+            "type": "149㎡(전용117)",
+            "unit_type": "149A",
+            "dir": "남동향",
+            "gap": false,
+            "price": 13.7,
+            "price_label": "13억 7,000"
+          },
+          {
+            "tx": "매매",
+            "size": 77,
+            "dong": "112",
+            "floor": "중/25",
+            "type": "100㎡(전용77)",
+            "unit_type": "100",
+            "dir": "남서향",
+            "gap": false,
+            "price": 9.5,
+            "price_label": "9억 5,000"
+          }
+        ],
+        "price_changes": []
       }
     }
   },
@@ -1706,6 +1536,11 @@ window.LAND_DATA = {
           "date": "08.29",
           "n": 5,
           "avg": 9.58
+        },
+        {
+          "date": "08.30",
+          "n": 5,
+          "avg": 9.58
         }
       ],
       "매매|84": [
@@ -1741,6 +1576,11 @@ window.LAND_DATA = {
         },
         {
           "date": "08.29",
+          "n": 41,
+          "avg": 10.64
+        },
+        {
+          "date": "08.30",
           "n": 41,
           "avg": 10.64
         }
@@ -1780,6 +1620,11 @@ window.LAND_DATA = {
           "date": "08.29",
           "n": 12,
           "avg": 14.39
+        },
+        {
+          "date": "08.30",
+          "n": 12,
+          "avg": 14.39
         }
       ],
       "월세|84": [
@@ -1817,6 +1662,11 @@ window.LAND_DATA = {
           "date": "08.29",
           "n": 1,
           "avg": 3.0
+        },
+        {
+          "date": "08.30",
+          "n": 1,
+          "avg": 3.0
         }
       ],
       "전세|77": [
@@ -1852,6 +1702,11 @@ window.LAND_DATA = {
         },
         {
           "date": "08.29",
+          "n": 1,
+          "avg": 6.0
+        },
+        {
+          "date": "08.30",
           "n": 1,
           "avg": 6.0
         }
@@ -1891,6 +1746,11 @@ window.LAND_DATA = {
           "date": "08.29",
           "n": 6,
           "avg": 7.08
+        },
+        {
+          "date": "08.30",
+          "n": 6,
+          "avg": 7.08
         }
       ],
       "전세|117": [
@@ -1928,6 +1788,11 @@ window.LAND_DATA = {
           "date": "08.29",
           "n": 1,
           "avg": 9.2
+        },
+        {
+          "date": "08.30",
+          "n": 1,
+          "avg": 9.2
         }
       ]
     }
@@ -1935,86 +1800,25 @@ window.LAND_DATA = {
   "changes": {
     "영흥숲푸르지오파크비엔": {
       "counts": {
+        "매매": {
+          "before": 58,
+          "after": 58
+        },
         "전세": {
           "before": 8,
           "after": 8
-        },
-        "매매": {
-          "before": 59,
-          "after": 58
         },
         "월세": {
           "before": 1,
           "after": 1
         },
         "전체": {
-          "before": 68,
+          "before": 67,
           "after": 67
         }
       },
-      "new": [
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "111",
-          "floor": "중/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109C",
-          "dir": "남동향",
-          "gap": false,
-          "price": 12.3,
-          "price_label": "12억 3,000"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "109",
-          "floor": "중/24",
-          "type": "109㎡(전용84)",
-          "unit_type": "109C",
-          "dir": "남동향",
-          "gap": false,
-          "price": 12.5,
-          "price_label": "12억 5,000"
-        },
-        {
-          "tx": "매매",
-          "size": 117,
-          "dong": "103",
-          "floor": "저/25",
-          "type": "149㎡(전용117)",
-          "unit_type": "149A",
-          "dir": "남서향",
-          "gap": false,
-          "price": 13.7,
-          "price_label": "13억 7,000"
-        }
-      ],
+      "new": [],
       "gone": [
-        {
-          "tx": "매매",
-          "size": 77,
-          "dong": "111",
-          "floor": "중/25",
-          "type": "100㎡(전용77)",
-          "unit_type": "100",
-          "dir": "남서향",
-          "gap": false,
-          "price": 9.2,
-          "price_label": "9억 2,000"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "111",
-          "floor": "중/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109C",
-          "dir": "남동향",
-          "gap": false,
-          "price": 12.0,
-          "price_label": "12억"
-        },
         {
           "tx": "매매",
           "size": 117,
@@ -2040,24 +1844,7 @@ window.LAND_DATA = {
           "price_label": "9억 5,000"
         }
       ],
-      "price_changes": [
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "112",
-          "floor": "중/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남서향",
-          "gap": true,
-          "price": 12.5,
-          "price_label": "12억 5,000",
-          "before": 10.8,
-          "after": 12.5,
-          "before_label": "10억 8,000",
-          "after_label": "12억 5,000"
-        }
-      ]
+      "price_changes": []
     }
   },
   "real_prices": {
@@ -2070,7 +1857,10 @@ window.LAND_DATA = {
           "floor": 9,
           "record": false,
           "new_record": false,
-          "new": true,
+          "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "111",
           "unit_type": "109C"
@@ -2083,6 +1873,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "112",
           "unit_type": "109A"
@@ -2095,6 +1888,9 @@ window.LAND_DATA = {
           "record": true,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "109B"
@@ -2107,6 +1903,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "111",
           "unit_type": "109A"
@@ -2119,6 +1918,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "109C"
@@ -2131,6 +1933,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "109B"
@@ -2143,6 +1948,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": "109C"
@@ -2155,6 +1963,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "106",
           "unit_type": "109C"
@@ -2167,6 +1978,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "109A"
@@ -2179,6 +1993,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "109B"
@@ -2191,6 +2008,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "109B"
@@ -2203,6 +2023,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.08.11",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "107",
           "unit_type": "109A"
@@ -2215,6 +2038,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": "109A"
@@ -2227,6 +2053,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.07.15",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": "109C"
@@ -2239,6 +2068,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.07.02",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": "109C"
@@ -2251,6 +2083,9 @@ window.LAND_DATA = {
           "record": true,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.08.10",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "109C"
@@ -2263,6 +2098,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.05.14",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "109B"
@@ -2275,9 +2113,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.06.30",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "101",
-          "unit_type": ""
+          "unit_type": "109C"
         },
         {
           "date": "26.02.27",
@@ -2287,9 +2128,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.06.19",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
-          "unit_type": ""
+          "unit_type": "109B"
         },
         {
           "date": "26.02.20",
@@ -2299,9 +2143,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.05.06",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "110",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "26.01.29",
@@ -2311,9 +2158,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.04.30",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
-          "unit_type": ""
+          "unit_type": "109B"
         },
         {
           "date": "25.11.28",
@@ -2323,6 +2173,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "25.12.30",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "110D"
@@ -2335,9 +2188,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.01.30",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "110",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "25.11.20",
@@ -2347,9 +2203,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.02.02",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "110",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "25.11.18",
@@ -2359,9 +2218,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.02.23",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "107",
-          "unit_type": ""
+          "unit_type": "109C"
         },
         {
           "date": "25.11.14",
@@ -2371,6 +2233,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.01.23",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "110D"
@@ -2383,9 +2248,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.01.30",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "108",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "25.11.04",
@@ -2395,9 +2263,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.01.15",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "111",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "25.10.15",
@@ -2407,6 +2278,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.01.14",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "110D"
@@ -2419,9 +2293,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "25.11.06",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "113",
-          "unit_type": ""
+          "unit_type": "109C"
         }
       ],
       "전세|84": [
@@ -2433,6 +2310,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "106",
           "unit_type": "109C"
@@ -2445,6 +2325,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "112",
           "unit_type": "109A"
@@ -2457,6 +2340,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "106",
           "unit_type": "109A"
@@ -2469,6 +2355,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "109C"
@@ -2481,6 +2370,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "108",
           "unit_type": "109A"
@@ -2493,6 +2385,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "109B"
@@ -2505,6 +2400,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "109C"
@@ -2517,6 +2415,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "110D"
@@ -2529,6 +2430,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "107",
           "unit_type": "109A"
@@ -2541,6 +2445,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "109B"
@@ -2553,6 +2460,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": "109A"
@@ -2565,6 +2475,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "109A"
@@ -2577,6 +2490,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": "109C"
@@ -2589,9 +2505,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "110",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "26.05.19",
@@ -2601,9 +2520,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "103",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "26.04.11",
@@ -2613,9 +2535,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "111",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "26.03.27",
@@ -2625,9 +2550,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "112",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "26.03.23",
@@ -2637,9 +2565,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "107",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "26.03.23",
@@ -2649,6 +2580,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "109B"
@@ -2661,6 +2595,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "109B"
@@ -2673,6 +2610,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "106",
           "unit_type": "109C"
@@ -2685,6 +2625,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "109C"
@@ -2697,9 +2640,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "112",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "26.01.24",
@@ -2709,9 +2655,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "113",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "26.01.24",
@@ -2721,6 +2670,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "109B"
@@ -2733,9 +2685,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "113",
-          "unit_type": ""
+          "unit_type": "109C"
         },
         {
           "date": "26.01.16",
@@ -2745,9 +2700,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "112",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "26.01.15",
@@ -2757,9 +2715,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "107",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "26.01.12",
@@ -2769,9 +2730,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "107",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "26.01.10",
@@ -2781,9 +2745,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "108",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "24.10.14",
@@ -2793,9 +2760,12 @@ window.LAND_DATA = {
           "record": true,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "109A"
         }
       ],
       "매매|117": [
@@ -2807,6 +2777,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "149A"
@@ -2819,6 +2792,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.08.26",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "151B"
@@ -2831,6 +2807,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.08.05",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "149A"
@@ -2843,6 +2822,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.08.04",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "151B"
@@ -2855,6 +2837,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.05.27",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "149A"
@@ -2867,6 +2852,9 @@ window.LAND_DATA = {
           "record": true,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.04.30",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "151B"
@@ -2879,6 +2867,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.07.10",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "151B"
@@ -2891,6 +2882,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "25.09.22",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "151B"
@@ -2903,6 +2897,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": true,
+          "reg_date": "25.09.22",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "151B"
@@ -2915,9 +2912,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "25.08.12",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.05.31",
@@ -2927,6 +2927,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2939,6 +2942,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "직거래",
           "dong": "",
           "unit_type": ""
@@ -2951,6 +2957,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "직거래",
           "dong": "",
           "unit_type": ""
@@ -2963,6 +2972,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2975,6 +2987,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -2987,6 +3002,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "직거래",
           "dong": "",
           "unit_type": ""
@@ -2999,6 +3017,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "직거래",
           "dong": "",
           "unit_type": ""
@@ -3013,6 +3034,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "109B"
@@ -3025,6 +3049,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "108",
           "unit_type": "109C"
@@ -3037,6 +3064,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "109C"
@@ -3049,6 +3079,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "109A"
@@ -3061,6 +3094,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "108",
           "unit_type": "109A"
@@ -3073,6 +3109,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "109A"
@@ -3085,6 +3124,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "109C"
@@ -3097,6 +3139,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": "109A"
@@ -3109,6 +3154,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "110",
           "unit_type": "109A"
@@ -3121,6 +3169,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "110D"
@@ -3133,9 +3184,27 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": "109C"
+        },
+        {
+          "date": "26.02.05",
+          "price": 0.0,
+          "rent": 320,
+          "floor": 4,
+          "record": false,
+          "new_record": false,
+          "new": true,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
+          "deal_type": "",
+          "dong": "",
+          "unit_type": "109A"
         },
         {
           "date": "26.01.12",
@@ -3145,9 +3214,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "110",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "26.01.12",
@@ -3157,6 +3229,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "110D"
@@ -3169,6 +3244,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "110D"
@@ -3181,9 +3259,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "25.12.31",
@@ -3193,9 +3274,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "111",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "25.12.31",
@@ -3205,6 +3289,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "101",
           "unit_type": "110D"
@@ -3217,6 +3304,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "109C"
@@ -3229,9 +3319,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "113",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "25.12.17",
@@ -3241,6 +3334,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "108",
           "unit_type": "109C"
@@ -3253,6 +3349,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "109B"
@@ -3265,6 +3364,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": "109C"
@@ -3277,9 +3379,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "111",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "25.11.06",
@@ -3289,9 +3394,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "107",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "25.10.16",
@@ -3301,9 +3409,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "108",
-          "unit_type": ""
+          "unit_type": "109C"
         },
         {
           "date": "25.10.01",
@@ -3313,9 +3424,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "109",
-          "unit_type": ""
+          "unit_type": "109C"
         },
         {
           "date": "25.09.29",
@@ -3325,9 +3439,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "113",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "25.09.06",
@@ -3337,9 +3454,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "107",
-          "unit_type": ""
+          "unit_type": "109A"
         },
         {
           "date": "25.08.29",
@@ -3349,21 +3469,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "108",
-          "unit_type": ""
-        },
-        {
-          "date": "25.08.27",
-          "price": 2.5,
-          "rent": 190,
-          "floor": 15,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "deal_type": "중개거래",
-          "dong": "102",
-          "unit_type": "110D"
+          "unit_type": "109C"
         }
       ],
       "매매|77": [
@@ -3375,6 +3486,9 @@ window.LAND_DATA = {
           "record": true,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3387,6 +3501,9 @@ window.LAND_DATA = {
           "record": true,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3399,6 +3516,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "26.02.24",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "113",
           "unit_type": "100"
@@ -3411,6 +3531,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "25.09.05",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "107",
           "unit_type": "100"
@@ -3423,6 +3546,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3435,6 +3561,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3447,6 +3576,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": ""
@@ -3459,6 +3591,24 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
+          "deal_type": "직거래",
+          "dong": "",
+          "unit_type": ""
+        },
+        {
+          "date": "23.03.13",
+          "price": 5.88,
+          "rent": 0,
+          "floor": 16,
+          "record": false,
+          "new_record": false,
+          "new": true,
+          "cancelled": true,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "직거래",
           "dong": "",
           "unit_type": ""
@@ -3471,6 +3621,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "직거래",
           "dong": "",
           "unit_type": ""
@@ -3485,6 +3638,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3497,6 +3653,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3509,6 +3668,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3521,6 +3683,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3533,6 +3698,9 @@ window.LAND_DATA = {
           "record": true,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3545,6 +3713,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3557,9 +3728,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.08.16",
@@ -3569,9 +3743,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.08.02",
@@ -3581,9 +3758,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.07.30",
@@ -3593,9 +3773,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.07.27",
@@ -3605,9 +3788,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.06.28",
@@ -3617,9 +3803,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.06.07",
@@ -3629,9 +3818,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.06.06",
@@ -3641,9 +3833,12 @@ window.LAND_DATA = {
           "record": true,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.05.30",
@@ -3653,9 +3848,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.04.05",
@@ -3665,9 +3863,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.03.18",
@@ -3677,9 +3878,12 @@ window.LAND_DATA = {
           "record": true,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.03.15",
@@ -3689,9 +3893,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.02.22",
@@ -3701,9 +3908,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.01.20",
@@ -3713,9 +3923,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "25.01.04",
@@ -3725,9 +3938,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "24.06.01",
@@ -3737,9 +3953,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "24.05.13",
@@ -3749,9 +3968,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "24.05.01",
@@ -3761,9 +3983,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "23.09.09",
@@ -3773,9 +3998,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "23.09.02",
@@ -3785,9 +4013,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "23.08.13",
@@ -3797,9 +4028,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "23.08.07",
@@ -3809,9 +4043,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "23.07.30",
@@ -3821,9 +4058,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "23.07.15",
@@ -3833,9 +4073,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         }
       ],
       "월세|77": [
@@ -3847,6 +4090,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3859,6 +4105,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3871,6 +4120,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3883,6 +4135,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "100"
@@ -3895,7 +4150,25 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
+          "dong": "",
+          "unit_type": "100"
+        },
+        {
+          "date": "25.04.07",
+          "price": 1.5,
+          "rent": 170,
+          "floor": 6,
+          "record": false,
+          "new_record": false,
+          "new": true,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
+          "deal_type": "",
           "dong": "",
           "unit_type": "100"
         },
@@ -3907,9 +4180,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "24.10.24",
@@ -3919,9 +4195,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "23.07.15",
@@ -3931,9 +4210,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "23.07.01",
@@ -3943,9 +4225,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "23.06.17",
@@ -3955,9 +4240,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         },
         {
           "date": "23.05.26",
@@ -3967,9 +4255,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "100"
         }
       ],
       "전세|117": [
@@ -3981,6 +4272,9 @@ window.LAND_DATA = {
           "record": true,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "149A"
@@ -3993,6 +4287,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "151B"
@@ -4005,6 +4302,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "151B"
@@ -4017,6 +4317,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "151B"
@@ -4029,6 +4332,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "109",
           "unit_type": "151B"
@@ -4041,9 +4347,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "109",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "25.08.12",
@@ -4053,9 +4362,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "101",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "25.07.16",
@@ -4065,9 +4377,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "104",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "25.07.12",
@@ -4077,9 +4392,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "101",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "25.07.09",
@@ -4089,6 +4407,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "149A"
@@ -4101,9 +4422,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "109",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "25.06.14",
@@ -4113,9 +4437,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "101",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "25.06.13",
@@ -4125,6 +4452,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "149A"
@@ -4137,6 +4467,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "149A"
@@ -4149,9 +4482,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "103",
-          "unit_type": ""
+          "unit_type": "149A"
         },
         {
           "date": "25.05.31",
@@ -4161,9 +4497,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "25.04.16",
@@ -4173,9 +4512,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "109",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "24.09.27",
@@ -4185,9 +4527,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "101",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.10.05",
@@ -4197,9 +4542,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "149A"
         },
         {
           "date": "23.09.16",
@@ -4209,9 +4557,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.09.06",
@@ -4221,9 +4572,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.08.24",
@@ -4233,9 +4587,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.08.19",
@@ -4245,9 +4602,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.08.04",
@@ -4257,9 +4617,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "149A"
         },
         {
           "date": "23.08.01",
@@ -4269,9 +4632,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.07.26",
@@ -4281,9 +4647,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.07.14",
@@ -4293,9 +4662,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.07.07",
@@ -4305,9 +4677,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "149A"
         },
         {
           "date": "23.07.07",
@@ -4317,9 +4692,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "149A"
         },
         {
           "date": "23.07.03",
@@ -4329,9 +4707,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         }
       ],
       "월세|117": [
@@ -4343,6 +4724,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "151B"
@@ -4355,6 +4739,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "103",
           "unit_type": "149A"
@@ -4367,6 +4754,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "151B"
@@ -4379,6 +4769,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "149A"
@@ -4391,6 +4784,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "151B"
@@ -4403,6 +4799,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": true,
           "deal_type": "중개거래",
           "dong": "104",
           "unit_type": "151B"
@@ -4415,6 +4814,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "105",
           "unit_type": "151B"
@@ -4427,6 +4829,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "102",
           "unit_type": "149A"
@@ -4439,6 +4844,9 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
           "unit_type": "149A"
@@ -4451,9 +4859,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "149A"
         },
         {
           "date": "23.09.02",
@@ -4463,9 +4874,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.07.29",
@@ -4475,9 +4889,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.07.22",
@@ -4487,9 +4904,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.06.29",
@@ -4499,9 +4919,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.06.26",
@@ -4511,9 +4934,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "151B"
         },
         {
           "date": "23.06.10",
@@ -4523,9 +4949,12 @@ window.LAND_DATA = {
           "record": false,
           "new_record": false,
           "new": false,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
           "deal_type": "중개거래",
           "dong": "",
-          "unit_type": ""
+          "unit_type": "149A"
         }
       ]
     }
@@ -4533,14 +4962,14 @@ window.LAND_DATA = {
   "real_price_totals": {
     "영흥숲푸르지오파크비엔": {
       "매매|77": 9,
-      "매매|84": 98,
-      "매매|117": 17,
-      "월세|77": 11,
-      "월세|84": 82,
+      "매매|84": 99,
+      "매매|117": 16,
+      "월세|77": 12,
+      "월세|84": 86,
       "월세|117": 16,
-      "전세|77": 41,
-      "전세|84": 308,
-      "전세|117": 38
+      "전세|77": 42,
+      "전세|84": 310,
+      "전세|117": 40
     }
   }
 };

@@ -147,6 +147,13 @@
   .tx-kind { display:inline-block; background:var(--track); color:var(--ink-2); font-size:11px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; }
   .tx-hi-badge { display:inline-block; background:var(--accent); color:#fff; font-size:10.5px; font-weight:800; padding:1px 8px; border-radius:6px; vertical-align:middle; box-shadow:0 1px 2px rgba(138,68,35,.25); }
   .tx-n-badge { display:inline-block; background:var(--pos); color:#fff; font-size:10.5px; font-weight:800; padding:1px 6px; border-radius:6px; vertical-align:middle; margin-right:5px; }
+  /* 계약취소(해제) 거래: 취소 배지 + 금액 취소선. 최고가/평균 집계에선 제외되고 표기만 남는다. */
+  .tx-cancel-badge { display:inline-block; background:var(--track); color:var(--muted); font-size:10.5px; font-weight:800; padding:1px 7px; border-radius:6px; vertical-align:middle; margin-right:5px; }
+  .tx-table tr.tx-cancelled td { color:var(--muted); }
+  .tx-table tr.tx-cancelled td.amt { color:var(--muted); font-weight:700; }
+  .tx-table tr.tx-cancelled td.amt .tx-amt-val { text-decoration:line-through; }
+  /* 계약갱신청구권 사용(전월세)은 '갱신' 배지. */
+  .tx-renew-badge { display:inline-block; background:var(--accent-tint); color:var(--accent-deep); font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:6px; vertical-align:middle; margin-right:5px; }
   /* 상단 거래유형 토글의 업데이트(N) 배지 */
   .trade-n { display:inline-block; margin-left:5px; background:var(--pos); color:#fff; font-size:9px; font-weight:800; line-height:1; padding:2px 5px; border-radius:999px; vertical-align:middle; }
   .trade-toggle button.active .trade-n { background:#fff; color:var(--pos); }
@@ -241,7 +248,7 @@
 </head>
 <body>
 <div class="wrap"><div id="app"><div class="state-msg">데이터를 불러오는 중…</div></div></div>
-<script src="data.js?v=44bed7723798"></script>
+<script src="data.js?v=94a9eabde021"></script>
 <script>
 var DATA = null;
 var GAP_COLOR = '#A9572F';  /* --accent 와 동일(인라인 style·SVG 속성용 hex) */
@@ -544,7 +551,7 @@ function renderTxCard(name, color){
   sizes.forEach(function(sz){
     total += txTotal(name, state.trade+'|'+sz);  // 실제 전체 건수
     (DATA.real_prices[name][state.trade+'|'+sz]||[]).forEach(function(t){
-      if(t.new_record) newRecCnt++; if(t.price>maxA) maxA=t.price;
+      if(t.new_record) newRecCnt++; if(!t.cancelled && t.price>maxA) maxA=t.price;  // 취소 제외
     });
   });
   var recBadge = newRecCnt>0
@@ -570,19 +577,22 @@ function renderTxDetail(name, color){
   var blocks = txSizes(name).map(function(sz){
     var list = DATA.real_prices[name][state.trade+'|'+sz]||[];
     var total = txTotal(name, state.trade+'|'+sz);  // 실제 전체 건수(표시 제한 무관)
-    var maxP = list.reduce(function(m,t){return Math.max(m,t.price);},0);
+    var maxP = list.reduce(function(m,t){return t.cancelled?m:Math.max(m,t.price);},0);  // 취소 제외
     var sub = isRent ? ('총 '+total+'건') : ('총 '+total+'건 · <span class="tx-peak">최고 '+fmt(maxP)+'억</span>');
     var rows = list.map(function(t){
+      // 계약취소(해제) 거래: '취소' 배지 + 금액 취소선. 최고가/N 배지는 달지 않음(집계 제외 대상).
+      var cancel = t.cancelled ? '<span class="tx-cancel-badge">취소</span> ' : '';
       // 최고가 배지: 직거래 배지와 동일하게 label(pill) 형태로 표기
-      var rec = t.record ? '<span class="tx-hi-badge">최고가</span> ' : '';
+      var rec = (t.record && !t.cancelled) ? '<span class="tx-hi-badge">최고가</span> ' : '';
       // 거래방식 배지: 기본(중개거래)은 노이즈라 생략, 직거래/분양권 등만 표기
       var kind = (t.deal_type && t.deal_type!=='중개거래') ? '<span class="tx-kind">'+esc(t.deal_type)+'</span> ' : '';
-      var nb = t.new ? '<span class="tx-n-badge">N</span>' : '';  // 이번 수집 신규 거래
-      var cls = t.record ? 'tx-hi' : '';  // 최고가 행은 배경 강조 유지
+      var nb = (t.new && !t.cancelled) ? '<span class="tx-n-badge">N</span>' : '';  // 이번 수집 신규 거래
+      var renew = t.renewal ? '<span class="tx-renew-badge">갱신</span> ' : '';  // 계약갱신청구권(전월세)
+      var cls = t.cancelled ? 'tx-cancelled' : (t.record ? 'tx-hi' : '');  // 취소행/최고가행 강조
       // 동(아실) · 타입(네이버 세부 평형명) — 별도 컬럼, 둘 다 일반 텍스트. 없으면 '-'
       var dongTxt = t.dong ? esc(t.dong) : '-';
       var typeTxt = t.unit_type ? esc(t.unit_type) : '-';
-      return '<tr class="'+cls+'"><td>'+esc(t.date)+'</td><td class="dt">'+typeTxt+'</td><td class="dt">'+dongTxt+'</td><td>'+esc(t.floor)+'</td><td class="amt">'+nb+rec+kind+txAmount(t)+'</td></tr>';
+      return '<tr class="'+cls+'"><td>'+esc(t.date)+'</td><td class="dt">'+typeTxt+'</td><td class="dt">'+dongTxt+'</td><td>'+esc(t.floor)+'</td><td class="amt">'+nb+cancel+rec+kind+renew+'<span class="tx-amt-val">'+txAmount(t)+'</span></td></tr>';
     }).join('');
     return '<div class="tx-size"><div class="tx-size-head"><span class="size-badge">'+sz+'㎡</span>'+
       '<span class="size-count">'+sub+'</span></div>'+
