@@ -1,5 +1,5 @@
 window.LAND_DATA = {
-  "generated_at": "2026-09-03T21:52:56+09:00",
+  "generated_at": "2026-09-05T13:08:03+09:00",
   "label": "관심 단지 매물현황",
   "trade_labels": [
     "매매",
@@ -7,39 +7,39 @@ window.LAND_DATA = {
     "월세"
   ],
   "change_dates": {
-    "before": "09.01",
-    "after": "09.03"
+    "before": "09.03",
+    "after": "09.05"
   },
-  "change_end": "09.03",
+  "change_end": "09.05",
   "change_starts": [
     {
       "v": "2026-08-23",
       "l": "전체 (08.23)"
     },
     {
-      "v": "2026-08-27",
-      "l": "1주 전 (08.27)"
-    },
-    {
-      "v": "2026-08-30",
-      "l": "3일 전 (08.30)"
+      "v": "2026-08-29",
+      "l": "1주 전 (08.29)"
     },
     {
       "v": "2026-09-01",
-      "l": "어제 (09.01)"
+      "l": "3일 전 (09.01)"
+    },
+    {
+      "v": "2026-09-03",
+      "l": "어제 (09.03)"
     }
   ],
   "changes_by_start": {
     "2026-08-23": {
       "영흥숲푸르지오파크비엔": {
         "counts": {
-          "매매": {
-            "before": 62,
-            "after": 63
-          },
           "월세": {
             "before": 2,
             "after": 1
+          },
+          "매매": {
+            "before": 62,
+            "after": 63
           },
           "전세": {
             "before": 10,
@@ -662,496 +662,16 @@ window.LAND_DATA = {
         ]
       }
     },
-    "2026-08-27": {
+    "2026-08-29": {
       "영흥숲푸르지오파크비엔": {
         "counts": {
-          "매매": {
-            "before": 59,
-            "after": 63
-          },
           "월세": {
             "before": 1,
             "after": 1
           },
-          "전세": {
-            "before": 8,
-            "after": 7
-          },
-          "전체": {
-            "before": 68,
-            "after": 71
-          }
-        },
-        "new": [
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "111",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남동향",
-            "gap": false,
-            "price": 12.3,
-            "price_label": "12억 3,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "109",
-            "floor": "중/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남동향",
-            "gap": false,
-            "price": 12.5,
-            "price_label": "12억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "112",
-            "floor": "25/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "전세",
-            "size": 117,
-            "dong": "105",
-            "floor": "16/23",
-            "type": "151㎡(전용117)",
-            "unit_type": "151B",
-            "dir": "남동향",
-            "gap": false,
-            "price": 9.2,
-            "price_label": "9억 2,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "110",
-            "floor": "1/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.1,
-            "price_label": "9억 1,000"
-          },
-          {
-            "tx": "매매",
-            "size": 117,
-            "dong": "103",
-            "floor": "저/25",
-            "type": "149㎡(전용117)",
-            "unit_type": "149A",
-            "dir": "남동향",
-            "gap": false,
-            "price": 13.7,
-            "price_label": "13억 7,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "109",
-            "floor": "저/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남동향",
-            "gap": true,
-            "price": 10.3,
-            "price_label": "10억 3,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "108",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "104",
-            "floor": "19/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남서향",
-            "gap": true,
-            "price": 9.5,
-            "price_label": "9억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "103",
-            "floor": "12/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남동향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 77,
-            "dong": "108",
-            "floor": "12/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.3,
-            "price_label": "10억 3,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "107",
-            "floor": "3/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.9,
-            "price_label": "9억 9,000"
-          },
-          {
-            "tx": "전세",
-            "size": 84,
-            "dong": "103",
-            "floor": "고/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남동향",
-            "gap": false,
-            "price": 7.2,
-            "price_label": "7억 2,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "110",
-            "floor": "저/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.9,
-            "price_label": "10억 9,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "109",
-            "floor": "고/24",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남서향",
-            "gap": true,
-            "price": 11.0,
-            "price_label": "11억"
-          }
-        ],
-        "gone": [
-          {
-            "tx": "매매",
-            "size": 77,
-            "dong": "111",
-            "floor": "중/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.2,
-            "price_label": "9억 2,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "111",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남동향",
-            "gap": false,
-            "price": 12.0,
-            "price_label": "12억"
-          },
-          {
-            "tx": "매매",
-            "size": 117,
-            "dong": "103",
-            "floor": "저/25",
-            "type": "149㎡(전용117)",
-            "unit_type": "149A",
-            "dir": "남동향",
-            "gap": false,
-            "price": 13.7,
-            "price_label": "13억 7,000"
-          },
-          {
-            "tx": "매매",
-            "size": 77,
-            "dong": "112",
-            "floor": "중/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 9.5,
-            "price_label": "9억 5,000"
-          },
-          {
-            "tx": "전세",
-            "size": 77,
-            "dong": "110",
-            "floor": "6/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 6.0,
-            "price_label": "6억"
-          },
-          {
-            "tx": "전세",
-            "size": 117,
-            "dong": "105",
-            "floor": "고/23",
-            "type": "151㎡(전용117)",
-            "unit_type": "151B",
-            "dir": "남동향",
-            "gap": false,
-            "price": 9.2,
-            "price_label": "9억 2,000"
-          },
-          {
-            "tx": "전세",
-            "size": 84,
-            "dong": "103",
-            "floor": "고/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남동향",
-            "gap": false,
-            "price": 7.2,
-            "price_label": "7억 2,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "112",
-            "floor": "고/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.0,
-            "price_label": "10억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "110",
-            "floor": "1/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남동향",
-            "gap": false,
-            "price": 9.1,
-            "price_label": "9억 1,000"
-          },
-          {
-            "tx": "매매",
-            "size": 117,
-            "dong": "102",
-            "floor": "15/25",
-            "type": "151㎡(전용117)",
-            "unit_type": "151B",
-            "dir": "남동향",
-            "gap": false,
-            "price": 15.0,
-            "price_label": "15억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "104",
-            "floor": "고/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남서향",
-            "gap": true,
-            "price": 9.5,
-            "price_label": "9억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 77,
-            "dong": "108",
-            "floor": "중/25",
-            "type": "100㎡(전용77)",
-            "unit_type": "100",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.3,
-            "price_label": "10억 3,000"
-          }
-        ],
-        "price_changes": [
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "113",
-            "floor": "11/21",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.5,
-            "price_label": "10억 5,000",
-            "before": 10.0,
-            "after": 10.5,
-            "before_label": "10억",
-            "after_label": "10억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 117,
-            "dong": "103",
-            "floor": "8/25",
-            "type": "149㎡(전용117)",
-            "unit_type": "149A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 13.0,
-            "price_label": "13억",
-            "before": 13.1,
-            "after": 13.0,
-            "before_label": "13억 1,000",
-            "after_label": "13억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "112",
-            "floor": "저/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억",
-            "before": 10.0,
-            "after": 11.0,
-            "before_label": "10억",
-            "after_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "112",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": true,
-            "price": 12.5,
-            "price_label": "12억 5,000",
-            "before": 10.8,
-            "after": 12.5,
-            "before_label": "10억 8,000",
-            "after_label": "12억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "106",
-            "floor": "저/24",
-            "type": "109㎡(전용84)",
-            "unit_type": "109A",
-            "dir": "남서향",
-            "gap": false,
-            "price": 10.5,
-            "price_label": "10억 5,000",
-            "before": 10.0,
-            "after": 10.5,
-            "before_label": "10억",
-            "after_label": "10억 5,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "102",
-            "floor": "중/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남동향",
-            "gap": false,
-            "price": 12.3,
-            "price_label": "12억 3,000",
-            "before": 11.3,
-            "after": 12.3,
-            "before_label": "11억 3,000",
-            "after_label": "12억 3,000"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "103",
-            "floor": "저/25",
-            "type": "109㎡(전용84)",
-            "unit_type": "109C",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.0,
-            "price_label": "11억",
-            "before": 11.5,
-            "after": 11.0,
-            "before_label": "11억 5,000",
-            "after_label": "11억"
-          },
-          {
-            "tx": "매매",
-            "size": 84,
-            "dong": "101",
-            "floor": "중/25",
-            "type": "110㎡(전용84)",
-            "unit_type": "110D",
-            "dir": "남서향",
-            "gap": false,
-            "price": 11.5,
-            "price_label": "11억 5,000",
-            "before": 10.5,
-            "after": 11.5,
-            "before_label": "10억 5,000",
-            "after_label": "11억 5,000"
-          }
-        ]
-      }
-    },
-    "2026-08-30": {
-      "영흥숲푸르지오파크비엔": {
-        "counts": {
           "매매": {
             "before": 58,
             "after": 63
-          },
-          "월세": {
-            "before": 1,
-            "after": 1
           },
           "전세": {
             "before": 8,
@@ -1321,6 +841,30 @@ window.LAND_DATA = {
           }
         ],
         "gone": [
+          {
+            "tx": "매매",
+            "size": 117,
+            "dong": "103",
+            "floor": "저/25",
+            "type": "149㎡(전용117)",
+            "unit_type": "149A",
+            "dir": "남동향",
+            "gap": false,
+            "price": 13.7,
+            "price_label": "13억 7,000"
+          },
+          {
+            "tx": "매매",
+            "size": 77,
+            "dong": "112",
+            "floor": "중/25",
+            "type": "100㎡(전용77)",
+            "unit_type": "100",
+            "dir": "남서향",
+            "gap": false,
+            "price": 9.5,
+            "price_label": "9억 5,000"
+          },
           {
             "tx": "전세",
             "size": 77,
@@ -1549,13 +1093,13 @@ window.LAND_DATA = {
     "2026-09-01": {
       "영흥숲푸르지오파크비엔": {
         "counts": {
-          "매매": {
-            "before": 60,
-            "after": 63
-          },
           "월세": {
             "before": 1,
             "after": 1
+          },
+          "매매": {
+            "before": 60,
+            "after": 63
           },
           "전세": {
             "before": 7,
@@ -1768,6 +1312,31 @@ window.LAND_DATA = {
             "after_label": "11억"
           }
         ]
+      }
+    },
+    "2026-09-03": {
+      "영흥숲푸르지오파크비엔": {
+        "counts": {
+          "월세": {
+            "before": 1,
+            "after": 1
+          },
+          "매매": {
+            "before": 63,
+            "after": 63
+          },
+          "전세": {
+            "before": 7,
+            "after": 7
+          },
+          "전체": {
+            "before": 71,
+            "after": 71
+          }
+        },
+        "new": [],
+        "gone": [],
+        "price_changes": []
       }
     }
   },
@@ -2753,6 +2322,11 @@ window.LAND_DATA = {
           "date": "09.03",
           "n": 5,
           "avg": 9.58
+        },
+        {
+          "date": "09.05",
+          "n": 5,
+          "avg": 9.58
         }
       ],
       "매매|84": [
@@ -2803,6 +2377,11 @@ window.LAND_DATA = {
         },
         {
           "date": "09.03",
+          "n": 47,
+          "avg": 10.73
+        },
+        {
+          "date": "09.05",
           "n": 47,
           "avg": 10.73
         }
@@ -2857,6 +2436,11 @@ window.LAND_DATA = {
           "date": "09.03",
           "n": 11,
           "avg": 14.33
+        },
+        {
+          "date": "09.05",
+          "n": 11,
+          "avg": 14.33
         }
       ],
       "월세|84": [
@@ -2907,6 +2491,11 @@ window.LAND_DATA = {
         },
         {
           "date": "09.03",
+          "n": 1,
+          "avg": 2.0
+        },
+        {
+          "date": "09.05",
           "n": 1,
           "avg": 2.0
         }
@@ -3003,6 +2592,11 @@ window.LAND_DATA = {
           "date": "09.03",
           "n": 6,
           "avg": 7.08
+        },
+        {
+          "date": "09.05",
+          "n": 6,
+          "avg": 7.08
         }
       ],
       "전세|117": [
@@ -3055,6 +2649,11 @@ window.LAND_DATA = {
           "date": "09.03",
           "n": 1,
           "avg": 9.2
+        },
+        {
+          "date": "09.05",
+          "n": 1,
+          "avg": 9.2
         }
       ]
     }
@@ -3062,230 +2661,46 @@ window.LAND_DATA = {
   "changes": {
     "영흥숲푸르지오파크비엔": {
       "counts": {
-        "매매": {
-          "before": 60,
-          "after": 63
-        },
         "월세": {
           "before": 1,
           "after": 1
+        },
+        "매매": {
+          "before": 63,
+          "after": 63
         },
         "전세": {
           "before": 7,
           "after": 7
         },
         "전체": {
-          "before": 68,
+          "before": 71,
           "after": 71
         }
       },
-      "new": [
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "104",
-          "floor": "19/25",
-          "type": "110㎡(전용84)",
-          "unit_type": "110D",
-          "dir": "남서향",
-          "gap": true,
-          "price": 9.5,
-          "price_label": "9억 5,000"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "103",
-          "floor": "12/25",
-          "type": "110㎡(전용84)",
-          "unit_type": "110D",
-          "dir": "남동향",
-          "gap": false,
-          "price": 11.0,
-          "price_label": "11억"
-        },
-        {
-          "tx": "매매",
-          "size": 77,
-          "dong": "108",
-          "floor": "12/25",
-          "type": "100㎡(전용77)",
-          "unit_type": "100",
-          "dir": "남서향",
-          "gap": false,
-          "price": 10.3,
-          "price_label": "10억 3,000"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "107",
-          "floor": "3/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109C",
-          "dir": "남서향",
-          "gap": false,
-          "price": 9.9,
-          "price_label": "9억 9,000"
-        },
-        {
-          "tx": "전세",
-          "size": 84,
-          "dong": "103",
-          "floor": "고/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남동향",
-          "gap": false,
-          "price": 7.2,
-          "price_label": "7억 2,000"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "110",
-          "floor": "저/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109C",
-          "dir": "남서향",
-          "gap": false,
-          "price": 10.9,
-          "price_label": "10억 9,000"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "109",
-          "floor": "고/24",
-          "type": "110㎡(전용84)",
-          "unit_type": "110D",
-          "dir": "남서향",
-          "gap": true,
-          "price": 11.0,
-          "price_label": "11억"
-        }
-      ],
-      "gone": [
-        {
-          "tx": "매매",
-          "size": 117,
-          "dong": "102",
-          "floor": "15/25",
-          "type": "151㎡(전용117)",
-          "unit_type": "151B",
-          "dir": "남동향",
-          "gap": false,
-          "price": 15.0,
-          "price_label": "15억"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "104",
-          "floor": "고/25",
-          "type": "110㎡(전용84)",
-          "unit_type": "110D",
-          "dir": "남서향",
-          "gap": true,
-          "price": 9.5,
-          "price_label": "9억 5,000"
-        },
-        {
-          "tx": "매매",
-          "size": 77,
-          "dong": "108",
-          "floor": "중/25",
-          "type": "100㎡(전용77)",
-          "unit_type": "100",
-          "dir": "남서향",
-          "gap": false,
-          "price": 10.3,
-          "price_label": "10억 3,000"
-        },
-        {
-          "tx": "전세",
-          "size": 84,
-          "dong": "103",
-          "floor": "고/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남서향",
-          "gap": false,
-          "price": 7.3,
-          "price_label": "7억 3,000"
-        }
-      ],
-      "price_changes": [
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "113",
-          "floor": "11/21",
-          "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남서향",
-          "gap": false,
-          "price": 10.5,
-          "price_label": "10억 5,000",
-          "before": 10.0,
-          "after": 10.5,
-          "before_label": "10억",
-          "after_label": "10억 5,000"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "102",
-          "floor": "중/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109C",
-          "dir": "남동향",
-          "gap": false,
-          "price": 12.3,
-          "price_label": "12억 3,000",
-          "before": 11.3,
-          "after": 12.3,
-          "before_label": "11억 3,000",
-          "after_label": "12억 3,000"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "103",
-          "floor": "저/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109C",
-          "dir": "남서향",
-          "gap": false,
-          "price": 11.0,
-          "price_label": "11억",
-          "before": 11.5,
-          "after": 11.0,
-          "before_label": "11억 5,000",
-          "after_label": "11억"
-        },
-        {
-          "tx": "매매",
-          "size": 84,
-          "dong": "112",
-          "floor": "25/25",
-          "type": "109㎡(전용84)",
-          "unit_type": "109A",
-          "dir": "남서향",
-          "gap": false,
-          "price": 11.0,
-          "price_label": "11억",
-          "before": 10.0,
-          "after": 11.0,
-          "before_label": "10억",
-          "after_label": "11억"
-        }
-      ]
+      "new": [],
+      "gone": [],
+      "price_changes": []
     }
   },
   "real_prices": {
     "영흥숲푸르지오파크비엔": {
       "매매|84": [
+        {
+          "date": "26.09.03",
+          "price": 9.7,
+          "rent": 0,
+          "floor": 24,
+          "record": false,
+          "new_record": false,
+          "new": true,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
+          "deal_type": "직거래",
+          "dong": "110",
+          "unit_type": "109A"
+        },
         {
           "date": "26.08.28",
           "price": 9.5,
@@ -3344,6 +2759,21 @@ window.LAND_DATA = {
           "renewal": false,
           "deal_type": "중개거래",
           "dong": "111",
+          "unit_type": "109A"
+        },
+        {
+          "date": "26.08.08",
+          "price": 9.49,
+          "rent": 0,
+          "floor": 9,
+          "record": false,
+          "new_record": false,
+          "new": true,
+          "cancelled": false,
+          "reg_date": "",
+          "renewal": false,
+          "deal_type": "중개거래",
+          "dong": "108",
           "unit_type": "109A"
         },
         {
@@ -3430,7 +2860,7 @@ window.LAND_DATA = {
           "new_record": false,
           "new": false,
           "cancelled": false,
-          "reg_date": "",
+          "reg_date": "26.08.28",
           "renewal": false,
           "deal_type": "중개거래",
           "dong": "105",
@@ -3705,36 +3135,6 @@ window.LAND_DATA = {
           "deal_type": "중개거래",
           "dong": "111",
           "unit_type": "109A"
-        },
-        {
-          "date": "25.10.15",
-          "price": 9.25,
-          "rent": 0,
-          "floor": 6,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "cancelled": false,
-          "reg_date": "26.01.14",
-          "renewal": false,
-          "deal_type": "중개거래",
-          "dong": "102",
-          "unit_type": "110D"
-        },
-        {
-          "date": "25.10.11",
-          "price": 9.1,
-          "rent": 0,
-          "floor": 12,
-          "record": false,
-          "new_record": false,
-          "new": false,
-          "cancelled": false,
-          "reg_date": "25.11.06",
-          "renewal": false,
-          "deal_type": "중개거래",
-          "dong": "113",
-          "unit_type": "109C"
         }
       ],
       "전세|84": [
@@ -6398,7 +5798,7 @@ window.LAND_DATA = {
   "real_price_totals": {
     "영흥숲푸르지오파크비엔": {
       "매매|77": 9,
-      "매매|84": 99,
+      "매매|84": 101,
       "매매|117": 16,
       "월세|77": 12,
       "월세|84": 86,
